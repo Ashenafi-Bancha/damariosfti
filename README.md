@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Da Mario's Fashion and Technology Institute — website prototype
 
-## Getting Started
+First prototype of the public website for **Da Mario's Fashion and Technology Institute (Damarios FTI)**, Bole, Addis Ababa. Built for users arriving on Android phones over metered mobile data: every budget decision below follows from that.
 
-First, run the development server:
+## Stack
+
+- **Next.js 15** (App Router, TypeScript strict) — *note: Next 15 security support ends 2026-10-21; plan the Next 16 migration (rename `middleware.ts` → `proxy.ts`, replace `setRequestLocale` with root params) shortly after launch*
+- **Tailwind CSS v4** — design tokens as CSS custom properties in [src/app/globals.css](src/app/globals.css) (`@theme`), default palette removed
+- **next-intl v4** — `en` + `am` under `/en/...` and `/am/...`
+- **Motion (Framer Motion)** — scroll scrubbing only; no motion components ship, just `useScroll` writing a CSS variable
+- **Zod v4 + React Hook Form** — application form, validated client- and server-side
+- **Resend + Telegram Bot API** — application notifications (Telegram is the channel the staff actually read)
+- Deploy target: **Vercel**
+
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local   # fill in — see below
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Production build + bundle report: `npm run build`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables (`.env.local`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Public origin, used for canonical URLs, sitemap, OpenGraph, JSON-LD |
+| `RESEND_API_KEY` | Resend API key for application notification email |
+| `RESEND_FROM` | Verified sender, e.g. `Damarios FTI <noreply@domain>` |
+| `APPLY_TO_EMAIL` | Institute inbox receiving applications (**TODO: client to confirm**) |
+| `TELEGRAM_BOT_TOKEN` | Bot token from @BotFather |
+| `TELEGRAM_CHAT_ID` | Chat/channel id the bot posts applications into |
 
-## Learn More
+With no channel configured, the apply endpoint returns a clearly-labelled "not configured" state — it never fakes success. Applicant data is **never stored**; it is relayed to Telegram/email only. Rate limiting is an in-memory sliding window (best-effort on serverless — swap in Upstash Redis for production) plus a honeypot field.
 
-To learn more about Next.js, take a look at the following resources:
+## Architecture notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Content layer** — all institutional facts live in typed modules under [src/content/](src/content/); all human-readable copy in [messages/](messages/). Components consume only the exported types, so a headless CMS can replace these modules without touching the UI.
+- **TODO placeholders** — anything the client has not supplied renders as a visible chalk-outline `TODO` chip (`<TodoTag/>`). **Never replace one with an invented value** — this is an accredited institute's website. Full inventory below.
+- **Hero** — a scroll-scrubbed SVG assembly: flat pattern pieces fly from their chalk outlines into a composed garment on a dress form. The 3D (React Three Fiber) hero was **deliberately cut with client sign-off**: a three.js chunk cannot be built under the 60 KB gzipped budget (realistic floor ~135 KB), so per the project's own fallback clause the SVG sequence is the signature moment. The client component writes only a `--p` CSS variable; all motion is CSS `calc()`. Server-rendered default is the composed state, so no-JS, crawlers and `prefers-reduced-motion` users get a finished hero, not a frozen animation.
+- **Fonts** — Bodoni Moda (display), Hanken Grotesk (body), IBM Plex Mono (utility), Noto Sans Ethiopic (Amharic), all self-hosted and subset at build time by `next/font`; Ethiopic is `preload: false` and its files are only fetched on `/am` routes. No italics — every axis costs kilobytes on metered data.
+- **i18n** — all strings through next-intl. Client components receive strings as props from server parents, so the message catalog never ships to the browser (`NextIntlClientProvider messages={null}` — the provider exists only because next-intl's navigation `Link` reads the locale from context).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Amharic review — REQUIRED BEFORE LAUNCH
 
-## Deploy on Vercel
+Every string in [messages/am.json](messages/am.json) is a **machine-drafted translation** (flagged by the `_notice` key in the file and a visible banner on all `/am` pages). A native Amharic speaker must review and correct the entire file before launch. Do not remove the banner until that review has happened.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## TODO inventory — what the client must supply
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| # | Item | Where it appears |
+| --- | --- | --- |
+| 1 | Public **email address** | Footer, contact page |
+| 2 | **Telegram handle** | Footer, contact page |
+| 3 | **Tuition** for every programme | Programme cards, detail pages, admissions |
+| 4 | **Durations** for Modeling, Cosmetology, Nail Technology, Information Technology, Security Training | Programme cards + detail pages |
+| 5 | **TVET levels** for all programmes except Fashion Design (Levels 2–4 confirmed) | Programme cards + detail pages |
+| 6 | **Intake dates** for all programmes | Programme cards, detail pages, admissions |
+| 7 | **Entry requirements** | Admissions page |
+| 8 | Fashion Design **career outcomes** list | Fashion Design detail page |
+| 9 | Information Technology **curriculum** | IT detail page |
+| 10 | **Mario Makeup Company** partnership details | Partnerships page, homepage institutional section |
+| 11 | **Rome Business School entitlements** — confirm study-abroad claims before launch (legally sensitive; see the code comment in [src/app/[locale]/about/partnerships/page.tsx](src/app/[locale]/about/partnerships/page.tsx)) | Partnerships page |
+| 12 | **Capability statement PDF** | Homepage institutional section CTA |
+| 13 | Founder **portrait imagery** | Founder page |
+| 14 | **Response timeframe** after an application (currently phrased without a number) | Apply success state |
+| 15 | Native-speaker **review of all Amharic copy** | Entire `/am` locale |
+| 16 | Confirmation of the exact **map pin** for Kkare Building (embed currently searches by name; landmark directions are the primary aid) | Contact page |
+
+## Quality floor implemented
+
+Responsive from 320px; visible `:focus-visible` on every interactive element; `prefers-reduced-motion` gets designed end-states; WCAG AA-checked colour pairs (slate was lifted from the suggested `#79879A` to `#8b99ac` to clear 4.5:1 on raised ink; thread red is hairlines only, never text or fills); semantic landmarks + one `h1` per page; per-page metadata + OpenGraph + hreflang alternates; `sitemap.ts`, `robots.ts`; `EducationalOrganization` JSON-LD with the real address, phones and opening hours; `tel:` links in E.164 for Ethiopian handsets; keyless lazy-loaded Google Maps embed with plain-text landmark directions.

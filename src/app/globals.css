@@ -1,26 +1,293 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─────────────────────────────────────────────────────────────
+   Da Mario's FTI — design tokens
+   Metaphor: a pattern-drafting table in an atelier.
+   Ink table, chalk-paper pieces, saffron chalk-marks,
+   malachite thread spools, a red basting thread for hairlines.
+   ───────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Colour — the default palette is removed entirely. */
+  --color-*: initial;
+  --color-ink: #17131c;
+  --color-ink-raised: #221c29;
+  --color-chalk: #e9e7e2;
+  --color-chalk-dim: #c9c6bf;
+  --color-saffron: #dfa22c;
+  --color-malachite: #0f6b51;
+  --color-thread: #b32a2e; /* hairlines only — never fills, never text */
+  --color-thread-bright: #cf5457; /* error hairlines on dark surfaces (≥3:1) */
+  --color-slate: #8b99ac; /* lifted from #79879A to clear WCAG AA on ink */
+
+  /* Display scale — Bodoni Moda, headings only */
+  --text-display-xl: clamp(2.6rem, 1.6rem + 5.5vw, 5.75rem);
+  --text-display-xl--line-height: 1.02;
+  --text-display-xl--letter-spacing: -0.015em;
+  --text-display-lg: clamp(2.1rem, 1.5rem + 3.2vw, 3.6rem);
+  --text-display-lg--line-height: 1.06;
+  --text-display-lg--letter-spacing: -0.012em;
+  --text-display-md: clamp(1.7rem, 1.35rem + 1.9vw, 2.6rem);
+  --text-display-md--line-height: 1.12;
+  --text-display-md--letter-spacing: -0.008em;
+  --text-display-sm: clamp(1.3rem, 1.15rem + 0.9vw, 1.75rem);
+  --text-display-sm--line-height: 1.2;
+  --text-display-sm--letter-spacing: -0.004em;
+
+  /* Motion */
+  --ease-draw: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Ethiopic sits in every stack: Ge'ez glyphs fall through to it
+     per-character, so Amharic headings render in Noto Sans Ethiopic
+     while Latin fragments keep their role face. On /en the Ethiopic
+     variable is absent and the chain skips straight past it. */
+  --font-display: var(--font-bodoni), var(--font-ethiopic, "Noto Sans Ethiopic"),
+    "Bodoni MT", Didot, Georgia, serif;
+  --font-body: var(--font-hanken), var(--font-ethiopic, "Noto Sans Ethiopic"),
+    system-ui, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "Cascadia Mono", Consolas,
+    monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: var(--color-chalk);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Ethiopic needs taller leading than Latin; headings must not clip. */
+.lang-am body {
+  line-height: 1.85;
+}
+.lang-am :is(h1, h2, h3, h4) {
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+
+::selection {
+  background: var(--color-saffron);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-saffron);
+  outline-offset: 3px;
+}
+
+/* Pattern-paper grid — mostly invisible, surfaces at section joins */
+.pattern-paper {
+  background-image: linear-gradient(
+      to right,
+      rgb(233 231 226 / 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(233 231 226 / 0.035) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+}
+.pattern-paper-strong {
+  background-image: linear-gradient(
+      to right,
+      rgb(233 231 226 / 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(233 231 226 / 0.08) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+}
+
+/* Shared page gutter */
+.container-x {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 72rem;
+  padding-inline: 1rem;
+}
+@media (min-width: 640px) {
+  .container-x {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* SeamDivider — dashed hairline with notch marks, drawn in on scroll */
+.seam {
+  position: relative;
+  height: 0.75rem;
+  clip-path: inset(-2px 100% -2px 0);
+  transition: clip-path 1.1s var(--ease-draw);
+}
+.seam-in {
+  clip-path: inset(-2px 0 -2px 0);
+}
+.seam-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-thread) 0 8px,
+    transparent 8px 16px
+  );
+  opacity: 0.6;
+}
+.seam-notch {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--color-thread);
+  opacity: 0.6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .seam {
+    clip-path: none;
+    transition: none;
+  }
+}
+
+/* PatternCard stitch — dashed stroke pulled through on hover/focus */
+.pattern-card {
+  border-radius: 2px;
+}
+.pattern-card .stitch {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+.pattern-card .stitch rect {
+  x: 6px;
+  y: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  fill: none;
+  stroke: var(--color-thread);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  stroke-dashoffset: 32;
+  opacity: 0;
+  transition:
+    stroke-dashoffset 0.9s var(--ease-draw),
+    opacity 0.25s ease;
+}
+.pattern-card:hover .stitch rect,
+.pattern-card:focus-visible .stitch rect {
+  stroke-dashoffset: 0;
+  opacity: 0.85;
+}
+
+/* ── Hero scroll scrub ─────────────────────────────────────────
+   The client writes scroll progress into --p (0 = pieces scattered
+   on the drafting table, 1 = garment composed on the form). The
+   server-rendered default is 1, so the composed state is what no-JS,
+   reduced-motion and crawler users see. Each piece gets a staggered
+   local progress window via clamp(). */
+.hero-stage {
+  --p: 1;
+  --pi-bodice: clamp(0, calc(var(--p) / 0.55), 1);
+  --pi-skirt: clamp(0, calc((var(--p) - 0.08) / 0.55), 1);
+  --pi-sleeve-l: clamp(0, calc((var(--p) - 0.22) / 0.5), 1);
+  --pi-sleeve-r: clamp(0, calc((var(--p) - 0.28) / 0.5), 1);
+  --pi-waist: clamp(0, calc((var(--p) - 0.45) / 0.45), 1);
+  --pi-head: clamp(0, calc((var(--p) - 0.3) / 0.55), 1);
+}
+.hero-scrub {
+  min-height: 175vh;
+  min-height: 175svh;
+}
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+.hero-stage .hero-piece {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+.hero-stage .hero-bodice {
+  transform: translate(
+      calc((1 - var(--pi-bodice)) * -130px),
+      calc((1 - var(--pi-bodice)) * -132px)
+    )
+    rotate(calc((1 - var(--pi-bodice)) * -14deg));
+}
+.hero-stage .hero-skirt {
+  transform: translate(
+      calc((1 - var(--pi-skirt)) * -140px),
+      calc((1 - var(--pi-skirt)) * -45px)
+    )
+    rotate(calc((1 - var(--pi-skirt)) * -10deg));
+}
+.hero-stage .hero-sleeve-l {
+  transform: translate(
+      calc((1 - var(--pi-sleeve-l)) * 205px),
+      calc((1 - var(--pi-sleeve-l)) * -70px)
+    )
+    rotate(calc((1 - var(--pi-sleeve-l)) * 22deg));
+}
+.hero-stage .hero-sleeve-r {
+  transform: translate(
+      calc((1 - var(--pi-sleeve-r)) * 55px),
+      calc((1 - var(--pi-sleeve-r)) * -60px)
+    )
+    rotate(calc((1 - var(--pi-sleeve-r)) * -30deg));
+}
+.hero-stage .hero-waist {
+  transform: translate(
+      calc((1 - var(--pi-waist)) * 150px),
+      calc((1 - var(--pi-waist)) * 55px)
+    )
+    rotate(calc((1 - var(--pi-waist)) * 14deg));
+}
+.hero-headline {
+  opacity: calc(0.08 + var(--pi-head) * 0.92);
+  transform: translateY(calc((1 - var(--pi-head)) * 26px));
+}
+.hero-hint {
+  opacity: clamp(0, calc(1 - var(--p) * 2.5), 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scrub {
+    min-height: 0;
+  }
+  .hero-scrub .hero-sticky {
+    position: static;
+    min-height: 0;
+  }
+  .hero-stage .hero-piece,
+  .hero-headline {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .hero-hint {
+    display: none;
+  }
+}
+
+/* Reduced motion: end-states, not frozen mid-animation. Components
+   render their composed state; this is the global backstop. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
