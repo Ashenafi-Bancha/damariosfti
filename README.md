@@ -26,7 +26,7 @@ Production build + bundle report: `npm run build`.
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Public origin, used for canonical URLs, sitemap, OpenGraph, JSON-LD |
+| `NEXT_PUBLIC_SITE_URL` | Public origin for canonical URLs, sitemap, OpenGraph, JSON-LD. Optional on Vercel — the production domain is picked up automatically; set it to override (e.g. custom domain) |
 | `RESEND_API_KEY` | Resend API key for application notification email |
 | `RESEND_FROM` | Verified sender, e.g. `Damarios FTI <noreply@domain>` |
 | `APPLY_TO_EMAIL` | Institute inbox receiving applications (**TODO: client to confirm**) |
