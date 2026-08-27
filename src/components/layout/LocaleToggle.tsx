@@ -31,7 +31,7 @@ export function LocaleToggle({
   return (
     <nav
       aria-label={labels.label}
-      className="flex items-stretch border border-chalk-dim/30 font-mono text-[11px] uppercase tracking-wider"
+      className="flex items-stretch overflow-hidden rounded-sm border border-line-control font-mono text-[11px] uppercase tracking-wider"
     >
       {(["en", "am"] as const).map((l) => (
         <Link
@@ -42,8 +42,8 @@ export function LocaleToggle({
           aria-current={l === locale ? "true" : undefined}
           className={
             l === locale
-              ? "bg-chalk px-2.5 py-1.5 text-ink"
-              : "px-2.5 py-1.5 text-chalk-dim transition-colors hover:text-chalk"
+              ? "bg-brand px-2.5 py-1.5 text-paper"
+              : "px-2.5 py-1.5 text-muted transition-colors hover:bg-brand-wash hover:text-brand"
           }
         >
           {labels[l]}

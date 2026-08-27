@@ -2,23 +2,33 @@
 
 /* ─────────────────────────────────────────────────────────────
    Da Mario's FTI — design tokens
-   Metaphor: a pattern-drafting table in an atelier.
-   Ink table, chalk-paper pieces, saffron chalk-marks,
-   malachite thread spools, a red basting thread for hairlines.
+   Derived from the institute's logo: a clear corporate blue on
+   white. The metaphor stays a pattern-drafting table, but now in
+   its true colours — real drafting paper is white with blue lines,
+   which is what the mark itself is drawn in.
    ───────────────────────────────────────────────────────────── */
 
 @theme {
-  /* Colour — the default palette is removed entirely. */
+  /* The default palette is removed entirely. */
   --color-*: initial;
-  --color-ink: #17131c;
-  --color-ink-raised: #221c29;
-  --color-chalk: #e9e7e2;
-  --color-chalk-dim: #c9c6bf;
-  --color-saffron: #dfa22c;
-  --color-malachite: #0f6b51;
-  --color-thread: #b32a2e; /* hairlines only — never fills, never text */
-  --color-thread-bright: #cf5457; /* error hairlines on dark surfaces (≥3:1) */
-  --color-slate: #8b99ac; /* lifted from #79879A to clear WCAG AA on ink */
+
+  /* Brand — sampled from the Damarios mark */
+  --color-brand: #15589c; /* primary blue, 7.2:1 on paper */
+  --color-brand-deep: #0b3868; /* navy anchor: footer, feature bands */
+  --color-brand-bright: #6ba8e4; /* accent on navy, 4.7:1 on brand-deep */
+  --color-brand-wash: #eaf2fa; /* tinted fills, chips */
+
+  /* Surfaces */
+  --color-paper: #ffffff;
+  --color-paper-tint: #f4f8fc;
+  --color-line: #dce6f0; /* decorative hairlines, card edges */
+  --color-line-control: #7a92ad; /* form-field edges — 3.2:1, clears WCAG 1.4.11 */
+
+  /* Text */
+  --color-graphite: #14202c; /* body, 16.5:1 on paper */
+  --color-muted: #556677; /* captions, 5.9:1 on paper */
+  --color-on-deep: #a9c3dc; /* secondary text on navy, 6.5:1 */
+  --color-alert: #c0392b; /* validation only, 5.4:1 on paper */
 
   /* Display scale — Bodoni Moda, headings only */
   --text-display-xl: clamp(2.6rem, 1.6rem + 5.5vw, 5.75rem);
@@ -52,12 +62,12 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-chalk);
+  background: var(--color-paper);
+  color: var(--color-graphite);
   font-family: var(--font-body);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -74,32 +84,36 @@ body {
 }
 
 ::selection {
-  background: var(--color-saffron);
-  color: var(--color-ink);
+  background: var(--color-brand);
+  color: var(--color-paper);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-saffron);
+  outline: 2px solid var(--color-brand);
   outline-offset: 3px;
 }
+.on-deep :focus-visible {
+  outline-color: var(--color-brand-bright);
+}
 
-/* Pattern-paper grid — mostly invisible, surfaces at section joins */
+/* Pattern-paper grid — the blue rule of real drafting paper, mostly
+   invisible, surfacing at section joins. */
 .pattern-paper {
   background-image: linear-gradient(
       to right,
-      rgb(233 231 226 / 0.035) 1px,
+      rgb(21 88 156 / 0.05) 1px,
       transparent 1px
     ),
-    linear-gradient(to bottom, rgb(233 231 226 / 0.035) 1px, transparent 1px);
+    linear-gradient(to bottom, rgb(21 88 156 / 0.05) 1px, transparent 1px);
   background-size: 2.5rem 2.5rem;
 }
 .pattern-paper-strong {
   background-image: linear-gradient(
       to right,
-      rgb(233 231 226 / 0.08) 1px,
+      rgb(255 255 255 / 0.07) 1px,
       transparent 1px
     ),
-    linear-gradient(to bottom, rgb(233 231 226 / 0.08) 1px, transparent 1px);
+    linear-gradient(to bottom, rgb(255 255 255 / 0.07) 1px, transparent 1px);
   background-size: 2.5rem 2.5rem;
 }
 
@@ -134,18 +148,30 @@ body {
   height: 1px;
   background-image: repeating-linear-gradient(
     to right,
-    var(--color-thread) 0 8px,
+    var(--color-brand) 0 8px,
     transparent 8px 16px
   );
-  opacity: 0.6;
+  opacity: 0.45;
 }
 .seam-notch {
   position: absolute;
   top: 0;
   width: 1px;
   height: 100%;
-  background: var(--color-thread);
+  background: var(--color-brand);
+  opacity: 0.45;
+}
+.on-deep .seam-line,
+.on-deep .seam-notch {
+  background-color: var(--color-brand-bright);
   opacity: 0.6;
+}
+.on-deep .seam-line {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-brand-bright) 0 8px,
+    transparent 8px 16px
+  );
 }
 @media (prefers-reduced-motion: reduce) {
   .seam {
@@ -172,7 +198,7 @@ body {
   width: calc(100% - 12px);
   height: calc(100% - 12px);
   fill: none;
-  stroke: var(--color-thread);
+  stroke: var(--color-brand);
   stroke-width: 1;
   stroke-dasharray: 4 4;
   stroke-dashoffset: 32;
@@ -184,7 +210,7 @@ body {
 .pattern-card:hover .stitch rect,
 .pattern-card:focus-visible .stitch rect {
   stroke-dashoffset: 0;
-  opacity: 0.85;
+  opacity: 0.7;
 }
 
 /* ── Hero scroll scrub ─────────────────────────────────────────

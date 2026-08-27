@@ -40,19 +40,19 @@ function Partnerships() {
       <SeamDivider className="container-x mt-10" />
 
       <section className="container-x grid gap-5 py-10 sm:py-14 lg:grid-cols-2">
-        <article className="border border-chalk/15 bg-ink-raised p-7 sm:p-9">
-          <h2 className="font-display text-display-md text-chalk">
+        <article className="rounded-sm border border-line bg-paper-tint p-7 sm:p-9">
+          <h2 className="font-display text-display-md text-brand-deep">
             {t("rbs.name")}
           </h2>
-          <p className="mt-4 text-chalk-dim">{t("rbs.facts")}</p>
-          <p className="mt-4 text-chalk-dim">{t("rbs.framing")}</p>
+          <p className="mt-4 text-muted">{t("rbs.facts")}</p>
+          <p className="mt-4 text-muted">{t("rbs.framing")}</p>
         </article>
 
-        <article className="border border-chalk/15 bg-ink-raised p-7 sm:p-9">
-          <h2 className="font-display text-display-md text-chalk">
+        <article className="rounded-sm border border-line bg-paper-tint p-7 sm:p-9">
+          <h2 className="font-display text-display-md text-brand-deep">
             {t("marioMakeup.name")}
           </h2>
-          <p className="mt-4 text-chalk-dim">{t("marioMakeup.body")}</p>
+          <p className="mt-4 text-muted">{t("marioMakeup.body")}</p>
           <div className="mt-6">
             <TodoTag kind="details" />
           </div>

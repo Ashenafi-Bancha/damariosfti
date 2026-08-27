@@ -48,19 +48,19 @@ function IntroSection() {
   return (
     <section className="container-x grid gap-10 py-16 sm:py-20 lg:grid-cols-2">
       <div>
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-saffron">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand">
           {t("kicker")}
         </p>
-        <h2 className="mt-4 font-display text-display-lg text-chalk">
+        <h2 className="mt-4 font-display text-display-lg text-brand-deep">
           {t("title")}
         </h2>
-        <p className="mt-5 max-w-prose text-chalk-dim">{t("body")}</p>
+        <p className="mt-5 max-w-prose text-muted">{t("body")}</p>
       </div>
-      <figure className="self-center border-l-2 border-malachite bg-ink-raised p-6 sm:p-8">
-        <figcaption className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate">
+      <figure className="self-center rounded-sm border-l-2 border-brand bg-brand-wash p-6 sm:p-8">
+        <figcaption className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand">
           {t("visionLabel")}
         </figcaption>
-        <blockquote className="mt-3 text-lg leading-relaxed text-chalk">
+        <blockquote className="mt-3 text-lg leading-relaxed text-brand-deep">
           “{t("vision")}”
         </blockquote>
       </figure>
@@ -73,14 +73,14 @@ function ProgrammesSection() {
   const tp = useTranslations("programmes.index");
   return (
     <section className="container-x py-16 sm:py-20">
-      <p className="font-mono text-xs uppercase tracking-[0.18em] text-saffron">
+      <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand">
         {t("kicker")}
       </p>
       <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
-        <h2 className="max-w-xl font-display text-display-lg text-chalk">
+        <h2 className="max-w-xl font-display text-display-lg text-brand-deep">
           {t("title")}
         </h2>
-        <p className="max-w-sm text-sm text-chalk-dim">{t("lead")}</p>
+        <p className="max-w-sm text-sm text-muted">{t("lead")}</p>
       </div>
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {programmes.map((p) => (
@@ -88,7 +88,7 @@ function ProgrammesSection() {
         ))}
       </div>
       <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-        <p className="max-w-md text-xs text-slate">{tp("tuitionNote")}</p>
+        <p className="max-w-md text-xs text-muted">{tp("tuitionNote")}</p>
         <CtaLink href="/programmes" variant="outline">
           {t("cta")}
         </CtaLink>
@@ -102,13 +102,13 @@ function FounderTeaser() {
   return (
     <section className="container-x py-16 sm:py-20">
       <div className="max-w-3xl">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-saffron">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand">
           {t("kicker")}
         </p>
-        <h2 className="mt-4 font-display text-display-lg text-chalk">
+        <h2 className="mt-4 font-display text-display-lg text-brand-deep">
           {t("title")}
         </h2>
-        <p className="mt-5 max-w-prose text-chalk-dim">{t("body")}</p>
+        <p className="mt-5 max-w-prose text-muted">{t("body")}</p>
         <CtaLink href="/about/founder" variant="outline" className="mt-8">
           {t("cta")}
         </CtaLink>
@@ -121,64 +121,60 @@ function InstitutionalSection() {
   const t = useTranslations("home.institutional");
   const sectors = t.raw("sectors") as string[];
   return (
-    <section className="pattern-paper-strong border-y border-chalk/10 bg-ink-raised">
+    <section className="on-deep pattern-paper-strong bg-brand-deep">
       <div className="container-x py-16 sm:py-20">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-saffron">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand-bright">
           {t("kicker")}
         </p>
-        <h2 className="mt-4 max-w-2xl font-display text-display-lg text-chalk">
+        <h2 className="mt-4 max-w-2xl font-display text-display-lg text-paper">
           {t("title")}
         </h2>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-3">
-          <div className="border border-chalk/10 bg-ink p-6">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate">
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="rounded-sm border border-paper/15 bg-paper/5 p-6">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-bright">
               {t("accreditationTitle")}
             </h3>
-            <p className="mt-3 text-sm text-chalk-dim">
-              {t("accreditationBody")}
-            </p>
+            <p className="mt-3 text-sm text-on-deep">{t("accreditationBody")}</p>
             <dl className="mt-5 space-y-3 font-mono text-xs">
               <div>
-                <dt className="text-slate">{t("certificateLabel")}</dt>
-                <dd className="mt-1 text-base tracking-wider text-saffron">
+                <dt className="text-on-deep">{t("certificateLabel")}</dt>
+                <dd className="mt-1 text-base tracking-wider text-paper">
                   {institute.accreditation.certificateNo}
                 </dd>
               </div>
               <div>
-                <dt className="text-slate">{t("licenceLabel")}</dt>
-                <dd className="mt-1 tracking-wider text-chalk">
+                <dt className="text-on-deep">{t("licenceLabel")}</dt>
+                <dd className="mt-1 tracking-wider text-paper">
                   {institute.accreditation.tradeLicenceNo}
                 </dd>
               </div>
             </dl>
           </div>
 
-          <div className="border border-chalk/10 bg-ink p-6">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate">
+          <div className="rounded-sm border border-paper/15 bg-paper/5 p-6">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-bright">
               {t("capacityTitle")}
             </h3>
-            <p className="mt-3 text-sm text-chalk-dim">{t("capacityBody")}</p>
+            <p className="mt-3 text-sm text-on-deep">{t("capacityBody")}</p>
             <ul className="mt-5 space-y-2.5">
               {sectors.map((s) => (
-                <li key={s} className="flex items-center gap-3 text-sm text-chalk">
-                  <GrainArrow className="w-6 shrink-0 text-saffron" />
+                <li key={s} className="flex items-center gap-3 text-sm text-paper">
+                  <GrainArrow className="w-6 shrink-0 text-brand-bright" />
                   {s}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="border border-chalk/10 bg-ink p-6">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate">
+          <div className="rounded-sm border border-paper/15 bg-paper/5 p-6">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-bright">
               {t("partnershipsTitle")}
             </h3>
-            <p className="mt-3 text-sm text-chalk-dim">
-              {t("partnershipsBody")}
-            </p>
+            <p className="mt-3 text-sm text-on-deep">{t("partnershipsBody")}</p>
             <CtaLink
               href="/about/partnerships"
-              variant="outline"
+              variant="on-deep"
               size="sm"
               className="mt-5"
             >
@@ -194,12 +190,12 @@ function InstitutionalSection() {
           <button
             type="button"
             disabled
-            className="inline-flex cursor-not-allowed items-center gap-3 bg-saffron/40 px-6 py-3.5 font-mono text-xs uppercase tracking-[0.14em] text-ink"
+            className="inline-flex cursor-not-allowed items-center gap-3 rounded-sm bg-paper/25 px-6 py-3.5 font-mono text-xs uppercase tracking-[0.14em] text-paper"
           >
             {t("downloadCta")}
             <GrainArrow className="w-7 shrink-0" />
           </button>
-          <TodoTag kind="pdf" />
+          <TodoTag kind="pdf" on="deep" />
         </div>
       </div>
     </section>
@@ -212,15 +208,15 @@ function VisitSection() {
     <section className="container-x py-16 sm:py-20">
       <div className="flex flex-wrap items-end justify-between gap-8">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-saffron">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand">
             {t("kicker")}
           </p>
-          <h2 className="mt-4 font-display text-display-lg text-chalk">
+          <h2 className="mt-4 font-display text-display-lg text-brand-deep">
             {t("title")}
           </h2>
-          <p className="mt-5 max-w-md text-chalk-dim">{t("address")}</p>
-          <p className="mt-2 max-w-md text-sm text-slate">{t("landmark")}</p>
-          <p className="mt-4 font-mono text-xs uppercase tracking-[0.1em] text-chalk-dim">
+          <p className="mt-5 max-w-md text-graphite">{t("address")}</p>
+          <p className="mt-2 max-w-md text-sm text-muted">{t("landmark")}</p>
+          <p className="mt-4 font-mono text-xs uppercase tracking-[0.1em] text-muted">
             {t("hoursShort")}
           </p>
           <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-1">
@@ -228,7 +224,7 @@ function VisitSection() {
               <li key={p.tel}>
                 <a
                   href={`tel:${p.tel}`}
-                  className="text-chalk underline decoration-saffron/50 underline-offset-4 hover:decoration-saffron"
+                  className="font-medium text-brand underline decoration-brand/40 underline-offset-4 hover:decoration-brand"
                 >
                   {p.display}
                 </a>

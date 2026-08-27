@@ -1,13 +1,12 @@
 import { Link } from "@/i18n/navigation";
 import { GrainArrow } from "@/components/atelier/GrainArrow";
 
-type Variant = "primary" | "outline" | "outline-ink";
+type Variant = "primary" | "outline" | "on-deep";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-saffron text-ink hover:bg-chalk",
-  outline:
-    "border border-chalk-dim/40 text-chalk hover:border-saffron hover:text-saffron",
-  "outline-ink": "border border-ink/40 text-ink hover:border-ink hover:bg-ink hover:text-chalk",
+  primary: "bg-brand text-paper hover:bg-brand-deep",
+  outline: "border border-brand/40 text-brand hover:bg-brand-wash hover:border-brand",
+  "on-deep": "border border-paper/40 text-paper hover:bg-paper hover:text-brand-deep",
 };
 
 export function CtaLink({
@@ -27,7 +26,7 @@ export function CtaLink({
   return (
     <Link
       href={href}
-      className={`group/cta inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.14em] transition-colors ${pad} ${variants[variant]} ${className}`}
+      className={`group/cta inline-flex items-center gap-3 rounded-sm font-mono text-xs uppercase tracking-[0.14em] transition-colors ${pad} ${variants[variant]} ${className}`}
     >
       {children}
       <GrainArrow className="w-7 shrink-0 transition-transform group-hover/cta:translate-x-1" />

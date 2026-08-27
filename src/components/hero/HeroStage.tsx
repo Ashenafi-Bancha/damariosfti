@@ -44,7 +44,7 @@ export function HeroStage({
         {children}
         <p
           aria-hidden="true"
-          className="hero-hint absolute bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.2em] text-slate"
+          className="hero-hint absolute bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.2em] text-muted"
         >
           {hint} ↓
         </p>

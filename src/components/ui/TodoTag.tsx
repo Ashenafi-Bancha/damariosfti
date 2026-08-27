@@ -18,27 +18,27 @@ export type TodoKind =
 
 /**
  * The single way unsupplied content appears on this site: a visible,
- * deliberately unfinished chalk-outline chip. Never replace one of these
- * with an invented value.
+ * deliberately unfinished dashed chip. Never replace one of these with
+ * an invented value.
  */
 export function TodoTag({
   kind = "generic",
-  on = "ink",
+  on = "paper",
   className = "",
 }: {
   kind?: TodoKind;
-  /** Surface it sits on — saffron fails contrast on chalk. */
-  on?: "ink" | "chalk";
+  /** Surface it sits on. */
+  on?: "paper" | "deep";
   className?: string;
 }) {
   const t = useTranslations();
   const palette =
-    on === "ink"
-      ? "border-saffron/60 text-saffron"
-      : "border-ink/40 text-ink-raised";
+    on === "deep"
+      ? "border-brand-bright/60 text-brand-bright"
+      : "border-brand/45 text-brand";
   return (
     <span
-      className={`inline-flex items-center gap-2 border border-dashed px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.12em] ${palette} ${className}`}
+      className={`inline-flex items-center gap-2 rounded-sm border border-dashed px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.12em] ${palette} ${className}`}
     >
       <span className="font-medium">{t("common.todoLabel")}</span>
       <span className="normal-case tracking-normal">{t(`todo.${kind}`)}</span>

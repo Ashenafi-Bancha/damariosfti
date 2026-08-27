@@ -60,26 +60,24 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
       <header className="container-x pt-12 sm:pt-16">
         <Link
           href="/programmes"
-          className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate transition-colors hover:text-chalk"
+          className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-brand"
         >
           ← {t("labels.allProgrammes")}
         </Link>
-        <p className="mt-8 font-mono text-xs uppercase tracking-[0.18em] text-saffron">
+        <p className="mt-8 font-mono text-xs uppercase tracking-[0.18em] text-brand">
           {t("labels.piece")} {programme.piece}
         </p>
-        <h1 className="mt-4 max-w-3xl font-display text-display-xl text-chalk">
+        <h1 className="mt-4 max-w-3xl font-display text-display-xl text-brand-deep">
           {t(item("name"))}
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-chalk-dim">
-          {t(item("summary"))}
-        </p>
+        <p className="mt-6 max-w-2xl text-lg text-muted">{t(item("summary"))}</p>
       </header>
 
       <SeamDivider className="container-x mt-10" />
 
       <section className="container-x grid gap-12 py-10 sm:py-14 lg:grid-cols-[1fr_340px]">
         <div>
-          <h2 className="font-display text-display-md text-chalk">
+          <h2 className="font-display text-display-md text-brand-deep">
             {t("labels.curriculum")}
           </h2>
           {curriculum ? (
@@ -87,12 +85,12 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
               {curriculum.map((line, i) => (
                 <li
                   key={line}
-                  className="flex items-baseline gap-4 border-b border-dashed border-chalk/15 py-3"
+                  className="flex items-baseline gap-4 border-b border-dashed border-line py-3"
                 >
-                  <span className="font-mono text-xs text-saffron">
+                  <span className="font-mono text-xs text-brand">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-chalk-dim">{line}</span>
+                  <span className="text-graphite">{line}</span>
                 </li>
               ))}
             </ol>
@@ -104,25 +102,25 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
 
           {has("audience") && (
             <div className="mt-10">
-              <h2 className="font-display text-display-sm text-chalk">
+              <h2 className="font-display text-display-sm text-brand-deep">
                 {t("labels.audience")}
               </h2>
-              <p className="mt-3 max-w-xl text-chalk-dim">{t(item("audience"))}</p>
+              <p className="mt-3 max-w-xl text-muted">{t(item("audience"))}</p>
             </div>
           )}
 
           {has("delivery") && (
             <div className="mt-10">
-              <h2 className="font-display text-display-sm text-chalk">
+              <h2 className="font-display text-display-sm text-brand-deep">
                 {t("labels.delivery")}
               </h2>
-              <p className="mt-3 max-w-xl text-chalk-dim">{t(item("delivery"))}</p>
+              <p className="mt-3 max-w-xl text-muted">{t(item("delivery"))}</p>
             </div>
           )}
 
           {programme.careerOutcomes && (
             <div className="mt-10">
-              <h2 className="font-display text-display-sm text-chalk">
+              <h2 className="font-display text-display-sm text-brand-deep">
                 {t("labels.outcomes")}
               </h2>
               {outcomes ? (
@@ -130,9 +128,9 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
                   {outcomes.map((o) => (
                     <li
                       key={o}
-                      className="flex items-center gap-2.5 border border-chalk/20 px-3.5 py-2 text-sm text-chalk"
+                      className="flex items-center gap-2.5 rounded-sm border border-line bg-brand-wash px-3.5 py-2 text-sm text-brand-deep"
                     >
-                      <GrainArrow className="w-5 text-saffron" />
+                      <GrainArrow className="w-5 text-brand" />
                       {o}
                     </li>
                   ))}
@@ -181,27 +179,26 @@ function MetaPanel({ programme }: { programme: Programme }) {
   ];
 
   return (
-    <aside className="pattern-card relative h-fit bg-chalk p-6 text-ink">
+    <aside className="pattern-card relative h-fit border border-line bg-paper-tint p-6">
       <svg className="stitch" aria-hidden="true">
-        <rect style={{ strokeDashoffset: 0, opacity: 0.35 }} />
+        <rect style={{ strokeDashoffset: 0, opacity: 0.3 }} />
       </svg>
-      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-raised/70">
+      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-brand">
         {t("labels.piece")} {programme.piece}
       </p>
       <dl className="mt-4 space-y-4">
         {rows.map((row) => (
-          <div
-            key={row.label}
-            className="border-b border-dashed border-ink/20 pb-3"
-          >
-            <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-raised/70">
+          <div key={row.label} className="border-b border-dashed border-line pb-3">
+            <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
               {row.label}
             </dt>
             <dd className="mt-1.5">
               {row.value ? (
-                <span className="font-mono text-sm text-ink">{row.value}</span>
+                <span className="font-mono text-sm text-graphite">
+                  {row.value}
+                </span>
               ) : (
-                <TodoTag kind={row.todo} on="chalk" />
+                <TodoTag kind={row.todo} />
               )}
             </dd>
           </div>

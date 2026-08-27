@@ -34,19 +34,19 @@ function Founder() {
     <>
       <header className="container-x grid gap-10 pt-14 sm:pt-20 lg:grid-cols-[1fr_300px]">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-saffron">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand">
             {t("subtitle")}
           </p>
-          <h1 className="mt-4 font-display text-display-xl text-chalk">
+          <h1 className="mt-4 font-display text-display-xl text-brand-deep">
             {t("title")}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-chalk-dim">{t("intro")}</p>
+          <p className="mt-6 max-w-2xl text-lg text-muted">{t("intro")}</p>
         </div>
         {/* Portrait placeholder — client to supply imagery */}
-        <div className="flex aspect-[3/4] w-full max-w-[300px] flex-col items-center justify-center gap-4 border border-dashed border-chalk-dim/40 pattern-paper-strong">
+        <div className="pattern-paper flex aspect-[3/4] w-full max-w-[300px] flex-col items-center justify-center gap-4 rounded-sm border border-dashed border-brand/40 bg-paper-tint">
           <svg
             viewBox="0 0 60 80"
-            className="w-16 text-chalk-dim/50"
+            className="w-16 text-brand/40"
             aria-hidden="true"
             fill="none"
             stroke="currentColor"
@@ -59,7 +59,7 @@ function Founder() {
       </header>
 
       <section className="container-x py-14 sm:py-20">
-        <h2 className="font-display text-display-md text-chalk">
+        <h2 className="font-display text-display-md text-brand-deep">
           {t("timelineTitle")}
         </h2>
         <ol className="mt-10">
@@ -68,14 +68,14 @@ function Founder() {
               {i > 0 && <SeamDivider className="my-10" />}
               <div className="grid gap-4 sm:grid-cols-[220px_1fr] sm:gap-10">
                 <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
                     {t(`timeline.${stage}.period`)}
                   </p>
-                  <p className="mt-2 font-display text-display-sm text-saffron">
+                  <p className="mt-2 font-display text-display-sm text-brand">
                     {t(`timeline.${stage}.place`)}
                   </p>
                 </div>
-                <p className="max-w-xl self-center text-chalk-dim">
+                <p className="max-w-xl self-center text-muted">
                   {t(`timeline.${stage}.body`)}
                 </p>
               </div>
@@ -84,19 +84,19 @@ function Founder() {
         </ol>
       </section>
 
-      <section className="pattern-paper-strong border-y border-chalk/10 bg-ink-raised">
+      <section className="on-deep pattern-paper-strong bg-brand-deep">
         <div className="container-x grid gap-12 py-14 sm:py-16 lg:grid-cols-2">
           <div>
-            <h2 className="font-display text-display-md text-chalk">
+            <h2 className="font-display text-display-md text-paper">
               {t("recognitionTitle")}
             </h2>
             <ul className="mt-6 space-y-4">
               {founder.recognition.map((r) => (
                 <li key={r.key} className="flex items-baseline gap-5">
-                  <span className="font-mono text-sm tracking-wider text-saffron">
+                  <span className="font-mono text-sm tracking-wider text-brand-bright">
                     {r.year}
                   </span>
-                  <span className="text-chalk-dim">
+                  <span className="text-on-deep">
                     {t(`recognition.${r.key}`)}
                   </span>
                 </li>
@@ -104,10 +104,10 @@ function Founder() {
             </ul>
           </div>
           <div>
-            <h2 className="font-display text-display-md text-chalk">
+            <h2 className="font-display text-display-md text-paper">
               {t("showsTitle")}
             </h2>
-            <p className="mt-6 text-chalk-dim">{t("showsBody")}</p>
+            <p className="mt-6 text-on-deep">{t("showsBody")}</p>
           </div>
         </div>
       </section>

@@ -38,7 +38,7 @@ function ProgrammesIndex() {
             <PatternCard key={p.slug} programme={p} headingLevel="h2" />
           ))}
         </div>
-        <p className="mt-8 max-w-md text-xs text-slate">{t("tuitionNote")}</p>
+        <p className="mt-8 max-w-md text-xs text-muted">{t("tuitionNote")}</p>
       </section>
     </>
   );

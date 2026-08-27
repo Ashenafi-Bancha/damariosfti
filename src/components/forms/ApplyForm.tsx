@@ -42,10 +42,10 @@ export interface ApplyFormStrings {
 type Status = "idle" | "success" | "error" | "rate_limited" | "not_configured";
 
 const inputClass =
-  "w-full border border-chalk/45 bg-ink-raised px-3.5 py-2.5 text-chalk placeholder:text-slate focus:border-saffron aria-[invalid=true]:border-thread-bright";
-const labelClass = "mb-1.5 block text-sm text-chalk";
-const helpClass = "mt-1.5 text-xs text-slate";
-const errorClass = "mt-1.5 text-xs text-saffron";
+  "w-full rounded-sm border border-line-control bg-paper px-3.5 py-2.5 text-graphite placeholder:text-muted focus:border-brand aria-[invalid=true]:border-alert";
+const labelClass = "mb-1.5 block text-sm font-medium text-graphite";
+const helpClass = "mt-1.5 text-xs text-muted";
+const errorClass = "mt-1.5 text-xs text-alert";
 
 export function ApplyForm({
   strings,
@@ -113,16 +113,16 @@ export function ApplyForm({
     return (
       <div
         role="status"
-        className="border-l-2 border-malachite bg-ink-raised p-7 sm:p-9"
+        className="rounded-sm border border-line border-l-2 border-l-brand bg-brand-wash p-7 sm:p-9"
       >
-        <h2 className="font-display text-display-md text-chalk">
+        <h2 className="font-display text-display-md text-brand-deep">
           {strings.success.title}
         </h2>
-        <p className="mt-4 max-w-prose text-chalk-dim">{strings.success.body}</p>
+        <p className="mt-4 max-w-prose text-muted">{strings.success.body}</p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-7 inline-flex items-center gap-3 border border-chalk-dim/40 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-chalk transition-colors hover:border-saffron hover:text-saffron"
+          className="mt-7 inline-flex items-center gap-3 rounded-sm border border-brand/40 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-brand transition-colors hover:bg-paper"
         >
           {strings.success.again}
         </button>
@@ -329,7 +329,7 @@ export function ApplyForm({
         {failureMessage && (
           <p
             role="alert"
-            className="border-l-2 border-thread bg-ink-raised px-4 py-3 text-sm text-chalk"
+            className="rounded-sm border-l-2 border-alert bg-alert/5 px-4 py-3 text-sm text-graphite"
           >
             {failureMessage}
           </p>
@@ -338,7 +338,7 @@ export function ApplyForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center gap-3 bg-saffron px-6 py-3.5 font-mono text-xs uppercase tracking-[0.14em] text-ink transition-colors hover:bg-chalk disabled:cursor-wait disabled:opacity-60"
+          className="inline-flex items-center gap-3 rounded-sm bg-brand px-6 py-3.5 font-mono text-xs uppercase tracking-[0.14em] text-paper transition-colors hover:bg-brand-deep disabled:cursor-wait disabled:opacity-60"
         >
           {isSubmitting ? strings.form.submitting : strings.form.submit}
           <GrainArrow className="w-7 shrink-0" />

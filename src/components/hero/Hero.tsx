@@ -7,17 +7,17 @@ export function Hero() {
   const t = useTranslations("hero");
 
   return (
-    <section className="pattern-paper border-b border-chalk/10">
+    <section className="pattern-paper border-b border-line bg-paper-tint">
       <HeroStage hint={t("scrollHint")}>
         <div className="container-x grid w-full items-center gap-12 py-14 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-saffron">
+            <p className="inline-flex rounded-sm bg-brand-wash px-3 py-1.5 font-mono text-xs uppercase tracking-[0.16em] text-brand">
               {t("kicker")}
             </p>
-            <h1 className="hero-headline mt-5 max-w-[16ch] font-display text-display-xl text-chalk">
+            <h1 className="hero-headline mt-6 max-w-[16ch] font-display text-display-xl text-brand-deep">
               {t("headline")}
             </h1>
-            <p className="mt-6 max-w-md text-base text-chalk-dim sm:text-lg">
+            <p className="mt-6 max-w-md text-base text-muted sm:text-lg">
               {t("sub")}
             </p>
             <div className="mt-9 flex flex-wrap gap-4">

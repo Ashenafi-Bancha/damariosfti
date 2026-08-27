@@ -36,22 +36,22 @@ function Admissions() {
       <SeamDivider className="container-x mt-10" />
 
       <section className="container-x py-10 sm:py-14">
-        <h2 className="font-display text-display-md text-chalk">
+        <h2 className="font-display text-display-md text-brand-deep">
           {t("stepsTitle")}
         </h2>
         <ol className="mt-8 grid gap-5 md:grid-cols-3">
           {steps.map((step, i) => (
             <li
               key={step.title}
-              className="border border-chalk/15 bg-ink-raised p-6"
+              className="rounded-sm border border-line bg-paper-tint p-6"
             >
-              <span className="font-mono text-2xl text-saffron">
+              <span className="font-mono text-2xl text-brand">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-4 font-display text-display-sm text-chalk">
+              <h3 className="mt-4 font-display text-display-sm text-brand-deep">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm text-chalk-dim">{step.body}</p>
+              <p className="mt-3 text-sm text-muted">{step.body}</p>
             </li>
           ))}
         </ol>
@@ -59,7 +59,7 @@ function Admissions() {
 
       <section className="container-x grid gap-10 pb-10 sm:pb-14 md:grid-cols-3">
         <div>
-          <h2 className="font-display text-display-sm text-chalk">
+          <h2 className="font-display text-display-sm text-brand-deep">
             {t("requirementsTitle")}
           </h2>
           <div className="mt-4">
@@ -67,7 +67,7 @@ function Admissions() {
           </div>
         </div>
         <div>
-          <h2 className="font-display text-display-sm text-chalk">
+          <h2 className="font-display text-display-sm text-brand-deep">
             {t("intakesTitle")}
           </h2>
           <div className="mt-4">
@@ -75,7 +75,7 @@ function Admissions() {
           </div>
         </div>
         <div>
-          <h2 className="font-display text-display-sm text-chalk">
+          <h2 className="font-display text-display-sm text-brand-deep">
             {t("tuitionTitle")}
           </h2>
           <div className="mt-4">
@@ -88,12 +88,10 @@ function Admissions() {
 
       <section className="container-x flex flex-wrap items-center justify-between gap-8 py-12">
         <div>
-          <h2 className="font-display text-display-sm text-chalk">
+          <h2 className="font-display text-display-sm text-brand-deep">
             {t("contactTitle")}
           </h2>
-          <p className="mt-3 max-w-md text-sm text-chalk-dim">
-            {t("contactBody")}
-          </p>
+          <p className="mt-3 max-w-md text-sm text-muted">{t("contactBody")}</p>
         </div>
         <CtaLink href="/apply">{t("applyCta")}</CtaLink>
       </section>
