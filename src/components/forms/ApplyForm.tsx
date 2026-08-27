@@ -9,7 +9,6 @@ import {
   type ApplyErrorMessages,
   type ApplyInput,
 } from "@/lib/applySchema";
-import { GrainArrow } from "@/components/atelier/GrainArrow";
 
 export interface Option {
   value: string;
@@ -42,10 +41,10 @@ export interface ApplyFormStrings {
 type Status = "idle" | "success" | "error" | "rate_limited" | "not_configured";
 
 const inputClass =
-  "w-full rounded-sm border border-line-control bg-paper px-3.5 py-2.5 text-graphite placeholder:text-muted focus:border-brand aria-[invalid=true]:border-alert";
-const labelClass = "mb-1.5 block text-sm font-medium text-graphite";
-const helpClass = "mt-1.5 text-xs text-muted";
-const errorClass = "mt-1.5 text-xs text-alert";
+  "w-full rounded-sm border border-line-control bg-paper px-4 py-3 text-graphite transition-colors duration-400 placeholder:text-muted focus:border-brand aria-[invalid=true]:border-alert";
+const labelClass = "mb-2 block text-sm font-medium text-graphite";
+const helpClass = "mt-2 text-xs text-muted";
+const errorClass = "mt-2 text-xs text-alert";
 
 export function ApplyForm({
   strings,
@@ -111,18 +110,31 @@ export function ApplyForm({
 
   if (status === "success") {
     return (
-      <div
-        role="status"
-        className="rounded-sm border border-line border-l-2 border-l-brand bg-brand-wash p-7 sm:p-9"
-      >
-        <h2 className="font-display text-display-md text-brand-deep">
+      <div role="status">
+        <span
+          aria-hidden="true"
+          className="flex h-14 w-14 items-center justify-center rounded-pill bg-brand text-paper"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-6 w-6"
+          >
+            <path d="m5 12.5 4.5 4.5L19 7.5" />
+          </svg>
+        </span>
+        <h2 className="mt-7 font-display text-display-md text-brand-deep">
           {strings.success.title}
         </h2>
         <p className="mt-4 max-w-prose text-muted">{strings.success.body}</p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-7 inline-flex items-center gap-3 rounded-sm border border-brand/40 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-brand transition-colors hover:bg-paper"
+          className="mt-8 inline-flex items-center gap-3 rounded-pill bg-brand-wash px-6 py-3 text-sm font-medium text-brand transition-colors duration-500 hover:bg-brand hover:text-paper"
         >
           {strings.success.again}
         </button>
@@ -329,7 +341,7 @@ export function ApplyForm({
         {failureMessage && (
           <p
             role="alert"
-            className="rounded-sm border-l-2 border-alert bg-alert/5 px-4 py-3 text-sm text-graphite"
+            className="rounded-sm bg-alert/8 px-5 py-4 text-sm text-graphite"
           >
             {failureMessage}
           </p>
@@ -338,10 +350,9 @@ export function ApplyForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center gap-3 rounded-sm bg-brand px-6 py-3.5 font-mono text-xs uppercase tracking-[0.14em] text-paper transition-colors hover:bg-brand-deep disabled:cursor-wait disabled:opacity-60"
+          className="inline-flex items-center gap-2.5 rounded-pill bg-brand px-7 py-3.5 text-sm font-medium text-paper shadow-soft transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-brand-deep hover:shadow-lift disabled:cursor-wait disabled:opacity-60"
         >
           {isSubmitting ? strings.form.submitting : strings.form.submit}
-          <GrainArrow className="w-7 shrink-0" />
         </button>
       </div>
     </form>

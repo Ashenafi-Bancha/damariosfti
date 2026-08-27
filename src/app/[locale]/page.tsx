@@ -5,11 +5,10 @@ import { pageMetadata } from "@/lib/metadata";
 import { institute } from "@/content/institute";
 import { programmes } from "@/content/programmes";
 import { Hero } from "@/components/hero/Hero";
-import { SeamDivider } from "@/components/atelier/SeamDivider";
 import { PatternCard } from "@/components/atelier/PatternCard";
-import { GrainArrow } from "@/components/atelier/GrainArrow";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { TodoTag } from "@/components/ui/TodoTag";
+import { Reveal } from "@/components/ui/Reveal";
 
 export async function generateMetadata({
   params,
@@ -32,12 +31,9 @@ export default async function HomePage({
     <>
       <Hero />
       <IntroSection />
-      <SeamDivider className="container-x" />
       <ProgrammesSection />
-      <SeamDivider className="container-x" />
       <FounderTeaser />
       <InstitutionalSection />
-      <SeamDivider className="container-x" />
       <VisitSection />
     </>
   );
@@ -46,24 +42,29 @@ export default async function HomePage({
 function IntroSection() {
   const t = useTranslations("home.intro");
   return (
-    <section className="container-x grid gap-10 py-16 sm:py-20 lg:grid-cols-2">
-      <div>
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand">
-          {t("kicker")}
-        </p>
-        <h2 className="mt-4 font-display text-display-lg text-brand-deep">
-          {t("title")}
-        </h2>
-        <p className="mt-5 max-w-prose text-muted">{t("body")}</p>
+    <section className="container-x py-20 sm:py-28">
+      <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        <Reveal>
+          <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
+            {t("kicker")}
+          </p>
+          <h2 className="mt-5 font-display text-display-lg text-brand-deep">
+            {t("title")}
+          </h2>
+          <p className="mt-6 max-w-prose text-muted">{t("body")}</p>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <figure className="card card-tint h-full overflow-hidden p-9 sm:p-11">
+            <figcaption className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
+              {t("visionLabel")}
+            </figcaption>
+            <blockquote className="mt-5 font-display text-display-sm leading-snug text-brand-deep">
+              “{t("vision")}”
+            </blockquote>
+          </figure>
+        </Reveal>
       </div>
-      <figure className="self-center rounded-sm border-l-2 border-brand bg-brand-wash p-6 sm:p-8">
-        <figcaption className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand">
-          {t("visionLabel")}
-        </figcaption>
-        <blockquote className="mt-3 text-lg leading-relaxed text-brand-deep">
-          “{t("vision")}”
-        </blockquote>
-      </figure>
     </section>
   );
 }
@@ -72,26 +73,38 @@ function ProgrammesSection() {
   const t = useTranslations("home.programmes");
   const tp = useTranslations("programmes.index");
   return (
-    <section className="container-x py-16 sm:py-20">
-      <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand">
-        {t("kicker")}
-      </p>
-      <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
-        <h2 className="max-w-xl font-display text-display-lg text-brand-deep">
-          {t("title")}
-        </h2>
-        <p className="max-w-sm text-sm text-muted">{t("lead")}</p>
-      </div>
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {programmes.map((p) => (
-          <PatternCard key={p.slug} programme={p} />
-        ))}
-      </div>
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-        <p className="max-w-md text-xs text-muted">{tp("tuitionNote")}</p>
-        <CtaLink href="/programmes" variant="outline">
-          {t("cta")}
-        </CtaLink>
+    <section className="aura aura-soft relative py-20 sm:py-28">
+      <div className="container-x">
+        <Reveal>
+          <div className="flex flex-wrap items-end justify-between gap-8">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
+                {t("kicker")}
+              </p>
+              <h2 className="mt-5 max-w-xl font-display text-display-lg text-brand-deep">
+                {t("title")}
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm text-muted">{t("lead")}</p>
+          </div>
+        </Reveal>
+
+        <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {programmes.map((p, i) => (
+            <Reveal as="li" key={p.slug} delay={i * 70} className="flex">
+              <PatternCard programme={p} />
+            </Reveal>
+          ))}
+        </ul>
+
+        <Reveal delay={80}>
+          <div className="mt-12 flex flex-wrap items-center justify-between gap-5">
+            <p className="max-w-md text-xs text-muted">{tp("tuitionNote")}</p>
+            <CtaLink href="/programmes" variant="ghost">
+              {t("cta")}
+            </CtaLink>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -100,19 +113,23 @@ function ProgrammesSection() {
 function FounderTeaser() {
   const t = useTranslations("home.founder");
   return (
-    <section className="container-x py-16 sm:py-20">
-      <div className="max-w-3xl">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand">
-          {t("kicker")}
-        </p>
-        <h2 className="mt-4 font-display text-display-lg text-brand-deep">
-          {t("title")}
-        </h2>
-        <p className="mt-5 max-w-prose text-muted">{t("body")}</p>
-        <CtaLink href="/about/founder" variant="outline" className="mt-8">
-          {t("cta")}
-        </CtaLink>
-      </div>
+    <section className="container-x py-20 sm:py-28">
+      <Reveal>
+        <div className="card card-tint overflow-hidden px-9 py-14 sm:px-14 sm:py-16">
+          <div className="max-w-3xl">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
+              {t("kicker")}
+            </p>
+            <h2 className="mt-5 font-display text-display-lg text-brand-deep">
+              {t("title")}
+            </h2>
+            <p className="mt-6 max-w-prose text-muted">{t("body")}</p>
+            <CtaLink href="/about/founder" className="mt-9">
+              {t("cta")}
+            </CtaLink>
+          </div>
+        </div>
+      </Reveal>
     </section>
   );
 }
@@ -121,83 +138,105 @@ function InstitutionalSection() {
   const t = useTranslations("home.institutional");
   const sectors = t.raw("sectors") as string[];
   return (
-    <section className="on-deep pattern-paper-strong bg-brand-deep">
-      <div className="container-x py-16 sm:py-20">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand-bright">
-          {t("kicker")}
-        </p>
-        <h2 className="mt-4 max-w-2xl font-display text-display-lg text-paper">
-          {t("title")}
-        </h2>
+    <section className="container-x py-8 sm:py-12">
+      <Reveal>
+        <div className="on-deep relative overflow-hidden rounded-xl bg-brand-deep px-8 py-16 shadow-deep sm:px-14 sm:py-20">
+          {/* soft light bloom, no edges */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-24 -top-24 h-96 w-96 rounded-pill bg-brand-bright/20 blur-3xl"
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-32 right-0 h-96 w-96 rounded-pill bg-brand/40 blur-3xl"
+          />
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          <div className="rounded-sm border border-paper/15 bg-paper/5 p-6">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-bright">
-              {t("accreditationTitle")}
-            </h3>
-            <p className="mt-3 text-sm text-on-deep">{t("accreditationBody")}</p>
-            <dl className="mt-5 space-y-3 font-mono text-xs">
-              <div>
-                <dt className="text-on-deep">{t("certificateLabel")}</dt>
-                <dd className="mt-1 text-base tracking-wider text-paper">
-                  {institute.accreditation.certificateNo}
-                </dd>
+          <div className="relative">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
+              {t("kicker")}
+            </p>
+            <h2 className="mt-5 max-w-2xl font-display text-display-lg text-paper">
+              {t("title")}
+            </h2>
+
+            <div className="mt-14 grid gap-6 lg:grid-cols-3">
+              <div className="card-glass p-8">
+                <h3 className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
+                  {t("accreditationTitle")}
+                </h3>
+                <p className="mt-4 text-sm text-on-deep">
+                  {t("accreditationBody")}
+                </p>
+                <dl className="mt-6 space-y-4">
+                  <div>
+                    <dt className="text-xs text-on-deep">
+                      {t("certificateLabel")}
+                    </dt>
+                    <dd className="mt-1 font-mono text-lg tracking-wide text-paper">
+                      {institute.accreditation.certificateNo}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs text-on-deep">{t("licenceLabel")}</dt>
+                    <dd className="mt-1 font-mono text-sm tracking-wide text-paper">
+                      {institute.accreditation.tradeLicenceNo}
+                    </dd>
+                  </div>
+                </dl>
               </div>
-              <div>
-                <dt className="text-on-deep">{t("licenceLabel")}</dt>
-                <dd className="mt-1 tracking-wider text-paper">
-                  {institute.accreditation.tradeLicenceNo}
-                </dd>
+
+              <div className="card-glass p-8">
+                <h3 className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
+                  {t("capacityTitle")}
+                </h3>
+                <p className="mt-4 text-sm text-on-deep">{t("capacityBody")}</p>
+                <ul className="mt-6 space-y-3">
+                  {sectors.map((s) => (
+                    <li key={s} className="flex items-start gap-3 text-sm text-paper">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-pill bg-brand-bright"
+                      />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </dl>
-          </div>
 
-          <div className="rounded-sm border border-paper/15 bg-paper/5 p-6">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-bright">
-              {t("capacityTitle")}
-            </h3>
-            <p className="mt-3 text-sm text-on-deep">{t("capacityBody")}</p>
-            <ul className="mt-5 space-y-2.5">
-              {sectors.map((s) => (
-                <li key={s} className="flex items-center gap-3 text-sm text-paper">
-                  <GrainArrow className="w-6 shrink-0 text-brand-bright" />
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </div>
+              <div className="card-glass flex flex-col p-8">
+                <h3 className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
+                  {t("partnershipsTitle")}
+                </h3>
+                <p className="mt-4 flex-1 text-sm text-on-deep">
+                  {t("partnershipsBody")}
+                </p>
+                <CtaLink
+                  href="/about/partnerships"
+                  variant="on-deep"
+                  size="sm"
+                  className="mt-7 self-start"
+                >
+                  {t("partnershipsCta")}
+                </CtaLink>
+              </div>
+            </div>
 
-          <div className="rounded-sm border border-paper/15 bg-paper/5 p-6">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-bright">
-              {t("partnershipsTitle")}
-            </h3>
-            <p className="mt-3 text-sm text-on-deep">{t("partnershipsBody")}</p>
-            <CtaLink
-              href="/about/partnerships"
-              variant="on-deep"
-              size="sm"
-              className="mt-5"
-            >
-              {t("partnershipsCta")}
-            </CtaLink>
+            <div className="mt-12 flex flex-wrap items-center gap-4">
+              {/* CTA wired to a TODO PDF placeholder — becomes a real link when
+                  the client supplies the capability statement. A real disabled
+                  button so assistive tech announces the unavailable state. */}
+              <button
+                type="button"
+                disabled
+                className="inline-flex cursor-not-allowed items-center gap-2.5 rounded-pill bg-paper/25 px-7 py-3.5 text-sm font-medium text-paper"
+              >
+                {t("downloadCta")}
+              </button>
+              <TodoTag kind="pdf" on="deep" />
+            </div>
           </div>
         </div>
-
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          {/* CTA wired to a TODO PDF placeholder — becomes a real link when
-              the client supplies the capability statement. A real disabled
-              button so assistive tech announces the unavailable state. */}
-          <button
-            type="button"
-            disabled
-            className="inline-flex cursor-not-allowed items-center gap-3 rounded-sm bg-paper/25 px-6 py-3.5 font-mono text-xs uppercase tracking-[0.14em] text-paper"
-          >
-            {t("downloadCta")}
-            <GrainArrow className="w-7 shrink-0" />
-          </button>
-          <TodoTag kind="pdf" on="deep" />
-        </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -205,37 +244,37 @@ function InstitutionalSection() {
 function VisitSection() {
   const t = useTranslations("home.visit");
   return (
-    <section className="container-x py-16 sm:py-20">
-      <div className="flex flex-wrap items-end justify-between gap-8">
-        <div>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-brand">
-            {t("kicker")}
-          </p>
-          <h2 className="mt-4 font-display text-display-lg text-brand-deep">
-            {t("title")}
-          </h2>
-          <p className="mt-5 max-w-md text-graphite">{t("address")}</p>
-          <p className="mt-2 max-w-md text-sm text-muted">{t("landmark")}</p>
-          <p className="mt-4 font-mono text-xs uppercase tracking-[0.1em] text-muted">
-            {t("hoursShort")}
-          </p>
-          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-1">
-            {institute.phones.map((p) => (
-              <li key={p.tel}>
-                <a
-                  href={`tel:${p.tel}`}
-                  className="font-medium text-brand underline decoration-brand/40 underline-offset-4 hover:decoration-brand"
-                >
-                  {p.display}
-                </a>
-              </li>
-            ))}
-          </ul>
+    <section className="container-x py-20 sm:py-28">
+      <Reveal>
+        <div className="flex flex-wrap items-end justify-between gap-10">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
+              {t("kicker")}
+            </p>
+            <h2 className="mt-5 font-display text-display-lg text-brand-deep">
+              {t("title")}
+            </h2>
+            <p className="mt-6 max-w-md text-graphite">{t("address")}</p>
+            <p className="mt-2.5 max-w-md text-sm text-muted">{t("landmark")}</p>
+            <p className="mt-5 text-sm text-muted">{t("hoursShort")}</p>
+            <ul className="mt-5 flex flex-wrap gap-3">
+              {institute.phones.map((p) => (
+                <li key={p.tel}>
+                  <a
+                    href={`tel:${p.tel}`}
+                    className="inline-flex rounded-pill bg-brand-wash px-5 py-2.5 text-sm font-medium text-brand transition-colors duration-500 hover:bg-brand hover:text-paper"
+                  >
+                    {p.display}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <CtaLink href="/contact" variant="ghost">
+            {t("cta")}
+          </CtaLink>
         </div>
-        <CtaLink href="/contact" variant="outline">
-          {t("cta")}
-        </CtaLink>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -17,9 +17,9 @@ export function Header({ locale }: { locale: string }) {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur-sm">
-      <div className="container-x flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-3.5">
-        <Link href="/" aria-label={tc("instituteName")}>
+    <header className="sticky top-0 z-40 bg-paper/80 backdrop-blur-xl">
+      <div className="container-x flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-4">
+        <Link href="/" aria-label={tc("instituteName")} className="rounded-md">
           <Wordmark name={tc("wordmarkTop")} tagline={tc("wordmarkSub")} />
         </Link>
 
@@ -27,14 +27,14 @@ export function Header({ locale }: { locale: string }) {
             inline on md+ — no duplicated landmarks, zero JS. */}
         <nav
           aria-label={t("menuLabel")}
-          className="order-3 -mx-4 basis-full overflow-x-auto px-4 md:order-2 md:mx-0 md:basis-auto md:overflow-visible md:px-0"
+          className="order-3 -mx-5 basis-full overflow-x-auto px-5 md:order-2 md:mx-0 md:basis-auto md:overflow-visible md:px-0"
         >
-          <ul className="flex items-center gap-6 whitespace-nowrap text-sm">
+          <ul className="flex items-center gap-1 whitespace-nowrap">
             {links.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="font-medium text-graphite transition-colors hover:text-brand"
+                  className="inline-flex rounded-pill px-4 py-2 text-sm text-graphite transition-colors duration-500 hover:bg-brand-wash hover:text-brand"
                 >
                   {l.label}
                 </Link>

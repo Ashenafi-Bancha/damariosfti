@@ -4,8 +4,8 @@ import { setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/metadata";
 import { institute } from "@/content/institute";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { SeamDivider } from "@/components/atelier/SeamDivider";
 import { CtaLink } from "@/components/ui/CtaLink";
+import { Reveal } from "@/components/ui/Reveal";
 import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata({
@@ -32,108 +32,119 @@ function About() {
   const tc = useTranslations("contact.hours");
   const tn = useTranslations("nav");
 
+  const facts = [
+    { title: t("locationTitle"), body: t("locationBody") },
+    { title: t("accessibilityTitle"), body: t("accessibilityBody") },
+  ];
+
   return (
     <>
       <PageHeader title={t("title")} lead={t("lead")} />
-      <SeamDivider className="container-x mt-10" />
 
-      <section className="container-x grid gap-5 py-10 sm:py-14 lg:grid-cols-2">
-        <figure className="rounded-sm border-l-2 border-brand bg-brand-wash p-6 sm:p-8">
-          <figcaption className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand">
-            {t("visionTitle")}
-          </figcaption>
-          <blockquote className="mt-3 text-lg leading-relaxed text-brand-deep">
-            “{t("vision")}”
-          </blockquote>
-        </figure>
+      <section className="container-x grid gap-6 py-16 sm:py-20 lg:grid-cols-2">
+        <Reveal className="flex">
+          <figure className="card card-tint w-full p-9 sm:p-11">
+            <figcaption className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
+              {t("visionTitle")}
+            </figcaption>
+            <blockquote className="mt-5 font-display text-display-sm leading-snug text-brand-deep">
+              “{t("vision")}”
+            </blockquote>
+          </figure>
+        </Reveal>
 
-        <div className="rounded-sm border border-line bg-paper-tint p-6 sm:p-8">
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand">
-            {t("accreditationTitle")}
-          </h2>
-          <p className="mt-3 text-sm text-muted">{t("accreditationBody")}</p>
-          <dl className="mt-5 space-y-3 font-mono text-xs">
-            <div>
-              <dt className="text-muted">{t("certificateLabel")}</dt>
-              <dd className="mt-1 text-base tracking-wider text-brand-deep">
-                {institute.accreditation.certificateNo}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-muted">{t("licenceLabel")}</dt>
-              <dd className="mt-1 tracking-wider text-graphite">
-                {institute.accreditation.tradeLicenceNo}
-              </dd>
-            </div>
-          </dl>
-        </div>
+        <Reveal delay={100} className="flex">
+          <div className="card w-full p-9 sm:p-11">
+            <h2 className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
+              {t("accreditationTitle")}
+            </h2>
+            <p className="mt-4 text-sm text-muted">{t("accreditationBody")}</p>
+            <dl className="mt-7 space-y-5">
+              <div>
+                <dt className="text-xs text-muted">{t("certificateLabel")}</dt>
+                <dd className="mt-1 font-mono text-lg tracking-wide text-brand-deep">
+                  {institute.accreditation.certificateNo}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs text-muted">{t("licenceLabel")}</dt>
+                <dd className="mt-1 font-mono text-sm tracking-wide text-graphite">
+                  {institute.accreditation.tradeLicenceNo}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </Reveal>
       </section>
 
-      <section className="container-x grid gap-10 pb-10 sm:pb-14 lg:grid-cols-3">
-        <div>
-          <h2 className="font-display text-display-sm text-brand-deep">
-            {t("locationTitle")}
-          </h2>
-          <p className="mt-3 text-sm text-muted">{t("locationBody")}</p>
-        </div>
-        <div>
-          <h2 className="font-display text-display-sm text-brand-deep">
-            {t("accessibilityTitle")}
-          </h2>
-          <p className="mt-3 text-sm text-muted">{t("accessibilityBody")}</p>
-        </div>
-        <div>
+      <section className="container-x grid gap-10 pb-16 sm:pb-20 lg:grid-cols-3">
+        {facts.map((f, i) => (
+          <Reveal key={f.title} delay={i * 90}>
+            <h2 className="font-display text-display-sm text-brand-deep">
+              {f.title}
+            </h2>
+            <p className="mt-4 text-sm text-muted">{f.body}</p>
+          </Reveal>
+        ))}
+        <Reveal delay={180}>
           <h2 className="font-display text-display-sm text-brand-deep">
             {t("hoursTitle")}
           </h2>
-          <dl className="mt-3 space-y-1 font-mono text-xs text-muted">
-            <div className="flex justify-between gap-4">
-              <dt>{tc("weekdays")}</dt>
-              <dd className="text-graphite">{tc("weekdaysTime")}</dd>
-            </div>
-            <div className="flex justify-between gap-4">
-              <dt>{tc("saturday")}</dt>
-              <dd className="text-graphite">{tc("saturdayTime")}</dd>
-            </div>
-            <div className="flex justify-between gap-4">
-              <dt>{tc("sunday")}</dt>
-              <dd className="text-graphite">{tc("sundayClosed")}</dd>
-            </div>
+          <dl className="mt-4 space-y-2.5 text-sm">
+            {[
+              [tc("weekdays"), tc("weekdaysTime")],
+              [tc("saturday"), tc("saturdayTime")],
+              [tc("sunday"), tc("sundayClosed")],
+            ].map(([day, time]) => (
+              <div key={day} className="flex justify-between gap-4">
+                <dt className="text-muted">{day}</dt>
+                <dd className="text-graphite">{time}</dd>
+              </div>
+            ))}
           </dl>
-        </div>
+        </Reveal>
       </section>
 
-      <SeamDivider className="container-x" />
-
-      <section className="container-x grid gap-5 py-10 sm:py-14 sm:grid-cols-2">
-        <Link
-          href="/about/founder"
-          className="group rounded-sm border border-line p-6 transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-[0_10px_28px_rgb(11_56_104/0.08)]"
-        >
-          <h2 className="font-display text-display-sm text-brand-deep">
-            {t("founderCard.title")}
-          </h2>
-          <p className="mt-2 text-sm text-muted">{t("founderCard.body")}</p>
-          <span className="mt-5 inline-block font-mono text-[11px] uppercase tracking-[0.16em] text-brand">
-            {t("founderCard.cta")} →
-          </span>
-        </Link>
-        <Link
-          href="/about/partnerships"
-          className="group rounded-sm border border-line p-6 transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-[0_10px_28px_rgb(11_56_104/0.08)]"
-        >
-          <h2 className="font-display text-display-sm text-brand-deep">
-            {t("partnershipsCard.title")}
-          </h2>
-          <p className="mt-2 text-sm text-muted">{t("partnershipsCard.body")}</p>
-          <span className="mt-5 inline-block font-mono text-[11px] uppercase tracking-[0.16em] text-brand">
-            {t("partnershipsCard.cta")} →
-          </span>
-        </Link>
+      <section className="container-x grid gap-6 pb-16 sm:grid-cols-2 sm:pb-20">
+        {[
+          {
+            href: "/about/founder",
+            title: t("founderCard.title"),
+            body: t("founderCard.body"),
+            cta: t("founderCard.cta"),
+          },
+          {
+            href: "/about/partnerships",
+            title: t("partnershipsCard.title"),
+            body: t("partnershipsCard.body"),
+            cta: t("partnershipsCard.cta"),
+          },
+        ].map((c, i) => (
+          <Reveal key={c.href} delay={i * 100} className="flex">
+            <Link
+              href={c.href}
+              className="card card-interactive group w-full p-9 sm:p-10"
+            >
+              <h2 className="font-display text-display-sm text-brand-deep">
+                {c.title}
+              </h2>
+              <p className="mt-3 text-sm text-muted">{c.body}</p>
+              <span className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-brand">
+                {c.cta}
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </span>
+            </Link>
+          </Reveal>
+        ))}
       </section>
 
-      <div className="container-x pb-4">
-        <CtaLink href="/admissions" variant="outline">
+      <div className="container-x pb-8">
+        <CtaLink href="/admissions" variant="ghost">
           {tn("admissions")}
         </CtaLink>
       </div>

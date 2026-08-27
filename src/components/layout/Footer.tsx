@@ -19,8 +19,12 @@ export function Footer() {
   ];
 
   return (
-    <footer className="on-deep pattern-paper-strong mt-24 bg-brand-deep">
-      <div className="container-x grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="on-deep relative mt-24 overflow-hidden bg-brand-deep">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-32 -top-32 h-[28rem] w-[28rem] rounded-pill bg-brand-bright/12 blur-3xl"
+      />
+      <div className="container-x relative grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Wordmark
             tone="paper"
@@ -48,7 +52,7 @@ export function Footer() {
               <li key={p.tel}>
                 <a
                   href={`tel:${p.tel}`}
-                  className="text-sm text-paper underline decoration-brand-bright/60 underline-offset-4 hover:decoration-brand-bright"
+                  className="inline-flex rounded-pill bg-paper/10 px-4 py-2 text-sm text-paper transition-colors duration-500 hover:bg-paper hover:text-brand-deep"
                 >
                   {p.display}
                 </a>
@@ -98,8 +102,8 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-paper/15">
-        <div className="container-x flex flex-col gap-2 py-6 font-mono text-[11px] text-on-deep sm:flex-row sm:items-center sm:justify-between">
+      <div className="relative border-t border-paper/10">
+        <div className="container-x flex flex-col gap-2 py-7 font-mono text-[11px] text-on-deep sm:flex-row sm:items-center sm:justify-between">
           <p>
             {t("footer.certificateLabel")}{" "}
             <span className="text-paper">

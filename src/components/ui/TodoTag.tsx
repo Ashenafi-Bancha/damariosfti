@@ -18,8 +18,8 @@ export type TodoKind =
 
 /**
  * The single way unsupplied content appears on this site: a visible,
- * deliberately unfinished dashed chip. Never replace one of these with
- * an invented value.
+ * deliberately unfinished chip. Never replace one of these with an
+ * invented value.
  */
 export function TodoTag({
   kind = "generic",
@@ -34,14 +34,20 @@ export function TodoTag({
   const t = useTranslations();
   const palette =
     on === "deep"
-      ? "border-brand-bright/60 text-brand-bright"
-      : "border-brand/45 text-brand";
+      ? "bg-paper/10 text-brand-bright"
+      : "bg-brand-wash text-brand";
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-sm border border-dashed px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.12em] ${palette} ${className}`}
+      className={`inline-flex items-center gap-2 rounded-pill px-3.5 py-1.5 text-[11px] ${palette} ${className}`}
     >
-      <span className="font-medium">{t("common.todoLabel")}</span>
-      <span className="normal-case tracking-normal">{t(`todo.${kind}`)}</span>
+      <span
+        aria-hidden="true"
+        className="h-1.5 w-1.5 rounded-pill bg-current opacity-70"
+      />
+      <span className="font-medium uppercase tracking-[0.1em]">
+        {t("common.todoLabel")}
+      </span>
+      <span className="opacity-90">{t(`todo.${kind}`)}</span>
     </span>
   );
 }

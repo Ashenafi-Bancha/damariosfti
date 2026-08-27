@@ -31,7 +31,7 @@ export function LocaleToggle({
   return (
     <nav
       aria-label={labels.label}
-      className="flex items-stretch overflow-hidden rounded-sm border border-line-control font-mono text-[11px] uppercase tracking-wider"
+      className="flex items-center gap-0.5 rounded-pill bg-paper-tint p-1 text-xs"
     >
       {(["en", "am"] as const).map((l) => (
         <Link
@@ -40,11 +40,11 @@ export function LocaleToggle({
           hrefLang={l}
           onClick={withSearch(hrefFor(l))}
           aria-current={l === locale ? "true" : undefined}
-          className={
+          className={`rounded-pill px-3 py-1.5 transition-colors duration-500 ${
             l === locale
-              ? "bg-brand px-2.5 py-1.5 text-paper"
-              : "px-2.5 py-1.5 text-muted transition-colors hover:bg-brand-wash hover:text-brand"
-          }
+              ? "bg-brand text-paper"
+              : "text-muted hover:text-brand"
+          }`}
         >
           {labels[l]}
         </Link>

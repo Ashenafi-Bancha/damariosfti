@@ -8,11 +8,7 @@ import {
   INTAKE_OPTIONS,
 } from "@/lib/applySchema";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { SeamDivider } from "@/components/atelier/SeamDivider";
-import {
-  ApplyForm,
-  type ApplyFormStrings,
-} from "@/components/forms/ApplyForm";
+import { ApplyForm, type ApplyFormStrings } from "@/components/forms/ApplyForm";
 
 export async function generateMetadata({
   params,
@@ -75,16 +71,17 @@ export default async function ApplyPage({
   return (
     <>
       <PageHeader title={t("title")} lead={t("lead")} />
-      <SeamDivider className="container-x mt-10" />
-      <section className="container-x py-10 sm:py-14">
-        <ApplyForm
-          strings={strings}
-          programmeOptions={programmeOptions}
-          levelOptions={levelOptions}
-          intakeOptions={intakeOptions}
-          educationOptions={educationOptions}
-          heardOptions={heardOptions}
-        />
+      <section className="container-x py-14 sm:py-20">
+        <div className="card card-tint max-w-2xl p-8 sm:p-11">
+          <ApplyForm
+            strings={strings}
+            programmeOptions={programmeOptions}
+            levelOptions={levelOptions}
+            intakeOptions={intakeOptions}
+            educationOptions={educationOptions}
+            heardOptions={heardOptions}
+          />
+        </div>
       </section>
     </>
   );

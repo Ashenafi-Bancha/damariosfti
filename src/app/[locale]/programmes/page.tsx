@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { programmes } from "@/content/programmes";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { PatternCard } from "@/components/atelier/PatternCard";
-import { SeamDivider } from "@/components/atelier/SeamDivider";
+import { Reveal } from "@/components/ui/Reveal";
 
 export async function generateMetadata({
   params,
@@ -31,14 +31,15 @@ function ProgrammesIndex() {
   return (
     <>
       <PageHeader title={t("title")} lead={t("lead")} />
-      <SeamDivider className="container-x mt-10" />
-      <section className="container-x py-10 sm:py-14">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {programmes.map((p) => (
-            <PatternCard key={p.slug} programme={p} headingLevel="h2" />
+      <section className="container-x py-16 sm:py-20">
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {programmes.map((p, i) => (
+            <Reveal as="li" key={p.slug} delay={i * 70} className="flex">
+              <PatternCard programme={p} headingLevel="h2" />
+            </Reveal>
           ))}
-        </div>
-        <p className="mt-8 max-w-md text-xs text-muted">{t("tuitionNote")}</p>
+        </ul>
+        <p className="mt-12 max-w-md text-xs text-muted">{t("tuitionNote")}</p>
       </section>
     </>
   );

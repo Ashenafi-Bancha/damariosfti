@@ -56,7 +56,7 @@ export default async function LocaleLayout({
           <SkipLink label={t("skipToContent")} />
           <Header locale={locale} />
           {locale === "am" && (
-            <p className="border-b border-line bg-brand-wash px-4 py-2 text-center text-xs text-brand">
+            <p className="bg-brand-wash px-4 py-2.5 text-center text-xs text-brand">
               {t("draftNotice")}
             </p>
           )}
