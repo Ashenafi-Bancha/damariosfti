@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/metadata";
 import { getProgramme } from "@/content/programmes";
+import { programmeImages } from "@/content/gallery";
 import { isTodo, PROGRAMME_SLUGS, type Programme } from "@/content/types";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { TodoTag, type TodoKind } from "@/components/ui/TodoTag";
@@ -73,6 +75,7 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
           <p className="mt-6 max-w-2xl text-lg text-muted">
             {t(item("summary"))}
           </p>
+          <ProgrammePhoto slug={slug} />
         </div>
       </header>
 
@@ -159,6 +162,31 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
         <MetaPanel programme={programme} />
       </section>
     </>
+  );
+}
+
+/** A photograph of the programme, or a visible gap where the institute
+    has not supplied one. Never a stock stand-in. */
+function ProgrammePhoto({ slug }: { slug: string }) {
+  const photo = programmeImages[slug];
+  if (typeof photo !== "string") {
+    return (
+      <div className="mt-10 flex aspect-[21/9] w-full items-center justify-center rounded-lg bg-brand-wash">
+        <TodoTag kind="photo" />
+      </div>
+    );
+  }
+  return (
+    <div className="relative mt-10 aspect-[21/9] w-full overflow-hidden rounded-lg shadow-soft">
+      <Image
+        src={`/gallery/${photo}.jpg`}
+        alt=""
+        fill
+        priority
+        sizes="(min-width: 1280px) 74rem, 100vw"
+        className="object-cover"
+      />
+    </div>
   );
 }
 

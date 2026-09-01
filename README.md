@@ -46,6 +46,17 @@ With no channel configured, the apply endpoint returns a clearly-labelled "not c
 - **Fonts** — Bodoni Moda (display), Hanken Grotesk (body), IBM Plex Mono (utility), Noto Sans Ethiopic (Amharic), all self-hosted and subset at build time by `next/font`; Ethiopic is `preload: false` and its files are only fetched on `/am` routes. No italics — every axis costs kilobytes on metered data.
 - **i18n** — all strings through next-intl. Client components receive strings as props from server parents, so the message catalog never ships to the browser (`NextIntlClientProvider messages={null}` — the provider exists only because next-intl's navigation `Link` reads the locale from context).
 
+## Gallery provenance — CONFIRM BEFORE LAUNCH
+
+Photographs live in `public/gallery/`, catalogued in [src/content/gallery.ts](src/content/gallery.ts) where each carries a `verified` flag.
+
+- `verified: true` — the institute's own premises and signage. Safe as-is.
+- `verified: false` — supplied as the founder's design work but not independently verifiable here. Captions are deliberately descriptive ("A piece from the founder's collections") and claim no more than that. **Confirm with the client that the institute owns or is licensed to publish each of these before launch.**
+
+Three images in the source folder were deliberately **excluded**: a private social photograph, an image that appears to be a stock product listing, and personal/scenic shots. None belong on an accredited institute's public site, and publishing a stock image as the institute's own work would be a misrepresentation.
+
+No stock photography is used anywhere. Where the institute has supplied no photograph for a programme, the card and detail page show a marked placeholder rather than a borrowed image.
+
 ## Amharic review — REQUIRED BEFORE LAUNCH
 
 Every string in [messages/am.json](messages/am.json) is a **machine-drafted translation** (flagged by the `_notice` key in the file and a visible banner on all `/am` pages). A native Amharic speaker must review and correct the entire file before launch. Do not remove the banner until that review has happened.
@@ -66,7 +77,10 @@ Every string in [messages/am.json](messages/am.json) is a **machine-drafted tran
 | 10 | **Mario Makeup Company** partnership details | Partnerships page, homepage institutional section |
 | 11 | **Rome Business School entitlements** — confirm study-abroad claims before launch (legally sensitive; see the code comment in [src/app/[locale]/about/partnerships/page.tsx](src/app/[locale]/about/partnerships/page.tsx)) | Partnerships page |
 | 12 | **Capability statement PDF** | Homepage institutional section CTA |
-| 13 | Founder **portrait imagery** | Founder page |
+| 13 | Founder **portrait imagery** — a formal portrait of Dr. Senait Mario; none of the supplied photos is a confirmed portrait | Founder page |
+| 18 | **Teaching photography for five programmes** — Modeling, Cosmetology, Nail Technology, Information Technology, Security Training. Only Fashion Design has a photo; the rest show a marked placeholder | Programme cards + detail pages |
+| 19 | **Confirm gallery provenance** — the institute owns or is licensed to publish each `verified: false` image in `src/content/gallery.ts` | Gallery page |
+| 20 | **Student work and classroom photography** to grow the gallery beyond the founder's collections | Gallery page |
 | 14 | **Response timeframe** after an application (currently phrased without a number) | Apply success state |
 | 15 | Native-speaker **review of all Amharic copy** | Entire `/am` locale |
 | 16 | Confirmation of the exact **map pin** for Kkare Building (embed currently searches by name; landmark directions are the primary aid) | Contact page |

@@ -7,6 +7,7 @@ const paths = [
   "",
   "/programmes",
   ...PROGRAMME_SLUGS.map((slug) => `/programmes/${slug}`),
+  "/gallery",
   "/about",
   "/about/founder",
   "/about/partnerships",

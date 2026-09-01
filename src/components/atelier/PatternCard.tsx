@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { isTodo, type Programme } from "@/content/types";
+import { programmeImages } from "@/content/gallery";
 
 /**
  * A programme card. The pattern-piece number survives from the atelier
@@ -20,6 +22,8 @@ export function PatternCard({
   const tc = useTranslations("common");
   const { slug } = programme;
   const Heading = headingLevel;
+  const photo = programmeImages[slug];
+  const hasPhoto = typeof photo === "string";
 
   const metaCells = [
     {
@@ -35,15 +39,29 @@ export function PatternCard({
   return (
     <Link
       href={`/programmes/${slug}`}
-      className="card card-interactive group relative flex h-full flex-col overflow-hidden p-8"
+      className="card card-interactive group relative flex h-full flex-col overflow-hidden"
     >
-      {/* a wash of light that blooms from the corner on hover */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-pill bg-brand-wash opacity-0 blur-2xl transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100"
-      />
+      {/* Photograph where the institute has supplied one; otherwise a
+          marked placeholder — never a borrowed or stock image. */}
+      <div className="relative aspect-[16/10] overflow-hidden bg-brand-wash">
+        {hasPhoto ? (
+          <Image
+            src={`/gallery/${photo}.jpg`}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 92vw"
+            className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]"
+          />
+        ) : (
+          <span className="absolute inset-0 flex items-center justify-center">
+            <span className="rounded-pill bg-paper/70 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.1em] text-brand">
+              {tc("todoLabel")}
+            </span>
+          </span>
+        )}
+      </div>
 
-      <div className="relative flex items-center justify-between">
+      <div className="relative flex items-center justify-between px-8 pt-7">
         <span className="font-mono text-[11px] tracking-[0.18em] text-brand/70">
           {programme.piece}
         </span>
@@ -63,14 +81,14 @@ export function PatternCard({
         </span>
       </div>
 
-      <Heading className="relative mt-6 font-display text-display-sm text-brand-deep">
+      <Heading className="relative mt-5 px-8 font-display text-display-sm text-brand-deep">
         {t(`items.${slug}.name`)}
       </Heading>
-      <p className="relative mt-2.5 flex-1 text-sm leading-relaxed text-muted">
+      <p className="relative mt-2.5 flex-1 px-8 text-sm leading-relaxed text-muted">
         {t(`items.${slug}.tagline`)}
       </p>
 
-      <dl className="relative mt-7 flex flex-wrap gap-2">
+      <dl className="relative mb-8 mt-7 flex flex-wrap gap-2 px-8">
         {metaCells.map((c) => (
           <div
             key={c.label}

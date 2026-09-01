@@ -14,7 +14,8 @@ export type TodoKind =
   | "curriculum"
   | "requirements"
   | "timeframe"
-  | "details";
+  | "details"
+  | "photo";
 
 /**
  * The single way unsupplied content appears on this site: a visible,

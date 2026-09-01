@@ -11,6 +11,7 @@ export function Header({ locale }: { locale: string }) {
 
   const links = [
     { href: "/programmes", label: t("programmes") },
+    { href: "/gallery", label: t("gallery") },
     { href: "/about", label: t("about") },
     { href: "/admissions", label: t("admissions") },
     { href: "/contact", label: t("contact") },

@@ -10,6 +10,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   const instituteLinks = [
+    { href: "/gallery", label: t("nav.gallery") },
     { href: "/about", label: t("nav.about") },
     { href: "/about/founder", label: t("nav.founder") },
     { href: "/about/partnerships", label: t("nav.partnerships") },

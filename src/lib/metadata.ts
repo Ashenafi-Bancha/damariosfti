@@ -8,6 +8,7 @@ const OG_IMAGE = "/opengraph-image.png";
 type MetaPage =
   | "home"
   | "programmes"
+  | "gallery"
   | "programmeDetail"
   | "about"
   | "founder"

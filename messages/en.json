@@ -22,7 +22,8 @@
     "curriculum": "Curriculum details to be supplied",
     "requirements": "Entry requirements to be confirmed",
     "timeframe": "Response timeframe to be confirmed",
-    "details": "Details to be confirmed"
+    "details": "Details to be confirmed",
+    "photo": "Programme photography to be supplied"
   },
   "nav": {
     "home": "Home",
@@ -33,7 +34,8 @@
     "apply": "Apply now",
     "founder": "The founder",
     "partnerships": "Partnerships",
-    "menuLabel": "Main navigation"
+    "menuLabel": "Main navigation",
+    "gallery": "Gallery"
   },
   "localeToggle": {
     "label": "Language",
@@ -156,7 +158,12 @@
         "tagline": "Hair, makeup, nails, skin.",
         "summary": "The four pillars of the beauty industry, taught as a working craft.",
         "delivery": "A mix of classroom lectures and hands-on training in a salon-like setting.",
-        "curriculum": ["Hairstyling", "Makeup", "Nail care", "Skin care"]
+        "curriculum": [
+          "Hairstyling",
+          "Makeup",
+          "Nail care",
+          "Skin care"
+        ]
       },
       "nail-technology": {
         "name": "Nail Technology",
@@ -434,6 +441,33 @@
     "contact": {
       "title": "Contact — Damarios FTI",
       "description": "Call 0989 044 444 or visit the Kkare Building, Bole Sub City, Addis Ababa — near Bole Brass and Yod Abyssinia."
+    },
+    "gallery": {
+      "title": "Gallery — Damarios FTI",
+      "description": "Design work from the founder's collections and the institute itself in Bole, Addis Ababa."
+    }
+  },
+  "gallery": {
+    "kicker": "Gallery",
+    "title": "The work, and the place it is taught.",
+    "lead": "Design work from the founder's collections, and the institute itself in Bole. More from classrooms and student work will be added as the institute supplies it.",
+    "ctaTitle": "Want your work on this page?",
+    "ctaBody": "Applications are open across all six programmes.",
+    "ctaButton": "Apply now",
+    "items": {
+      "institute-reception": "The institute's reception on the 1st floor of the Kkare Building, Bole",
+      "institute-desk": "The front desk beneath the institute's sign",
+      "illustration-1": "Fashion illustration: a three-look line-up drawn with woven Ethiopian borders",
+      "design-2": "A piece from the founder's collections",
+      "design-3": "A piece from the founder's collections",
+      "design-4": "A tailored coat cut in Ethiopian woven patterning",
+      "design-5": "A piece from the founder's collections",
+      "design-6": "A piece from the founder's collections",
+      "design-7": "An evening gown in Ethiopian woven patterning",
+      "design-8": "A piece from the founder's collections",
+      "design-9": "A piece from the founder's collections",
+      "design-10": "A piece from the founder's collections",
+      "design-11": "A piece from the founder's collections"
     }
   }
 }
