@@ -118,6 +118,17 @@ body {
   outline-color: var(--color-brand-bright);
 }
 
+/* Wordmark tagline. Set to run to about the same width as the name
+   above it. Amharic says the same thing in far fewer, wider glyphs, so
+   at the Latin size it would sit visibly short — scale it up on /am. */
+.wordmark-tag {
+  font-size: var(--wm-tag);
+}
+.lang-am .wordmark-tag {
+  font-size: calc(var(--wm-tag) * 1.75);
+  letter-spacing: 0.01em;
+}
+
 /* Shared page gutter */
 .container-x {
   margin-inline: auto;

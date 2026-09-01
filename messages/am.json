@@ -24,7 +24,8 @@
     "requirements": "የመግቢያ መስፈርቶች ገና አልተረጋገጡም",
     "timeframe": "የምላሽ ጊዜ ገና አልተረጋገጠም",
     "details": "ዝርዝሮች ገና አልተረጋገጡም",
-    "photo": "የፕሮግራሙ ፎቶ ገና አልቀረበም"
+    "photo": "የፕሮግራሙ ፎቶ ገና አልቀረበም",
+    "heroMedia": "የመነሻ ገጽ ምስል በመጠባበቅ ላይ"
   },
   "nav": {
     "home": "መነሻ",
@@ -53,7 +54,8 @@
     "piece01": "PIECE 01 — BODICE FRONT",
     "piece02": "PIECE 02 — SLEEVE ×2",
     "piece03": "PIECE 03 — SKIRT PANEL",
-    "grain": "GRAIN"
+    "grain": "GRAIN",
+    "mediaHint": "የ3D ዲዛይን ምስል ወይም የተቋሙ ፎቶ እዚህ ይቀመጣል።"
   },
   "home": {
     "intro": {

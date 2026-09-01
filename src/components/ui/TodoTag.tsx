@@ -15,7 +15,8 @@ export type TodoKind =
   | "requirements"
   | "timeframe"
   | "details"
-  | "photo";
+  | "photo"
+  | "heroMedia";
 
 /**
  * The single way unsupplied content appears on this site: a visible,

@@ -29,6 +29,7 @@ export function Footer() {
         <div>
           <Wordmark
             tone="paper"
+            size="lg"
             name={t("common.wordmarkTop")}
             tagline={t("common.wordmarkSub")}
           />

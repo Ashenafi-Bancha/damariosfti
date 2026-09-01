@@ -23,7 +23,8 @@
     "requirements": "Entry requirements to be confirmed",
     "timeframe": "Response timeframe to be confirmed",
     "details": "Details to be confirmed",
-    "photo": "Programme photography to be supplied"
+    "photo": "Programme photography to be supplied",
+    "heroMedia": "Hero image pending"
   },
   "nav": {
     "home": "Home",
@@ -52,7 +53,8 @@
     "piece01": "PIECE 01 — BODICE FRONT",
     "piece02": "PIECE 02 — SLEEVE ×2",
     "piece03": "PIECE 03 — SKIRT PANEL",
-    "grain": "GRAIN"
+    "grain": "GRAIN",
+    "mediaHint": "A 3D design render or a photograph of the institute will sit here."
   },
   "home": {
     "intro": {

@@ -47,32 +47,51 @@ export function Logo({
   );
 }
 
-/** Mark plus the two-line wordmark, as the logo is locked up. */
+/**
+ * Mark plus the two-line wordmark, following the proportions of the
+ * printed logo: a heavy "DAMARIOS" with the tagline tucked beneath it at
+ * roughly the same measure. The tagline is deliberately small and tightly
+ * tracked — set any larger it runs far wider than the name above it and
+ * the lockup stops reading as one unit.
+ */
 export function Wordmark({
   tone = "brand",
   name,
   tagline,
   priority = false,
+  size = "md",
 }: {
   tone?: "brand" | "paper";
   name: string;
   tagline: string;
   priority?: boolean;
+  /** "lg" gives the footer, which has room, a larger lockup. */
+  size?: "md" | "lg";
 }) {
   const text = tone === "paper" ? "text-paper" : "text-brand";
   const sub = tone === "paper" ? "text-on-deep" : "text-muted";
 
+  /* Sizes chosen by measuring the rendered text: the tagline is set so it
+     runs to roughly the same width as "DAMARIOS" above it, as it does in
+     the printed logo. It must never wrap — a second line breaks the
+     lockup — hence whitespace-nowrap below. */
+  const s =
+    size === "lg"
+      ? { mark: 62, name: "text-[2rem]", tag: "0.56rem", gap: "gap-4" }
+      : { mark: 46, name: "text-[1.7rem]", tag: "0.47rem", gap: "gap-3" };
+
   return (
-    <span className="flex items-center gap-3">
-      <Logo tone={tone} height={44} priority={priority} />
-      <span className="flex flex-col leading-none">
+    <span className={`flex items-center ${s.gap}`}>
+      <Logo tone={tone} height={s.mark} priority={priority} />
+      <span className="flex flex-col">
         <span
-          className={`font-body text-[1.3rem] font-extrabold uppercase tracking-[0.055em] ${text}`}
+          className={`font-body ${s.name} font-extrabold uppercase leading-none tracking-[0.005em] ${text}`}
         >
           {name}
         </span>
         <span
-          className={`mt-1 text-[0.62rem] uppercase tracking-[0.12em] ${sub}`}
+          className={`wordmark-tag mt-[0.4em] whitespace-nowrap uppercase leading-none tracking-[0.05em] ${sub}`}
+          style={{ "--wm-tag": s.tag } as React.CSSProperties}
         >
           {tagline}
         </span>

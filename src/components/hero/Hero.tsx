@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { ClothStage } from "./ClothStage";
+import { HeroMedia } from "./HeroMedia";
 
 export function Hero() {
   const t = useTranslations("hero");
@@ -28,11 +28,10 @@ export function Hero() {
           </div>
         </div>
 
-        {/* The fabric: real 3D where the device can afford it, a silk
-            gradient everywhere else. Decorative — the headline carries
-            the meaning, so it stays out of the accessibility tree. */}
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-[34rem] rounded-xl shadow-deep sm:aspect-[5/4] lg:aspect-[4/5]">
-          <ClothStage />
+        {/* Decorative — the headline carries the meaning, so this slot
+            stays out of the accessibility tree. */}
+        <div className="card relative mx-auto aspect-[4/5] w-full max-w-[34rem] overflow-hidden rounded-xl sm:aspect-[5/4] lg:aspect-[4/5]">
+          <HeroMedia />
         </div>
       </div>
     </section>
