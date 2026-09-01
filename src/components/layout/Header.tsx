@@ -20,7 +20,11 @@ export function Header({ locale }: { locale: string }) {
     <header className="sticky top-0 z-40 bg-paper/80 backdrop-blur-xl">
       <div className="container-x flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-4">
         <Link href="/" aria-label={tc("instituteName")} className="rounded-md">
-          <Wordmark name={tc("wordmarkTop")} tagline={tc("wordmarkSub")} />
+          <Wordmark
+            name={tc("wordmarkTop")}
+            tagline={tc("wordmarkSub")}
+            priority
+          />
         </Link>
 
         {/* Single nav element: full-width scrollable row on mobile,
