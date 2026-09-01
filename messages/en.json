@@ -38,9 +38,9 @@
     "gallery": "Gallery"
   },
   "hero": {
-    "kicker": "Accredited institute · Bole, Addis Ababa",
+    "kicker": "Bole, Addis Ababa",
     "headline": "Education that ends in employment.",
-    "sub": "Fashion, beauty, technology and security — taught for the workplace, not just the certificate. Accredited, hands-on, and about two kilometres from Bole International Airport.",
+    "sub": "Fashion, beauty, technology and security — taught for the workplace, not just the certificate. Hands-on, and about two kilometres from Bole International Airport.",
     "ctaProgrammes": "Explore programmes",
     "ctaAdmissions": "How to apply",
     "scrollHint": "Scroll to assemble",
@@ -73,8 +73,6 @@
     "institutional": {
       "kicker": "For institutions & partners",
       "title": "A training partner for youth employment at scale.",
-      "accreditationTitle": "Accreditation",
-      "accreditationBody": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority, Bole branch office.",
       "capacityTitle": "Capacity",
       "capacityBody": "The institute actively bids for large youth skills-training contracts — including international certification and job placement — across four sectors:",
       "sectors": [
@@ -196,11 +194,9 @@
   },
   "about": {
     "title": "About the institute",
-    "lead": "An accredited fashion and technology institute in Bole, Addis Ababa, founded in 2024. The institute exists to bridge the gap between education and employment.",
+    "lead": "A fashion and technology institute in Bole, Addis Ababa, founded in 2024. It exists to bridge the gap between education and employment.",
     "visionTitle": "Vision",
     "vision": "To become a world-class international institute providing purpose-driven higher education and high-impact research that transforms lives and contributes to social and economic development.",
-    "accreditationTitle": "Accreditation",
-    "accreditationBody": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority, Bole branch office.",
     "locationTitle": "Location & access",
     "locationBody": "1st floor, Kkare Building, Bole Sub City, Addis Ababa — at the Bole Brass landmark, near Yod Abyssinia, about 2 km from Bole International Airport.",
     "accessibilityTitle": "Accessibility",
@@ -398,7 +394,7 @@
   "meta": {
     "home": {
       "title": "Da Mario's Fashion and Technology Institute — Addis Ababa",
-      "description": "Accredited fashion, beauty, technology and security training in Bole, Addis Ababa. Founded in 2024 by Dr. Senait Mario — an institute that exists to bridge the gap between education and employment."
+      "description": "Fashion, beauty, technology and security training in Bole, Addis Ababa. Founded in 2024 by Dr. Senait Mario — an institute that exists to bridge the gap between education and employment."
     },
     "programmes": {
       "title": "Programmes — Damarios FTI",
@@ -410,7 +406,7 @@
     },
     "about": {
       "title": "About — Damarios FTI",
-      "description": "An accredited fashion and technology institute in Bole, Addis Ababa, founded in 2024 — it exists to bridge the gap between education and employment."
+      "description": "A fashion and technology institute in Bole, Addis Ababa, founded in 2024 — it exists to bridge the gap between education and employment."
     },
     "founder": {
       "title": "Dr. Senait Mario — Founder & CEO, Damarios FTI",

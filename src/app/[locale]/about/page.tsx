@@ -40,7 +40,7 @@ function About() {
     <>
       <PageHeader title={t("title")} lead={t("lead")} />
 
-      <section className="container-x grid gap-6 py-16 sm:py-20 lg:grid-cols-2">
+      <section className="container-x py-16 sm:py-20">
         <Reveal className="flex">
           <figure className="card card-tint w-full p-9 sm:p-11">
             <figcaption className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
@@ -52,14 +52,6 @@ function About() {
           </figure>
         </Reveal>
 
-        <Reveal delay={100} className="flex">
-          <div className="card w-full p-9 sm:p-11">
-            <h2 className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
-              {t("accreditationTitle")}
-            </h2>
-            <p className="mt-4 text-sm text-muted">{t("accreditationBody")}</p>
-          </div>
-        </Reveal>
       </section>
 
       <section className="container-x grid gap-10 pb-16 sm:pb-20 lg:grid-cols-3">

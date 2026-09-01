@@ -159,15 +159,7 @@ function InstitutionalSection() {
               {t("title")}
             </h2>
 
-            <div className="mt-14 grid gap-6 lg:grid-cols-3">
-              <div className="card-glass p-8">
-                <h3 className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
-                  {t("accreditationTitle")}
-                </h3>
-                <p className="mt-4 text-sm text-on-deep">
-                  {t("accreditationBody")}
-                </p>
-              </div>
+            <div className="mt-14 grid gap-6 lg:grid-cols-2">
 
               <div className="card-glass p-8">
                 <h3 className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
