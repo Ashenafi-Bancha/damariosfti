@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { bodoni, hanken, plexMono, notoEthiopic } from "@/lib/fonts";
+import { bodoni, hanken, plexMono } from "@/lib/fonts";
 import { SITE_URL } from "@/lib/site";
 import { educationalOrgJsonLd } from "@/lib/jsonld";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -36,14 +36,9 @@ export default async function LocaleLayout({
 
   const t = await getTranslations("common");
 
-  /* The Ethiopic variable is attached only on /am so its font files are
-     never requested on /en (see lib/fonts.ts). Both locales are LTR. */
-  const fontClasses = [
-    bodoni.variable,
-    hanken.variable,
-    plexMono.variable,
-    ...(locale === "am" ? [notoEthiopic.variable, "lang-am"] : []),
-  ].join(" ");
+  const fontClasses = [bodoni.variable, hanken.variable, plexMono.variable].join(
+    " "
+  );
 
   return (
     <html lang={locale} dir="ltr" className={fontClasses}>
@@ -54,12 +49,7 @@ export default async function LocaleLayout({
             navigation <Link> reads the active locale from this context. */}
         <NextIntlClientProvider messages={null}>
           <SkipLink label={t("skipToContent")} />
-          <Header locale={locale} />
-          {locale === "am" && (
-            <p className="bg-brand-wash px-4 py-2.5 text-center text-xs text-brand">
-              {t("draftNotice")}
-            </p>
-          )}
+          <Header />
           <main id="content">{children}</main>
           <Footer />
           <JsonLd data={educationalOrgJsonLd()} />

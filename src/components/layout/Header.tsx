@@ -1,15 +1,14 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { LocaleToggle } from "./LocaleToggle";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Wordmark } from "@/components/brand/Logo";
 
-export function Header({ locale }: { locale: string }) {
+export function Header() {
   const t = useTranslations("nav");
   const tc = useTranslations("common");
-  const tl = useTranslations("localeToggle");
 
   const links = [
+    { href: "/", label: t("home") },
     { href: "/programmes", label: t("programmes") },
     { href: "/gallery", label: t("gallery") },
     { href: "/about", label: t("about") },
@@ -48,11 +47,7 @@ export function Header({ locale }: { locale: string }) {
           </ul>
         </nav>
 
-        <div className="order-2 flex items-center gap-3 md:order-3">
-          <LocaleToggle
-            locale={locale}
-            labels={{ label: tl("label"), en: tl("en"), am: tl("am") }}
-          />
+        <div className="order-2 md:order-3">
           <CtaLink href="/apply" size="sm" className="hidden sm:inline-flex">
             {t("apply")}
           </CtaLink>

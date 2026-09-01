@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { PROGRAMME_SLUGS } from "@/content/types";
-import { routing } from "@/i18n/routing";
 
 const paths = [
   "",
@@ -18,15 +17,8 @@ const paths = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return paths.flatMap((path) =>
-    routing.locales.map((locale) => ({
-      url: `${SITE_URL}/${locale}${path}`,
-      lastModified,
-      alternates: {
-        languages: Object.fromEntries(
-          routing.locales.map((l) => [l, `${SITE_URL}/${l}${path}`])
-        ),
-      },
-    }))
-  );
+  return paths.map((path) => ({
+    url: `${SITE_URL}${path || "/"}`,
+    lastModified,
+  }));
 }

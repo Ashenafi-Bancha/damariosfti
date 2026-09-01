@@ -33,6 +33,18 @@ export const institute = {
   email: TODO("Client to confirm public email address") satisfies Todo,
   telegram: TODO("Client to confirm Telegram handle") satisfies Todo,
 
+  /**
+   * Social profiles. A URL here goes live immediately; a TODO renders the
+   * icon inactive with a marker. Never guess at a handle — linking to the
+   * wrong account sends the institute's visitors to a stranger.
+   */
+  social: {
+    facebook: TODO("Client to supply the Facebook page URL"),
+    instagram: TODO("Client to supply the Instagram profile URL"),
+    tiktok: TODO("Client to supply the TikTok profile URL"),
+    telegram: TODO("Client to supply the Telegram channel URL"),
+  } as Record<string, string | Todo>,
+
   hours: [
     {
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

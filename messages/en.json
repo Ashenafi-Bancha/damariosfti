@@ -5,8 +5,7 @@
     "wordmarkTop": "Damarios",
     "wordmarkSub": "Fashion and Technology Institute",
     "skipToContent": "Skip to content",
-    "todoLabel": "TODO",
-    "draftNotice": "This Amharic version is a machine-drafted translation awaiting review by a native speaker."
+    "todoLabel": "TODO"
   },
   "todo": {
     "generic": "To be confirmed by the institute",
@@ -38,11 +37,6 @@
     "menuLabel": "Main navigation",
     "gallery": "Gallery"
   },
-  "localeToggle": {
-    "label": "Language",
-    "en": "English",
-    "am": "አማርኛ"
-  },
   "hero": {
     "kicker": "Accredited institute · Bole, Addis Ababa",
     "headline": "Education that ends in employment.",
@@ -66,7 +60,7 @@
     },
     "programmes": {
       "kicker": "The pattern pieces",
-      "title": "Six programmes. One method.",
+      "title": "Distinct crafts. One method.",
       "lead": "Each programme is cut like a pattern piece: a defined craft, with level, duration and intake published as the institute confirms them.",
       "cta": "All programmes"
     },
@@ -80,9 +74,7 @@
       "kicker": "For institutions & partners",
       "title": "A training partner for youth employment at scale.",
       "accreditationTitle": "Accreditation",
-      "accreditationBody": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority, Bole branch office.",
-      "certificateLabel": "Accreditation certificate no.",
-      "licenceLabel": "Trade licence no.",
+      "accreditationBody": "The institute is a registered and accredited training provider, licensed to deliver and certify the programmes it offers.",
       "capacityTitle": "Capacity",
       "capacityBody": "The institute actively bids for large youth skills-training contracts — including international certification and job placement — across four sectors:",
       "sectors": [
@@ -94,7 +86,8 @@
       "partnershipsTitle": "Partnerships",
       "partnershipsBody": "International academic and cultural exchange with Rome Business School — an international business school founded in 2011, part of the Planeta Formación y Universidades network, with students from over 140 countries — and a global partnership with Mario Makeup Company.",
       "partnershipsCta": "About our partnerships",
-      "downloadCta": "Download capability statement"
+      "downloadCta": "Download capability statement",
+      "accreditationAuthority": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority."
     },
     "visit": {
       "kicker": "Visit",
@@ -121,7 +114,7 @@
     },
     "index": {
       "title": "Programmes",
-      "lead": "Six crafts, taught for employment. Where a detail reads “to be confirmed”, the institute has not yet published it — call 0989 044 444 to ask.",
+      "lead": "Crafts taught for employment. Where a detail reads “to be confirmed”, the institute has not yet published it — call 0989 044 444 to ask.",
       "tuitionNote": "Tuition for each programme is being confirmed by the institute and will be published here."
     },
     "items": {
@@ -208,9 +201,7 @@
     "visionTitle": "Vision",
     "vision": "To become a world-class international institute providing purpose-driven higher education and high-impact research that transforms lives and contributes to social and economic development.",
     "accreditationTitle": "Accreditation",
-    "accreditationBody": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority, Bole branch office.",
-    "certificateLabel": "Accreditation certificate no.",
-    "licenceLabel": "Trade licence no.",
+    "accreditationBody": "The institute is a registered and accredited training provider, licensed to deliver and certify the programmes it offers.",
     "locationTitle": "Location & access",
     "locationBody": "1st floor, Kkare Building, Bole Sub City, Addis Ababa — at the Bole Brass landmark, near Yod Abyssinia, about 2 km from Bole International Airport.",
     "accessibilityTitle": "Accessibility",
@@ -225,7 +216,8 @@
       "title": "Partnerships",
       "body": "Rome Business School and Mario Makeup Company.",
       "cta": "About our partnerships"
-    }
+    },
+    "accreditationAuthority": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority."
   },
   "founder": {
     "title": "Dr. Senait Mario",
@@ -288,7 +280,7 @@
     "steps": [
       {
         "title": "Choose your programme",
-        "body": "Six programmes across fashion, beauty, technology and security. Read what each one teaches before you apply."
+        "body": "Programmes across fashion, beauty, technology and security. Read what each one teaches before you apply."
       },
       {
         "title": "Get in touch — online, by phone, or in person",
@@ -402,10 +394,9 @@
     "visitTitle": "Visit",
     "programmesTitle": "Programmes",
     "instituteTitle": "Institute",
-    "certificateLabel": "Accreditation certificate no.",
-    "licenceLabel": "Trade licence no.",
     "accreditedBy": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority, Bole branch office.",
-    "rights": "© {year} Da Mario's Fashion and Technology Institute. All rights reserved."
+    "rights": "© {year} Da Mario's Fashion and Technology Institute. All rights reserved.",
+    "followBody": "Follow the institute"
   },
   "meta": {
     "home": {
@@ -454,7 +445,7 @@
     "title": "The work, and the place it is taught.",
     "lead": "Design work from the founder's collections, and the institute itself in Bole. More from classrooms and student work will be added as the institute supplies it.",
     "ctaTitle": "Want your work on this page?",
-    "ctaBody": "Applications are open across all six programmes.",
+    "ctaBody": "Applications are open across every programme.",
     "ctaButton": "Apply now",
     "items": {
       "institute-reception": "The institute's reception on the 1st floor of the Kkare Building, Bole",

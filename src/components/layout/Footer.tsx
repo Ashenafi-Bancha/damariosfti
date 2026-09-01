@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { institute } from "@/content/institute";
 import { programmes } from "@/content/programmes";
 import { TodoTag } from "@/components/ui/TodoTag";
+import { SocialLinks } from "./SocialLinks";
 import { Wordmark } from "@/components/brand/Logo";
 
 export function Footer() {
@@ -104,20 +105,18 @@ export function Footer() {
         </div>
       </div>
 
+      <div className="container-x relative flex flex-col items-center gap-6 pb-10 md:flex-row md:justify-between">
+        <p className="order-2 text-xs text-on-deep md:order-1">
+          {t("footer.followBody")}
+        </p>
+        <div className="order-1 md:order-2">
+          <SocialLinks />
+        </div>
+      </div>
+
       <div className="relative border-t border-paper/10">
-        <div className="container-x flex flex-col gap-2 py-7 font-mono text-[11px] text-on-deep sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            {t("footer.certificateLabel")}{" "}
-            <span className="text-paper">
-              {institute.accreditation.certificateNo}
-            </span>
-            <span aria-hidden="true"> · </span>
-            {t("footer.licenceLabel")}{" "}
-            <span className="text-paper">
-              {institute.accreditation.tradeLicenceNo}
-            </span>
-          </p>
-          <p>{t("footer.rights", { year })}</p>
+        <div className="container-x py-7 text-center text-xs text-on-deep">
+          {t("footer.rights", { year })}
         </div>
       </div>
     </footer>

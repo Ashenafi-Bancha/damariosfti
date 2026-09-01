@@ -45,6 +45,8 @@ With no channel configured, the apply endpoint returns a clearly-labelled "not c
 - **The 3D fabric (retained, not currently mounted)** — in [ClothCanvas.tsx](src/components/hero/ClothCanvas.tsx): a 76×76 sheet displaced by five wave harmonics, pinned along its top edge so it drapes and falls away below, lit per-pixel with a two-lobe silk sheen and a fresnel rim. It is hand-written WebGL2 — **no three.js** — which is why it is **2.7 KB gzipped** rather than the ~135 KB a three.js scene would cost, and so comes in far under the 60 KB budget that made 3D look impossible at the start. Note the shader encodes back to sRGB on output; without that the lighting maths (done in linear space) renders the fabric near-black.
 - **Hero gating** — the fabric is a lazy chunk fetched on idle, and only when `prefers-reduced-motion` is off, `saveData` is off, `effectiveType` is 4g/5g, `deviceMemory` ≥ 4 and WebGL2 exists. Everyone else keeps a pure-CSS silk gradient poster that stands on its own, and the 3D bundle is never requested.
 - **Fonts** — Bodoni Moda (display), Hanken Grotesk (body), IBM Plex Mono (utility), Noto Sans Ethiopic (Amharic), all self-hosted and subset at build time by `next/font`; Ethiopic is `preload: false` and its files are only fetched on `/am` routes. No italics — every axis costs kilobytes on metered data.
+- **Accreditation numbers** — the certificate and trade licence numbers were removed from all pages at the client's request. The accreditation *statement* remains on the About page and the institutional section. The numbers are still held in [src/content/institute.ts](src/content/institute.ts) if they are ever wanted back (they are useful evidence in tender submissions).
+- **Social links** — [src/content/institute.ts](src/content/institute.ts) `social`. A URL makes the icon live; a `TODO` renders it inactive with a tooltip. Never guess a handle — the wrong link sends visitors to a stranger's account.
 - **i18n** — all strings through next-intl. Client components receive strings as props from server parents, so the message catalog never ships to the browser (`NextIntlClientProvider messages={null}` — the provider exists only because next-intl's navigation `Link` reads the locale from context).
 
 ## Gallery provenance — CONFIRM BEFORE LAUNCH
@@ -58,9 +60,9 @@ Three images in the source folder were deliberately **excluded**: a private soci
 
 No stock photography is used anywhere. Where the institute has supplied no photograph for a programme, the card and detail page show a marked placeholder rather than a borrowed image.
 
-## Amharic review — REQUIRED BEFORE LAUNCH
+## Amharic — currently disabled
 
-Every string in [messages/am.json](messages/am.json) is a **machine-drafted translation** (flagged by the `_notice` key in the file and a visible banner on all `/am` pages). A native Amharic speaker must review and correct the entire file before launch. Do not remove the banner until that review has happened.
+The site is **English only** by client instruction. next-intl is still in place and every string still goes through the catalogue, so restoring Amharic means adding `"am"` back to `locales` in [src/i18n/routing.ts](src/i18n/routing.ts) and re-attaching the Noto Sans Ethiopic font in `src/lib/fonts.ts`. The drafted translation is preserved at [messages/am.json](messages/am.json) and is not loaded while it sits outside `locales`. **It remains machine-drafted — a native speaker must review it before it is ever shown.**
 
 ## TODO inventory — what the client must supply
 
@@ -82,6 +84,7 @@ Every string in [messages/am.json](messages/am.json) is a **machine-drafted tran
 | 18 | **Teaching photography for five programmes** — Modeling, Cosmetology, Nail Technology, Information Technology, Security Training. Only Fashion Design has a photo; the rest show a marked placeholder | Programme cards + detail pages |
 | 19 | **Confirm gallery provenance** — the institute owns or is licensed to publish each `verified: false` image in `src/content/gallery.ts` | Gallery page |
 | 20 | **Student work and classroom photography** to grow the gallery beyond the founder's collections | Gallery page |
+| 21 | **Social profile URLs** — Facebook, Instagram, TikTok, Telegram. Icons are in place but inactive until supplied | Footer |
 | 14 | **Response timeframe** after an application (currently phrased without a number) | Apply success state |
 | 15 | Native-speaker **review of all Amharic copy** | Entire `/am` locale |
 | 16 | Confirmation of the exact **map pin** for Kkare Building (embed currently searches by name; landmark directions are the primary aid) | Contact page |

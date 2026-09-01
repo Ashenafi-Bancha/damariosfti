@@ -27,7 +27,7 @@ export async function pageMetadata(
   const t = await getTranslations({ locale, namespace: "meta" });
   const title = t(`${page}.title`, values);
   const description = t(`${page}.description`, values);
-  const url = `${SITE_URL}/${locale}${path}`;
+  const url = `${SITE_URL}${path || "/"}`;
 
   return {
     title,
@@ -35,8 +35,7 @@ export async function pageMetadata(
     alternates: {
       canonical: url,
       languages: {
-        en: `${SITE_URL}/en${path}`,
-        am: `${SITE_URL}/am${path}`,
+        en: `${SITE_URL}${path || "/"}`,
       },
     },
     openGraph: {
@@ -44,7 +43,7 @@ export async function pageMetadata(
       description,
       url,
       siteName: "Da Mario's Fashion and Technology Institute",
-      locale: locale === "am" ? "am_ET" : "en_US",
+      locale: "en_US",
       type: "website",
       /* Declared explicitly: defining `openGraph` here opts the route out
          of Next's file-based opengraph-image convention, so without this
