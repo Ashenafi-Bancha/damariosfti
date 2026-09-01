@@ -396,11 +396,8 @@
     "visitTitle": "Visit",
     "programmesTitle": "Programmes",
     "instituteTitle": "Institute",
-    "accreditedBy": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority, Bole branch office.",
     "rights": "© {year} Da Mario's Fashion and Technology Institute. All rights reserved.",
-    "followBody": "Follow the institute",
-    "certificateLabel": "Accreditation certificate no.",
-    "licenceLabel": "Trade licence no."
+    "followUs": "Follow us"
   },
   "meta": {
     "home": {

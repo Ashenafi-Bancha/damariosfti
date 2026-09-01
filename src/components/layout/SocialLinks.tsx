@@ -1,69 +1,136 @@
 import { institute } from "@/content/institute";
 import { isTodo } from "@/content/types";
 
-/** Simple, evenly-weighted glyphs — no brand-logo assets to license. */
-const ICONS: Record<string, React.ReactNode> = {
-  facebook: (
-    <path d="M13.5 9H15V6.5h-1.8C11.4 6.5 10.5 7.7 10.5 9.4V11H9v2.5h1.5V19h2.6v-5.5H15L15.3 11h-2.2V9.7c0-.5.1-.7.4-.7Z" />
-  ),
-  instagram: (
-    <>
-      <rect x="5.2" y="5.2" width="13.6" height="13.6" rx="4.2" fill="none" stroke="currentColor" strokeWidth="1.7" />
-      <circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" strokeWidth="1.7" />
-      <circle cx="16.2" cy="7.9" r="1.05" />
-    </>
-  ),
-  tiktok: (
-    <path d="M14.1 5h2.1c.2 1.6 1.1 2.8 2.7 3v2.1a5.6 5.6 0 0 1-2.7-.8v4.4a4.2 4.2 0 1 1-4.2-4.2c.2 0 .4 0 .6.05v2.2a2.05 2.05 0 1 0 1.5 2v-8.8Z" />
-  ),
-  telegram: (
-    <path d="M19.3 6.2 5.6 11.4c-.7.3-.7.8 0 1l3.4 1 1.3 4c.2.5.4.6.8.2l1.9-1.8 3.6 2.7c.5.3.9.1 1-.5l2.2-10.5c.1-.6-.2-.9-.5-.7Zm-3.2 2.4-5.6 5.1-.2 2.3-1.2-3.7 7-3.7Z" />
-  ),
+/**
+ * Social icons in each platform's own colours. They sit on white discs
+ * because the brand blues, black and gradients would all disappear
+ * against the navy footer.
+ *
+ * A profile with no URL yet renders as a non-interactive disc with a
+ * tooltip — the icon is right, the link simply isn't guessed at.
+ */
+const ICONS: Record<string, { label: string; glyph: React.ReactNode }> = {
+  facebook: {
+    label: "Facebook",
+    glyph: (
+      <path
+        fill="#1877F2"
+        d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.9h-2.33v7.03C18.34 21.24 22 17.08 22 12.06Z"
+      />
+    ),
+  },
+  instagram: {
+    label: "Instagram",
+    glyph: (
+      <>
+        <defs>
+          <radialGradient id="ig-grad" cx="0.3" cy="1.05" r="1.25">
+            <stop offset="0%" stopColor="#FFDD55" />
+            <stop offset="25%" stopColor="#FF543E" />
+            <stop offset="55%" stopColor="#C837AB" />
+            <stop offset="100%" stopColor="#3771C8" />
+          </radialGradient>
+        </defs>
+        <rect
+          x="3.4"
+          y="3.4"
+          width="17.2"
+          height="17.2"
+          rx="5.2"
+          fill="none"
+          stroke="url(#ig-grad)"
+          strokeWidth="2.1"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="4.1"
+          fill="none"
+          stroke="url(#ig-grad)"
+          strokeWidth="2.1"
+        />
+        <circle cx="17.1" cy="6.9" r="1.25" fill="url(#ig-grad)" />
+      </>
+    ),
+  },
+  tiktok: {
+    label: "TikTok",
+    glyph: (
+      <>
+        {/* the offset cyan / magenta plates that make the mark read */}
+        <path
+          fill="#25F4EE"
+          d="M13.1 3h2.3c.05.5.17.98.35 1.42a4.9 4.9 0 0 0 2.9 2.6v2.2a6.5 6.5 0 0 1-3-1v5.2a5.05 5.05 0 1 1-5.05-5.05c.2 0 .4.01.6.04v2.3a2.78 2.78 0 1 0 1.9 2.64V3Z"
+          transform="translate(-1.1 .55)"
+        />
+        <path
+          fill="#FE2C55"
+          d="M13.1 3h2.3c.05.5.17.98.35 1.42a4.9 4.9 0 0 0 2.9 2.6v2.2a6.5 6.5 0 0 1-3-1v5.2a5.05 5.05 0 1 1-5.05-5.05c.2 0 .4.01.6.04v2.3a2.78 2.78 0 1 0 1.9 2.64V3Z"
+          transform="translate(.55 -.35)"
+        />
+        <path
+          fill="#161823"
+          d="M13.1 3h2.3c.05.5.17.98.35 1.42a4.9 4.9 0 0 0 2.9 2.6v2.2a6.5 6.5 0 0 1-3-1v5.2a5.05 5.05 0 1 1-5.05-5.05c.2 0 .4.01.6.04v2.3a2.78 2.78 0 1 0 1.9 2.64V3Z"
+        />
+      </>
+    ),
+  },
+  telegram: {
+    label: "Telegram",
+    glyph: (
+      <>
+        <circle cx="12" cy="12" r="10" fill="#26A5E4" />
+        <path
+          fill="#fff"
+          d="M17.6 7.4 15.5 17c-.15.68-.56.84-1.14.52l-3.15-2.32-1.52 1.46c-.17.17-.31.31-.63.31l.22-3.2 5.83-5.27c.25-.22-.06-.35-.4-.13L6.5 12.9l-3.1-.97c-.67-.21-.69-.67.14-1l12.1-4.66c.56-.2 1.05.13.96 1.13Z"
+        />
+      </>
+    ),
+  },
 };
 
-export function SocialLinks({ tone = "deep" }: { tone?: "deep" | "paper" }) {
-  const entries = Object.entries(institute.social);
-  const base =
-    tone === "deep"
-      ? "bg-paper/10 text-paper hover:bg-paper hover:text-brand-deep"
-      : "bg-brand-wash text-brand hover:bg-brand hover:text-paper";
-  const off =
-    tone === "deep" ? "bg-paper/5 text-on-deep/50" : "bg-paper-tint text-muted";
-
+export function SocialLinks({ label }: { label: string }) {
   return (
-    <ul className="flex items-center gap-2.5">
-      {entries.map(([key, value]) => {
-        const label = key[0].toUpperCase() + key.slice(1);
-        const glyph = (
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-[18px] w-[18px]">
-            {ICONS[key]}
-          </svg>
-        );
-        return (
-          <li key={key}>
-            {isTodo(value) ? (
-              /* No URL supplied yet — shown inactive rather than guessed at. */
-              <span
-                title={`${label} — link to be supplied`}
-                aria-label={`${label} link not yet available`}
-                className={`flex h-10 w-10 cursor-not-allowed items-center justify-center rounded-pill ${off}`}
-              >
-                {glyph}
-              </span>
-            ) : (
-              <a
-                href={value}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className={`flex h-10 w-10 items-center justify-center rounded-pill transition-colors duration-500 ${base}`}
-              >
-                {glyph}
-              </a>
-            )}
-          </li>
-        );
-      })}
-    </ul>
+    <div className="flex flex-col items-center gap-3.5 sm:flex-row sm:gap-5">
+      <span className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
+        {label}
+      </span>
+      <ul className="flex items-center gap-3">
+        {Object.entries(institute.social).map(([key, value]) => {
+          const icon = ICONS[key];
+          if (!icon) return null;
+          const glyph = (
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+              {icon.glyph}
+            </svg>
+          );
+          const disc =
+            "flex h-11 w-11 items-center justify-center rounded-pill bg-paper transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]";
+          return (
+            <li key={key}>
+              {isTodo(value) ? (
+                <span
+                  title={`${icon.label} — link to be supplied`}
+                  aria-label={`${icon.label} link not yet available`}
+                  className={`${disc} cursor-not-allowed opacity-70`}
+                >
+                  {glyph}
+                </span>
+              ) : (
+                <a
+                  href={value}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={icon.label}
+                  className={`${disc} hover:-translate-y-1`}
+                >
+                  {glyph}
+                </a>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }

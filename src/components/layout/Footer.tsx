@@ -26,7 +26,11 @@ export function Footer() {
         aria-hidden="true"
         className="pointer-events-none absolute -left-32 -top-32 h-[28rem] w-[28rem] rounded-pill bg-brand-bright/12 blur-3xl"
       />
-      <div className="container-x relative grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
+
+      <div className="container-x relative grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+        {/* Left column: the lockup, then the visit details that used to
+            sit in their own column. Telegram now lives with the social
+            icons rather than as a separate line here. */}
         <div>
           <Wordmark
             tone="paper"
@@ -37,36 +41,17 @@ export function Footer() {
           <p className="mt-5 max-w-xs text-sm text-on-deep">
             {t("footer.tagline")}
           </p>
-          <p className="mt-4 max-w-xs text-xs text-on-deep/80">
-            {t("footer.accreditedBy")}
-          </p>
-          {/* Kept in the footer body — and so on every page — while the
-              bottom bar stays the copyright alone. */}
-          <dl className="mt-5 space-y-2 text-xs">
-            <div>
-              <dt className="text-on-deep/70">{t("footer.certificateLabel")}</dt>
-              <dd className="mt-0.5 font-mono tracking-wide text-paper">
-                {institute.accreditation.certificateNo}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-on-deep/70">{t("footer.licenceLabel")}</dt>
-              <dd className="mt-0.5 font-mono tracking-wide text-paper">
-                {institute.accreditation.tradeLicenceNo}
-              </dd>
-            </div>
-          </dl>
-        </div>
 
-        <div>
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-bright">
+          <h2 className="mt-9 text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
             {t("footer.visitTitle")}
           </h2>
-          <p className="mt-4 text-sm text-on-deep">{t("home.visit.address")}</p>
-          <p className="mt-2 text-sm text-on-deep">
+          <p className="mt-4 max-w-xs text-sm text-on-deep">
+            {t("home.visit.address")}
+          </p>
+          <p className="mt-2 max-w-xs text-sm text-on-deep">
             {t("home.visit.hoursShort")}
           </p>
-          <ul className="mt-4 space-y-1">
+          <ul className="mt-4 flex flex-wrap gap-2">
             {institute.phones.map((p) => (
               <li key={p.tel}>
                 <a
@@ -78,22 +63,21 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          <div className="mt-4 flex flex-col items-start gap-2">
+          <div className="mt-4">
             <TodoTag kind="email" on="deep" />
-            <TodoTag kind="telegram" on="deep" />
           </div>
         </div>
 
         <div>
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-bright">
+          <h2 className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
             {t("footer.programmesTitle")}
           </h2>
-          <ul className="mt-4 space-y-2">
+          <ul className="mt-5 space-y-2.5">
             {programmes.map((p) => (
               <li key={p.slug}>
                 <Link
                   href={`/programmes/${p.slug}`}
-                  className="text-sm text-on-deep transition-colors hover:text-paper"
+                  className="text-sm text-on-deep transition-colors duration-500 hover:text-paper"
                 >
                   {t(`programmes.items.${p.slug}.name`)}
                 </Link>
@@ -103,15 +87,15 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-bright">
+          <h2 className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
             {t("footer.instituteTitle")}
           </h2>
-          <ul className="mt-4 space-y-2">
+          <ul className="mt-5 space-y-2.5">
             {instituteLinks.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="text-sm text-on-deep transition-colors hover:text-paper"
+                  className="text-sm text-on-deep transition-colors duration-500 hover:text-paper"
                 >
                   {l.label}
                 </Link>
@@ -121,13 +105,9 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container-x relative flex flex-col items-center gap-6 pb-10 md:flex-row md:justify-between">
-        <p className="order-2 text-xs text-on-deep md:order-1">
-          {t("footer.followBody")}
-        </p>
-        <div className="order-1 md:order-2">
-          <SocialLinks />
-        </div>
+      {/* Follow us: right-aligned on desktop, centred on mobile. */}
+      <div className="container-x relative flex justify-center pb-12 md:justify-end">
+        <SocialLinks label={t("footer.followUs")} />
       </div>
 
       <div className="relative border-t border-paper/10">
