@@ -167,9 +167,22 @@ function InstitutionalSection() {
                 <p className="mt-4 text-sm text-on-deep">
                   {t("accreditationBody")}
                 </p>
-                <p className="mt-5 text-sm text-paper">
-                  {t("accreditationAuthority")}
-                </p>
+                <dl className="mt-6 space-y-4">
+                  <div>
+                    <dt className="text-xs text-on-deep">
+                      {t("certificateLabel")}
+                    </dt>
+                    <dd className="mt-1 font-mono text-lg tracking-wide text-paper">
+                      {institute.accreditation.certificateNo}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs text-on-deep">{t("licenceLabel")}</dt>
+                    <dd className="mt-1 font-mono text-sm tracking-wide text-paper">
+                      {institute.accreditation.tradeLicenceNo}
+                    </dd>
+                  </div>
+                </dl>
               </div>
 
               <div className="card-glass p-8">

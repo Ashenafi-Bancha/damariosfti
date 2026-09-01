@@ -40,6 +40,22 @@ export function Footer() {
           <p className="mt-4 max-w-xs text-xs text-on-deep/80">
             {t("footer.accreditedBy")}
           </p>
+          {/* Kept in the footer body — and so on every page — while the
+              bottom bar stays the copyright alone. */}
+          <dl className="mt-5 space-y-2 text-xs">
+            <div>
+              <dt className="text-on-deep/70">{t("footer.certificateLabel")}</dt>
+              <dd className="mt-0.5 font-mono tracking-wide text-paper">
+                {institute.accreditation.certificateNo}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-on-deep/70">{t("footer.licenceLabel")}</dt>
+              <dd className="mt-0.5 font-mono tracking-wide text-paper">
+                {institute.accreditation.tradeLicenceNo}
+              </dd>
+            </div>
+          </dl>
         </div>
 
         <div>

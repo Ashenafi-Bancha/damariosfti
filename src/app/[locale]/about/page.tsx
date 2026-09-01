@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/metadata";
+import { institute } from "@/content/institute";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Reveal } from "@/components/ui/Reveal";
@@ -58,7 +59,20 @@ function About() {
               {t("accreditationTitle")}
             </h2>
             <p className="mt-4 text-sm text-muted">{t("accreditationBody")}</p>
-            <p className="mt-6 text-brand-deep">{t("accreditationAuthority")}</p>
+            <dl className="mt-7 space-y-5">
+              <div>
+                <dt className="text-xs text-muted">{t("certificateLabel")}</dt>
+                <dd className="mt-1 font-mono text-lg tracking-wide text-brand-deep">
+                  {institute.accreditation.certificateNo}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs text-muted">{t("licenceLabel")}</dt>
+                <dd className="mt-1 font-mono text-sm tracking-wide text-graphite">
+                  {institute.accreditation.tradeLicenceNo}
+                </dd>
+              </div>
+            </dl>
           </div>
         </Reveal>
       </section>

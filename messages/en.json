@@ -74,7 +74,7 @@
       "kicker": "For institutions & partners",
       "title": "A training partner for youth employment at scale.",
       "accreditationTitle": "Accreditation",
-      "accreditationBody": "The institute is a registered and accredited training provider, licensed to deliver and certify the programmes it offers.",
+      "accreditationBody": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority, Bole branch office.",
       "capacityTitle": "Capacity",
       "capacityBody": "The institute actively bids for large youth skills-training contracts — including international certification and job placement — across four sectors:",
       "sectors": [
@@ -87,7 +87,8 @@
       "partnershipsBody": "International academic and cultural exchange with Rome Business School — an international business school founded in 2011, part of the Planeta Formación y Universidades network, with students from over 140 countries — and a global partnership with Mario Makeup Company.",
       "partnershipsCta": "About our partnerships",
       "downloadCta": "Download capability statement",
-      "accreditationAuthority": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority."
+      "certificateLabel": "Accreditation certificate no.",
+      "licenceLabel": "Trade licence no."
     },
     "visit": {
       "kicker": "Visit",
@@ -201,7 +202,7 @@
     "visionTitle": "Vision",
     "vision": "To become a world-class international institute providing purpose-driven higher education and high-impact research that transforms lives and contributes to social and economic development.",
     "accreditationTitle": "Accreditation",
-    "accreditationBody": "The institute is a registered and accredited training provider, licensed to deliver and certify the programmes it offers.",
+    "accreditationBody": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority, Bole branch office.",
     "locationTitle": "Location & access",
     "locationBody": "1st floor, Kkare Building, Bole Sub City, Addis Ababa — at the Bole Brass landmark, near Yod Abyssinia, about 2 km from Bole International Airport.",
     "accessibilityTitle": "Accessibility",
@@ -217,7 +218,8 @@
       "body": "Rome Business School and Mario Makeup Company.",
       "cta": "About our partnerships"
     },
-    "accreditationAuthority": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority."
+    "certificateLabel": "Accreditation certificate no.",
+    "licenceLabel": "Trade licence no."
   },
   "founder": {
     "title": "Dr. Senait Mario",
@@ -396,7 +398,9 @@
     "instituteTitle": "Institute",
     "accreditedBy": "Accredited by the Addis Ababa City Administration Education and Training Quality Regulatory Authority, Bole branch office.",
     "rights": "© {year} Da Mario's Fashion and Technology Institute. All rights reserved.",
-    "followBody": "Follow the institute"
+    "followBody": "Follow the institute",
+    "certificateLabel": "Accreditation certificate no.",
+    "licenceLabel": "Trade licence no."
   },
   "meta": {
     "home": {
