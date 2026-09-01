@@ -18,6 +18,12 @@ export const institute = {
     airportDistance: "approximately 2 km from Bole International Airport",
   },
 
+  /**
+   * NOT RENDERED ANYWHERE. The client asked for the certificate and trade
+   * licence numbers to be kept off the site entirely. They are retained
+   * here because they are supplied facts and are the sort of thing a
+   * tender submission asks for — but nothing on the site reads them.
+   */
   accreditation: {
     authority:
       "Addis Ababa City Administration Education and Training Quality Regulatory Authority, Bole branch office",

@@ -86,9 +86,7 @@
       "partnershipsTitle": "Partnerships",
       "partnershipsBody": "International academic and cultural exchange with Rome Business School — an international business school founded in 2011, part of the Planeta Formación y Universidades network, with students from over 140 countries — and a global partnership with Mario Makeup Company.",
       "partnershipsCta": "About our partnerships",
-      "downloadCta": "Download capability statement",
-      "certificateLabel": "Accreditation certificate no.",
-      "licenceLabel": "Trade licence no."
+      "downloadCta": "Download capability statement"
     },
     "visit": {
       "kicker": "Visit",
@@ -217,9 +215,7 @@
       "title": "Partnerships",
       "body": "Rome Business School and Mario Makeup Company.",
       "cta": "About our partnerships"
-    },
-    "certificateLabel": "Accreditation certificate no.",
-    "licenceLabel": "Trade licence no."
+    }
   },
   "founder": {
     "title": "Dr. Senait Mario",
