@@ -91,7 +91,8 @@ const ICONS: Record<string, { label: string; glyph: React.ReactNode }> = {
 
 export function SocialLinks({ label }: { label: string }) {
   return (
-    <div className="flex flex-col items-center gap-3.5 sm:flex-row sm:gap-5">
+    /* Label sits above the icons, never beside them. */
+    <div className="flex flex-col items-center gap-3.5">
       <span className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
         {label}
       </span>

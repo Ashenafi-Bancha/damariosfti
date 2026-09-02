@@ -1,8 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { institute } from "@/content/institute";
 import { programmes } from "@/content/programmes";
-import { TodoTag } from "@/components/ui/TodoTag";
 import { SocialLinks } from "./SocialLinks";
 import { Wordmark } from "@/components/brand/Logo";
 
@@ -51,21 +49,13 @@ export function Footer() {
           <p className="mt-2 max-w-xs text-sm text-on-deep">
             {t("home.visit.hoursShort")}
           </p>
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {institute.phones.map((p) => (
-              <li key={p.tel}>
-                <a
-                  href={`tel:${p.tel}`}
-                  className="inline-flex rounded-pill bg-paper/10 px-4 py-2 text-sm text-paper transition-colors duration-500 hover:bg-paper hover:text-brand-deep"
-                >
-                  {p.display}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-4">
-            <TodoTag kind="email" on="deep" />
-          </div>
+          <Link
+            href="/contact"
+            className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-brand-bright transition-colors duration-500 hover:text-paper"
+          >
+            {t("footer.contactCta")}
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
 
         <div>
