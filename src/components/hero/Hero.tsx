@@ -28,9 +28,6 @@ export function Hero() {
             <CtaLink href="/programmes" variant="ghost" block>
               {t("ctaProgrammes")}
             </CtaLink>
-            <CtaLink href="/admissions" variant="ghost" block>
-              {t("ctaAdmissions")}
-            </CtaLink>
           </div>
         </div>
 

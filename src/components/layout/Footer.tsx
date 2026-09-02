@@ -26,9 +26,6 @@ export function Footer() {
       />
 
       <div className="container-x relative grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
-        {/* Left column: the lockup, then the visit details that used to
-            sit in their own column. Telegram now lives with the social
-            icons rather than as a separate line here. */}
         <div>
           <Wordmark
             tone="paper"
@@ -39,23 +36,6 @@ export function Footer() {
           <p className="mt-5 max-w-xs text-sm text-on-deep">
             {t("footer.tagline")}
           </p>
-
-          <h2 className="mt-9 text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
-            {t("footer.visitTitle")}
-          </h2>
-          <p className="mt-4 max-w-xs text-sm text-on-deep">
-            {t("home.visit.address")}
-          </p>
-          <p className="mt-2 max-w-xs text-sm text-on-deep">
-            {t("home.visit.hoursShort")}
-          </p>
-          <Link
-            href="/contact"
-            className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-brand-bright transition-colors duration-500 hover:text-paper"
-          >
-            {t("footer.contactCta")}
-            <span aria-hidden="true">→</span>
-          </Link>
         </div>
 
         <div>

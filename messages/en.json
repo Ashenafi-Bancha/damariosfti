@@ -45,7 +45,6 @@
     "headline": "Education that ends in employment.",
     "sub": "Fashion, beauty, technology and security, taught for the workplace rather than just the certificate. Hands-on, and about two kilometres from Bole International Airport.",
     "ctaProgrammes": "Explore programmes",
-    "ctaAdmissions": "How to apply",
     "mediaHint": "A 3D design render or a photograph of the institute will sit here."
   },
   "home": {
@@ -383,12 +382,10 @@
   },
   "footer": {
     "tagline": "Bridging education and employment in Addis Ababa since 2024.",
-    "visitTitle": "Visit",
     "programmesTitle": "Programmes",
     "instituteTitle": "Institute",
     "rights": "© {year} Da Mario's Fashion and Technology Institute. All rights reserved.",
-    "followUs": "Follow us",
-    "contactCta": "Phone numbers and directions"
+    "followUs": "Follow us"
   },
   "meta": {
     "home": {
