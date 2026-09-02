@@ -46,9 +46,13 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-1.5">
-          <CtaLink href="/apply" size="sm">
-            {t("apply")}
-          </CtaLink>
+          {/* On phones this moves into the hero, so the header keeps
+              just the logo and the menu. */}
+          <div className="hidden md:block">
+            <CtaLink href="/apply" size="sm">
+              {t("apply")}
+            </CtaLink>
+          </div>
           <MobileMenu
             links={links}
             openLabel={t("openMenu")}

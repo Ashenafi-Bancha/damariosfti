@@ -152,7 +152,7 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
             </Reveal>
           )}
 
-          <CtaLink href="/apply" className="mt-14">
+          <CtaLink href="/apply" block glow className="mt-14">
             {t("labels.apply")}
           </CtaLink>
         </div>

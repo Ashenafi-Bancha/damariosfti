@@ -45,7 +45,9 @@ function Gallery() {
               </h2>
               <p className="mt-3 max-w-md text-sm text-muted">{t("ctaBody")}</p>
             </div>
-            <CtaLink href="/apply">{t("ctaButton")}</CtaLink>
+            <CtaLink href="/apply" block glow>
+              {t("ctaButton")}
+            </CtaLink>
           </div>
         </Reveal>
       </section>

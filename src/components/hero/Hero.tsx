@@ -4,6 +4,7 @@ import { HeroMedia } from "./HeroMedia";
 
 export function Hero() {
   const t = useTranslations("hero");
+  const tn = useTranslations("nav");
 
   return (
     <section className="aura relative overflow-hidden">
@@ -20,9 +21,14 @@ export function Hero() {
 
           <p className="mt-7 max-w-lg text-lg text-muted">{t("sub")}</p>
 
-          <div className="mt-10 flex flex-wrap gap-3.5">
-            <CtaLink href="/programmes">{t("ctaProgrammes")}</CtaLink>
-            <CtaLink href="/admissions" variant="ghost">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-3.5">
+            <CtaLink href="/apply" block glow>
+              {tn("apply")}
+            </CtaLink>
+            <CtaLink href="/programmes" variant="ghost" block>
+              {t("ctaProgrammes")}
+            </CtaLink>
+            <CtaLink href="/admissions" variant="ghost" block>
               {t("ctaAdmissions")}
             </CtaLink>
           </div>

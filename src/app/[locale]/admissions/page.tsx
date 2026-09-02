@@ -89,7 +89,9 @@ function Admissions() {
                 {t("contactBody")}
               </p>
             </div>
-            <CtaLink href="/apply">{t("applyCta")}</CtaLink>
+            <CtaLink href="/apply" block glow>
+              {t("applyCta")}
+            </CtaLink>
           </div>
         </Reveal>
       </section>
