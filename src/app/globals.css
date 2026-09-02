@@ -164,6 +164,20 @@ body {
   }
 }
 
+/* On phones it also runs edge to edge, cancelling the page gutter that
+   container-x applies (1.25rem below sm). The rounding and shadow come
+   off with it — both only read as damage once the image meets the
+   screen edge. */
+@media (max-width: 639px) {
+  .hero-grid .hero-media {
+    margin-inline: -1.25rem;
+    width: calc(100% + 2.5rem);
+    max-width: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
 /* ── Mobile navigation panel ───────────────────────────────────
    Driven by a data attribute rather than utility classes so the open
    and shut states are defined in one place, alongside the site's other
