@@ -109,6 +109,30 @@ body {
   font-size: var(--wm-tag);
 }
 
+/* ── Mobile navigation panel ───────────────────────────────────
+   Driven by a data attribute rather than utility classes so the open
+   and shut states are defined in one place, alongside the site's other
+   stateful transitions. */
+.mobile-panel {
+  transition:
+    opacity 0.4s var(--ease-smooth),
+    transform 0.4s var(--ease-smooth);
+}
+.mobile-panel[data-open="false"] {
+  opacity: 0;
+  transform: translateY(-0.75rem);
+  pointer-events: none;
+}
+.mobile-panel[data-open="true"] {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-panel {
+    transition: none;
+  }
+}
+
 /* Shared page gutter */
 .container-x {
   margin-inline: auto;

@@ -35,7 +35,9 @@
     "founder": "The founder",
     "partnerships": "Partnerships",
     "menuLabel": "Main navigation",
-    "gallery": "Gallery"
+    "gallery": "Gallery",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "kicker": "Bole, Addis Ababa",

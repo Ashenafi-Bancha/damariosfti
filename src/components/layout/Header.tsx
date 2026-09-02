@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Wordmark } from "@/components/brand/Logo";
+import { MobileMenu } from "./MobileMenu";
 
 export function Header() {
   const t = useTranslations("nav");
@@ -17,8 +18,9 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-paper/80 backdrop-blur-xl">
-      <div className="container-x flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-4">
+    /* relative so the mobile panel can anchor to the header's lower edge */
+    <header className="relative sticky top-0 z-40 bg-paper/85 backdrop-blur-xl">
+      <div className="container-x flex items-center justify-between gap-3 py-3">
         <Link href="/" aria-label={tc("instituteName")} className="rounded-md">
           <Wordmark
             name={tc("wordmarkTop")}
@@ -27,12 +29,8 @@ export function Header() {
           />
         </Link>
 
-        {/* Single nav element: full-width scrollable row on mobile,
-            inline on md+ — no duplicated landmarks, zero JS. */}
-        <nav
-          aria-label={t("menuLabel")}
-          className="order-3 -mx-5 basis-full overflow-x-auto px-5 md:order-2 md:mx-0 md:basis-auto md:overflow-visible md:px-0"
-        >
+        {/* Desktop: inline links. Mobile gets the menu panel instead. */}
+        <nav aria-label={t("menuLabel")} className="hidden md:block">
           <ul className="flex items-center gap-1 whitespace-nowrap">
             {links.map((l) => (
               <li key={l.href}>
@@ -47,10 +45,16 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="order-2 md:order-3">
-          <CtaLink href="/apply" size="sm" className="hidden sm:inline-flex">
+        <div className="flex shrink-0 items-center gap-1.5">
+          <CtaLink href="/apply" size="sm">
             {t("apply")}
           </CtaLink>
+          <MobileMenu
+            links={links}
+            openLabel={t("openMenu")}
+            closeLabel={t("closeMenu")}
+            menuLabel={t("menuLabel")}
+          />
         </div>
       </div>
     </header>
