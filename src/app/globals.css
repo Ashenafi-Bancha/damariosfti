@@ -109,6 +109,13 @@ body {
   font-size: var(--wm-tag);
 }
 
+/* Below lg the hero stacks; the image leads and the copy follows. */
+@media (max-width: 1023px) {
+  .hero-grid .hero-media {
+    order: -1;
+  }
+}
+
 /* ── Mobile navigation panel ───────────────────────────────────
    Driven by a data attribute rather than utility classes so the open
    and shut states are defined in one place, alongside the site's other

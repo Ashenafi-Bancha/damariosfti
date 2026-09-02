@@ -7,7 +7,7 @@ export function Hero() {
 
   return (
     <section className="aura relative overflow-hidden">
-      <div className="container-x grid items-center gap-14 pb-20 pt-14 sm:pb-28 sm:pt-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:pb-32">
+      <div className="hero-grid container-x grid items-center gap-10 pb-20 pt-10 sm:gap-14 sm:pb-28 sm:pt-16 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:pb-32">
         <div className="relative z-10">
           <p className="inline-flex items-center gap-2.5 rounded-pill bg-brand-wash px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-brand">
             <span className="h-1.5 w-1.5 rounded-pill bg-brand" aria-hidden="true" />
@@ -30,7 +30,7 @@ export function Hero() {
 
         {/* Decorative — the headline carries the meaning, so this slot
             stays out of the accessibility tree. */}
-        <div className="card relative mx-auto aspect-[4/5] w-full max-w-[34rem] overflow-hidden rounded-xl sm:aspect-[5/4] lg:aspect-[4/5]">
+        <div className="hero-media card relative mx-auto aspect-[5/4] w-full max-w-[34rem] overflow-hidden rounded-xl lg:aspect-[4/5]">
           <HeroMedia />
         </div>
       </div>
