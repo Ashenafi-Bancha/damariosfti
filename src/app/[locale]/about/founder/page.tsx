@@ -5,6 +5,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { founder } from "@/content/founder";
 import { TodoTag } from "@/components/ui/TodoTag";
 import { CtaLink } from "@/components/ui/CtaLink";
+import { BackLink } from "@/components/ui/BackLink";
 import { Reveal } from "@/components/ui/Reveal";
 
 export async function generateMetadata({
@@ -32,7 +33,10 @@ function Founder() {
 
   return (
     <>
-      <header className="aura relative pt-16 sm:pt-24">
+      <header className="aura relative pt-10 sm:pt-14">
+        <div className="container-x">
+          <BackLink fallback="/about" label={tn("back")} className="mb-8" />
+        </div>
         <div className="container-x grid items-center gap-12 lg:grid-cols-[1fr_320px]">
           <div>
             <p className="inline-flex rounded-pill bg-brand-wash px-4 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-brand">

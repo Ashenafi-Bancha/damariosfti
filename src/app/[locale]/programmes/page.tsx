@@ -28,9 +28,11 @@ export default async function ProgrammesPage({
 
 function ProgrammesIndex() {
   const t = useTranslations("programmes.index");
+  const tn = useTranslations("nav");
   return (
     <>
-      <PageHeader title={t("title")} lead={t("lead")} />
+      <PageHeader title={t("title")} lead={t("lead")} back={{ href: "/", label: tn("back") }}
+      />
       <section className="container-x py-16 sm:py-20">
         <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {programmes.map((p, i) => (

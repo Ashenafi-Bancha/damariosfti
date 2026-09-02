@@ -111,7 +111,7 @@ export function SocialLinks({ label }: { label: string }) {
             <li key={key}>
               {isTodo(value) ? (
                 <span
-                  title={`${icon.label} — link to be supplied`}
+                  title={`${icon.label}: link to be supplied`}
                   aria-label={`${icon.label} link not yet available`}
                   className={`${disc} cursor-not-allowed opacity-70`}
                 >

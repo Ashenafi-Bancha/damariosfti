@@ -33,10 +33,12 @@ export default async function PartnershipsPage({
 
 function Partnerships() {
   const t = useTranslations("partnerships");
+  const tn = useTranslations("nav");
 
   return (
     <>
-      <PageHeader title={t("title")} lead={t("lead")} />
+      <PageHeader title={t("title")} lead={t("lead")} back={{ href: "/about", label: tn("back") }}
+      />
 
       <section className="container-x grid gap-6 py-16 sm:py-20 lg:grid-cols-2">
         <Reveal className="flex">

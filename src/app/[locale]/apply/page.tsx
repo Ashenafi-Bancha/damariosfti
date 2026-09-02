@@ -29,6 +29,7 @@ export default async function ApplyPage({
 
   const t = await getTranslations("apply");
   const tp = await getTranslations("programmes");
+  const tn = await getTranslations("nav");
 
   /* All strings resolved server-side and passed down as props, so the
      client bundle carries no next-intl runtime at all. */
@@ -70,7 +71,8 @@ export default async function ApplyPage({
 
   return (
     <>
-      <PageHeader title={t("title")} lead={t("lead")} />
+      <PageHeader title={t("title")} lead={t("lead")} back={{ href: "/", label: tn("back") }}
+      />
       <section className="container-x py-14 sm:py-20">
         <div className="card card-tint max-w-2xl p-8 sm:p-11">
           <ApplyForm

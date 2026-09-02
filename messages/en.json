@@ -37,19 +37,15 @@
     "menuLabel": "Main navigation",
     "gallery": "Gallery",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "back": "Back"
   },
   "hero": {
     "kicker": "Bole, Addis Ababa",
     "headline": "Education that ends in employment.",
-    "sub": "Fashion, beauty, technology and security — taught for the workplace, not just the certificate. Hands-on, and about two kilometres from Bole International Airport.",
+    "sub": "Fashion, beauty, technology and security, taught for the workplace rather than just the certificate. Hands-on, and about two kilometres from Bole International Airport.",
     "ctaProgrammes": "Explore programmes",
     "ctaAdmissions": "How to apply",
-    "scrollHint": "Scroll to assemble",
-    "piece01": "PIECE 01 — BODICE FRONT",
-    "piece02": "PIECE 02 — SLEEVE ×2",
-    "piece03": "PIECE 03 — SKIRT PANEL",
-    "grain": "GRAIN",
     "mediaHint": "A 3D design render or a photograph of the institute will sit here."
   },
   "home": {
@@ -68,7 +64,7 @@
     },
     "founder": {
       "kicker": "Founder & CEO",
-      "title": "From Wolaita Sodo to the runways of Milan — and back to Addis.",
+      "title": "From Wolaita Sodo to the runways of Milan, and back to Addis.",
       "body": "Dr. Senait Mario, sociologist turned fashion designer and model, has presented her work on the fashion stages of Milan, London and Paris. In 2024 she founded an institute in Addis Ababa.",
       "cta": "Her story"
     },
@@ -76,7 +72,7 @@
       "kicker": "For institutions & partners",
       "title": "A training partner for youth employment at scale.",
       "capacityTitle": "Capacity",
-      "capacityBody": "The institute actively bids for large youth skills-training contracts — including international certification and job placement — across four sectors:",
+      "capacityBody": "The institute actively bids for large youth skills-training contracts across four sectors, including international certification and job placement:",
       "sectors": [
         "Textile and garment production",
         "Cosmetics and detergent production",
@@ -84,7 +80,7 @@
         "Home care and food preparation"
       ],
       "partnershipsTitle": "Partnerships",
-      "partnershipsBody": "International academic and cultural exchange with Rome Business School — an international business school founded in 2011, part of the Planeta Formación y Universidades network, with students from over 140 countries — and a global partnership with Mario Makeup Company.",
+      "partnershipsBody": "International academic and cultural exchange with Rome Business School, an international business school founded in 2011, part of the Planeta Formación y Universidades network, with students from over 140 countries. Alongside it, a global partnership with Mario Makeup Company.",
       "partnershipsCta": "About our partnerships",
       "downloadCta": "Download capability statement"
     },
@@ -92,7 +88,7 @@
       "kicker": "Visit",
       "title": "Find us in Bole.",
       "address": "1st floor, Kkare Building, Bole Sub City, Addis Ababa",
-      "landmark": "At the Bole Brass landmark, near Yod Abyssinia — about 2 km from Bole International Airport.",
+      "landmark": "At the Bole Brass landmark, near Yod Abyssinia, about 2 km from Bole International Airport.",
       "hoursShort": "Mon–Fri 08:00–18:00 · Sat 08:00–14:00 · Sun closed",
       "cta": "Contact & directions"
     }
@@ -113,14 +109,14 @@
     },
     "index": {
       "title": "Programmes",
-      "lead": "Crafts taught for employment. Where a detail reads “to be confirmed”, the institute has not yet published it — call 0989 044 444 to ask.",
+      "lead": "Crafts taught for employment. Where a detail reads “to be confirmed”, the institute has not yet published it. Call 0989 044 444 to ask.",
       "tuitionNote": "Tuition for each programme is being confirmed by the institute and will be published here."
     },
     "items": {
       "fashion-design": {
         "name": "Fashion Design",
         "tagline": "From first sketch to finished garment.",
-        "summary": "Illustration, textiles, pattern making and draping, garment construction, trends and forecasting, fashion CAD — and a portfolio to take to market.",
+        "summary": "Illustration, textiles, pattern making and draping, garment construction, trends and forecasting, fashion CAD, and a portfolio to take to market.",
         "levels": "Levels 2–4",
         "duration": "3 or 5 months",
         "curriculum": [
@@ -200,13 +196,13 @@
     "visionTitle": "Vision",
     "vision": "To become a world-class international institute providing purpose-driven higher education and high-impact research that transforms lives and contributes to social and economic development.",
     "locationTitle": "Location & access",
-    "locationBody": "1st floor, Kkare Building, Bole Sub City, Addis Ababa — at the Bole Brass landmark, near Yod Abyssinia, about 2 km from Bole International Airport.",
+    "locationBody": "1st floor, Kkare Building, Bole Sub City, Addis Ababa, at the Bole Brass landmark, near Yod Abyssinia, about 2 km from Bole International Airport.",
     "accessibilityTitle": "Accessibility",
     "accessibilityBody": "Wheelchair-accessible restroom and seating. Free on-site parking.",
     "hoursTitle": "Opening hours",
     "founderCard": {
       "title": "Dr. Senait Mario",
-      "body": "Founder & CEO — sociologist turned fashion designer and model.",
+      "body": "Founder & CEO. Sociologist turned fashion designer and model.",
       "cta": "Read her story"
     },
     "partnershipsCard": {
@@ -218,7 +214,7 @@
   "founder": {
     "title": "Dr. Senait Mario",
     "subtitle": "Sociologist. Designer. Model. Founder.",
-    "intro": "Born and raised in Wolaita Sodo in southern Ethiopia, Dr. Senait Mario trained as a sociologist before turning to fashion. Today she is an Italian citizen — Ethiopian by birth — and the founder and CEO of Da Mario's Fashion and Technology Institute. Her stated approach: she promotes Ethiopia through the colours she uses in her collections.",
+    "intro": "Born and raised in Wolaita Sodo in southern Ethiopia, Dr. Senait Mario trained as a sociologist before turning to fashion. Today she is an Italian citizen, Ethiopian by birth, and the founder and CEO of Da Mario's Fashion and Technology Institute. Her stated approach: she promotes Ethiopia through the colours she uses in her collections.",
     "timelineTitle": "The pattern of a career",
     "timeline": {
       "wolaita-sodo": {
@@ -234,12 +230,12 @@
       "rome": {
         "place": "Rome",
         "period": "Settling in Italy",
-        "body": "She settled in Rome and became an Italian citizen — Ethiopian by birth — turning from sociology to fashion design and modelling."
+        "body": "She settled in Rome and became an Italian citizen, Ethiopian by birth, turning from sociology to fashion design and modelling."
       },
       "runways": {
         "place": "Milan · London · Paris",
         "period": "On the runways",
-        "body": "Her work has been presented on the fashion stages of Milan, London and Paris — collections that promote Ethiopia through their colours."
+        "body": "Her work has been presented on the fashion stages of Milan, London and Paris. The collections promote Ethiopia through their colours."
       },
       "addis": {
         "place": "Addis Ababa",
@@ -254,7 +250,7 @@
       "doctorate": "Awarded an honorary doctorate in Nigeria for work promoting African culture."
     },
     "showsTitle": "Fashion for peace",
-    "showsBody": "She organises the African Fashion Expo and the Fashion for Peace / One Peace Fashion Show. In 2019 she staged a Peace Fashion Show in her hometown of Wolaita Sodo, alongside the Southern Nations, Nationalities and Peoples' regional cultural festival — featuring the work of eight Ethiopian designers and attended by the State Minister of Tourism and Culture, the Vice President of the Southern regional state, and the head of the Addis Ababa Women, Children and Youth Affairs Bureau, together with embassy and international-organisation guests."
+    "showsBody": "She organises the African Fashion Expo and the Fashion for Peace / One Peace Fashion Show. In 2019 she staged a Peace Fashion Show in her hometown of Wolaita Sodo, alongside the Southern Nations, Nationalities and Peoples' regional cultural festival. It featured the work of eight Ethiopian designers and was attended by the State Minister of Tourism and Culture, the Vice President of the Southern regional state, and the head of the Addis Ababa Women, Children and Youth Affairs Bureau, together with embassy and international-organisation guests."
   },
   "partnerships": {
     "title": "Partnerships",
@@ -279,7 +275,7 @@
         "body": "Programmes across fashion, beauty, technology and security. Read what each one teaches before you apply."
       },
       {
-        "title": "Get in touch — online, by phone, or in person",
+        "title": "Get in touch: online, by phone, or in person",
         "body": "Use the application form on this site, call 0989 044 444, or visit the institute at the Kkare Building in Bole."
       },
       {
@@ -292,7 +288,7 @@
     "tuitionTitle": "Tuition",
     "applyCta": "Start your application",
     "contactTitle": "Prefer to talk first?",
-    "contactBody": "Call 0989 044 444 or +251 11 667 2717 — Monday–Friday 08:00–18:00, Saturday 08:00–14:00."
+    "contactBody": "Call 0989 044 444 or +251 11 667 2717. Monday–Friday 08:00–18:00, Saturday 08:00–14:00."
   },
   "apply": {
     "title": "Apply",
@@ -305,7 +301,7 @@
       "programme": "Programme of interest",
       "programmePlaceholder": "Choose a programme",
       "level": "Preferred level",
-      "levelHelp": "Not sure? Leave it — level placement is confirmed with the institute.",
+      "levelHelp": "Not sure? Leave it. Level placement is confirmed with the institute.",
       "levelNotSure": "Not sure yet",
       "levelOption": "TVET Level {n}",
       "intake": "When would you like to start?",
@@ -316,8 +312,8 @@
       "educationPlaceholder": "Choose the closest match",
       "educationOptions": {
         "primary": "Primary school",
-        "grade10": "Secondary — Grade 10",
-        "grade12": "Secondary — Grade 12",
+        "grade10": "Secondary, Grade 10",
+        "grade12": "Secondary, Grade 12",
         "tvet": "TVET certificate",
         "diploma": "Diploma",
         "degree": "Degree",
@@ -347,18 +343,18 @@
     },
     "success": {
       "title": "Application received.",
-      "body": "Your application has gone to the institute's staff, who follow up by phone. If you don't hear back, call 0989 044 444 — Monday–Friday 08:00–18:00, Saturday 08:00–14:00.",
+      "body": "Your application has gone to the institute's staff, who follow up by phone. If you don't hear back, call 0989 044 444. Monday–Friday 08:00–18:00, Saturday 08:00–14:00.",
       "again": "Send another application"
     },
     "failure": {
-      "generic": "Something went wrong sending your application. Please try again — or call 0989 044 444.",
+      "generic": "Something went wrong sending your application. Please try again, or call 0989 044 444.",
       "rateLimited": "Too many attempts from this connection. Please wait a few minutes and try again.",
-      "notConfigured": "The application service is not configured yet on this preview. Your details were not sent — call 0989 044 444 instead."
+      "notConfigured": "The application service is not configured yet on this preview. Your details were not sent. Call 0989 044 444 instead."
     }
   },
   "contact": {
     "title": "Contact & location",
-    "lead": "Call, visit, or find us by landmark — pin navigation can be unreliable in Addis.",
+    "lead": "Call, visit, or find us by landmark. Pin navigation can be unreliable in Addis.",
     "callTitle": "Call",
     "hoursTitle": "Opening hours",
     "hours": {
@@ -372,7 +368,7 @@
     "addressTitle": "Address",
     "address": "1st floor, Kkare Building, Bole Sub City, Addis Ababa, Ethiopia",
     "directionsTitle": "Landmark directions",
-    "directions": "The institute is approximately 2 km from Bole International Airport, at the Bole Brass landmark, near Yod Abyssinia. Look for the Kkare Building — the institute is on the 1st floor.",
+    "directions": "The institute is approximately 2 km from Bole International Airport, at the Bole Brass landmark, near Yod Abyssinia. Look for the Kkare Building. The institute is on the 1st floor.",
     "accessibilityTitle": "Accessibility",
     "accessibility": "Wheelchair-accessible restroom and seating. Free on-site parking.",
     "emailTitle": "Email",
@@ -396,43 +392,43 @@
   },
   "meta": {
     "home": {
-      "title": "Da Mario's Fashion and Technology Institute — Addis Ababa",
-      "description": "Fashion, beauty, technology and security training in Bole, Addis Ababa. Founded in 2024 by Dr. Senait Mario — an institute that exists to bridge the gap between education and employment."
+      "title": "Da Mario's Fashion and Technology Institute, Addis Ababa",
+      "description": "Fashion, beauty, technology and security training in Bole, Addis Ababa. Founded in 2024 by Dr. Senait Mario, an institute that exists to bridge the gap between education and employment."
     },
     "programmes": {
-      "title": "Programmes — Damarios FTI",
+      "title": "Programmes | Damarios FTI",
       "description": "Fashion Design, Modeling, Cosmetology, Nail Technology, Information Technology and Professional Security Officer Training in Bole, Addis Ababa."
     },
     "programmeDetail": {
-      "title": "{name} — Damarios FTI",
+      "title": "{name} | Damarios FTI",
       "description": "{summary}"
     },
     "about": {
-      "title": "About — Damarios FTI",
-      "description": "A fashion and technology institute in Bole, Addis Ababa, founded in 2024 — it exists to bridge the gap between education and employment."
+      "title": "About | Damarios FTI",
+      "description": "A fashion and technology institute in Bole, Addis Ababa, founded in 2024. It exists to bridge the gap between education and employment."
     },
     "founder": {
-      "title": "Dr. Senait Mario — Founder & CEO, Damarios FTI",
-      "description": "Sociologist turned fashion designer and model: from Wolaita Sodo to the runways of Milan, London and Paris — and back to Addis to build an institute."
+      "title": "Dr. Senait Mario | Founder & CEO, Damarios FTI",
+      "description": "Sociologist turned fashion designer and model: from Wolaita Sodo to the runways of Milan, London and Paris, and back to Addis to build an institute."
     },
     "partnerships": {
-      "title": "Partnerships — Damarios FTI",
+      "title": "Partnerships | Damarios FTI",
       "description": "Rome Business School and Mario Makeup Company: international academic and cultural exchange for instructors and students."
     },
     "admissions": {
-      "title": "Admissions — Damarios FTI",
-      "description": "How to apply to Da Mario's Fashion and Technology Institute in Bole, Addis Ababa — start online, or call and visit the institute."
+      "title": "Admissions | Damarios FTI",
+      "description": "How to apply to Da Mario's Fashion and Technology Institute in Bole, Addis Ababa. Start online, or call and visit the institute."
     },
     "apply": {
-      "title": "Apply — Damarios FTI",
+      "title": "Apply | Damarios FTI",
       "description": "Apply to Da Mario's Fashion and Technology Institute. Takes about two minutes; the institute follows up by phone."
     },
     "contact": {
-      "title": "Contact — Damarios FTI",
-      "description": "Call 0989 044 444 or visit the Kkare Building, Bole Sub City, Addis Ababa — near Bole Brass and Yod Abyssinia."
+      "title": "Contact | Damarios FTI",
+      "description": "Call 0989 044 444 or visit the Kkare Building, Bole Sub City, Addis Ababa, near Bole Brass and Yod Abyssinia."
     },
     "gallery": {
-      "title": "Gallery — Damarios FTI",
+      "title": "Gallery | Damarios FTI",
       "description": "Design work from the founder's collections and the institute itself in Bole, Addis Ababa."
     }
   },

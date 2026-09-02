@@ -31,10 +31,12 @@ const MAP_EMBED_SRC =
 
 function Contact() {
   const t = useTranslations("contact");
+  const tn = useTranslations("nav");
 
   return (
     <>
-      <PageHeader title={t("title")} lead={t("lead")} />
+      <PageHeader title={t("title")} lead={t("lead")} back={{ href: "/", label: tn("back") }}
+      />
 
       <section className="container-x grid gap-6 py-16 sm:py-20 md:grid-cols-2 lg:grid-cols-3">
         <Reveal className="flex">

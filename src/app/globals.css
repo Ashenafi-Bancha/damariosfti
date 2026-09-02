@@ -50,16 +50,16 @@
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Display scale */
-  --text-display-xl: clamp(2.75rem, 1.6rem + 5.6vw, 6rem);
+  --text-display-xl: clamp(2.15rem, 1.45rem + 3.4vw, 4.25rem);
   --text-display-xl--line-height: 1.03;
   --text-display-xl--letter-spacing: -0.022em;
-  --text-display-lg: clamp(2.15rem, 1.5rem + 3.3vw, 3.75rem);
+  --text-display-lg: clamp(1.8rem, 1.35rem + 2.2vw, 2.9rem);
   --text-display-lg--line-height: 1.07;
   --text-display-lg--letter-spacing: -0.018em;
-  --text-display-md: clamp(1.7rem, 1.35rem + 1.9vw, 2.6rem);
+  --text-display-md: clamp(1.5rem, 1.25rem + 1.3vw, 2.15rem);
   --text-display-md--line-height: 1.14;
   --text-display-md--letter-spacing: -0.012em;
-  --text-display-sm: clamp(1.3rem, 1.15rem + 0.9vw, 1.7rem);
+  --text-display-sm: clamp(1.2rem, 1.1rem + 0.6vw, 1.5rem);
   --text-display-sm--line-height: 1.25;
   --text-display-sm--letter-spacing: -0.006em;
 }

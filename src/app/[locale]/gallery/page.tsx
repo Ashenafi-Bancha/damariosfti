@@ -28,9 +28,11 @@ export default async function GalleryPage({
 
 function Gallery() {
   const t = useTranslations("gallery");
+  const tn = useTranslations("nav");
   return (
     <>
-      <PageHeader kicker={t("kicker")} title={t("title")} lead={t("lead")} />
+      <PageHeader kicker={t("kicker")} title={t("title")} lead={t("lead")} back={{ href: "/", label: tn("back") }}
+      />
       <section className="container-x py-14 sm:py-20">
         <GalleryGrid />
       </section>

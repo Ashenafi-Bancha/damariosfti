@@ -10,7 +10,7 @@ import { isTodo, PROGRAMME_SLUGS, type Programme } from "@/content/types";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { TodoTag, type TodoKind } from "@/components/ui/TodoTag";
 import { Reveal } from "@/components/ui/Reveal";
-import { Link } from "@/i18n/navigation";
+import { BackLink } from "@/components/ui/BackLink";
 
 export function generateStaticParams() {
   return PROGRAMME_SLUGS.map((slug) => ({ slug }));
@@ -58,15 +58,13 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
 
   return (
     <>
-      <header className="aura aura-soft relative pb-4 pt-14 sm:pt-20">
+      <header className="aura aura-soft relative pb-4 pt-10 sm:pt-14">
         <div className="container-x">
-          <Link
-            href="/programmes"
-            className="inline-flex items-center gap-2 text-sm text-muted transition-colors duration-500 hover:text-brand"
-          >
-            <span aria-hidden="true">←</span> {t("labels.allProgrammes")}
-          </Link>
-          <p className="mt-9 inline-flex rounded-pill bg-brand-wash px-4 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-brand">
+          <BackLink
+            fallback="/programmes"
+            label={t("labels.allProgrammes")}
+          />
+          <p className="mt-7 inline-flex rounded-pill bg-brand-wash px-4 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-brand">
             {t("labels.piece")} {programme.piece}
           </p>
           <h1 className="mt-5 max-w-3xl font-display text-display-xl text-brand-deep">

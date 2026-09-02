@@ -38,7 +38,8 @@ function About() {
 
   return (
     <>
-      <PageHeader title={t("title")} lead={t("lead")} />
+      <PageHeader title={t("title")} lead={t("lead")} back={{ href: "/", label: tn("back") }}
+      />
 
       <section className="container-x py-16 sm:py-20">
         <Reveal className="flex">

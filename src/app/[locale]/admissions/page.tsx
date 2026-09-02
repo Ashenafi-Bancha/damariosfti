@@ -28,6 +28,7 @@ export default async function AdmissionsPage({
 
 function Admissions() {
   const t = useTranslations("admissions");
+  const tn = useTranslations("nav");
   const steps = t.raw("steps") as { title: string; body: string }[];
 
   const gaps = [
@@ -38,7 +39,8 @@ function Admissions() {
 
   return (
     <>
-      <PageHeader title={t("title")} lead={t("lead")} />
+      <PageHeader title={t("title")} lead={t("lead")} back={{ href: "/", label: tn("back") }}
+      />
 
       <section className="container-x py-16 sm:py-20">
         <Reveal>
