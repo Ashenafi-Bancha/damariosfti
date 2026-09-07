@@ -59,9 +59,11 @@ Photographs live in `public/gallery/`, catalogued in [src/content/gallery.ts](sr
 
 Three images in the source folder were deliberately **excluded**: a private social photograph, an image that appears to be a stock product listing, and personal/scenic shots. None belong on an accredited institute's public site, and publishing a stock image as the institute's own work would be a misrepresentation.
 
-No stock photography is used anywhere. Where the institute has supplied no photograph for a programme, the card and detail page show original brand artwork from [ProgrammeArt.tsx](src/components/programmes/ProgrammeArt.tsx) instead.
+Programme photography lives in `public/programmes/`, one landscape image per programme, catalogued with its source in [public/programmes/SOURCES.md](public/programmes/SOURCES.md). These are stock photographs under the Pexels License, which permits commercial use with no attribution required; the table is kept so any image can be traced or replaced.
 
-That is a deliberate choice over stock photography: a stock shot of a salon or a computer lab on a programme card reads as a picture of *this* institute's salon or lab, a claim the site cannot support, and licensing stock for a commercial site is the client's call, not something to assume. The artwork is plainly graphic, carries no such implication, and costs about a kilobyte per card. **Swapping in real teaching photography is one line per programme in [src/content/gallery.ts](src/content/gallery.ts)** — set `programmeImages[slug]` to the image name and the card and detail page pick it up automatically.
+Each was reviewed before use. The runway photograph was cropped to remove another fashion label's name from the backdrop, which would have implied an association the institute does not have, and a computer-lab image was rejected for showing uniformed schoolchildren rather than the adult trainees these programmes are for.
+
+**To use the institute's own photography, drop the file into `public/programmes/` under the same name.** Nothing else changes. Setting an entry in `programmeImages` ([src/content/gallery.ts](src/content/gallery.ts)) to a `Todo` instead falls back to the brand artwork in [ProgrammeArt.tsx](src/components/programmes/ProgrammeArt.tsx).
 
 ## Amharic — currently disabled
 

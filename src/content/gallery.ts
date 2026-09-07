@@ -49,15 +49,18 @@ export const gallery: GalleryItem[] = [
 ];
 
 /**
- * The institute has not supplied teaching photography for these
- * programmes, so their cards and detail pages show a marked placeholder
- * rather than a borrowed or stock image.
+ * Programme photography, in public/programmes/. Sourced stock, catalogued
+ * in public/programmes/SOURCES.md — swap any file for the institute's own
+ * photograph under the same name and nothing else needs to change.
+ *
+ * A `Todo` here instead of a filename falls back to the brand artwork in
+ * components/programmes/ProgrammeArt.tsx.
  */
 export const programmeImages: Record<string, string | Todo> = {
-  "fashion-design": "design-4",
-  modeling: TODO("Client to supply a photo from a modelling class"),
-  cosmetology: TODO("Client to supply a photo from the salon training room"),
-  "nail-technology": TODO("Client to supply a photo from nail technology training"),
-  "information-technology": TODO("Client to supply a photo of the IT lab"),
-  "security-training": TODO("Client to supply a photo from security officer training"),
+  "fashion-design": "fashion-design",
+  modeling: "modeling",
+  cosmetology: "cosmetology",
+  "nail-technology": "nail-technology",
+  "information-technology": "information-technology",
+  "security-training": "security-training",
 };

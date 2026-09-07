@@ -42,17 +42,15 @@ export function PatternCard({
       href={`/programmes/${slug}`}
       className="card card-interactive group relative flex h-full flex-col overflow-hidden"
     >
-      {/* A photograph where the institute has supplied one, otherwise the
-          programme's own artwork. object-contain keeps a portrait photo
-          whole rather than cropping the garment in half. */}
+      {/* Photograph where one exists, otherwise the programme's artwork. */}
       <div className="relative aspect-[16/10] overflow-hidden bg-brand-wash">
         {hasPhoto ? (
           <Image
-            src={`/gallery/${photo}.jpg`}
+            src={`/programmes/${photo}.jpg`}
             alt=""
             fill
             sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 92vw"
-            className="object-contain p-3 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+            className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.05]"
           />
         ) : (
           <ProgrammeArt slug={slug} />

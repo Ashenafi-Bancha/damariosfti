@@ -175,16 +175,14 @@ function ProgrammePhoto({ slug }: { slug: string }) {
       </div>
     );
   }
-  /* The garment photograph is portrait; a 3:4 plate matches it almost
-     exactly, where the old 21:9 band cut most of the piece away. */
   return (
-    <div className="relative mt-10 aspect-[3/4] w-full max-w-sm overflow-hidden rounded-lg shadow-soft">
+    <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-lg shadow-soft sm:aspect-[21/9]">
       <Image
-        src={`/gallery/${photo}.jpg`}
+        src={`/programmes/${photo}.jpg`}
         alt=""
         fill
         priority
-        sizes="24rem"
+        sizes="(min-width: 1280px) 74rem, 100vw"
         className="object-cover"
       />
     </div>
