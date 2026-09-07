@@ -25,7 +25,7 @@ export function HeroMedia() {
         alt=""
         fill
         priority
-        sizes="(min-width: 1024px) 34rem, 92vw"
+        sizes="(min-width: 1024px) 34rem, (min-width: 640px) 92vw, 100vw"
         className="rounded-[inherit] object-cover"
       />
     );

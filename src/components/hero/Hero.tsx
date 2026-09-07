@@ -33,7 +33,7 @@ export function Hero() {
 
         {/* Decorative — the headline carries the meaning, so this slot
             stays out of the accessibility tree. */}
-        <div className="hero-media card relative mx-auto aspect-[5/4] w-full max-w-[34rem] overflow-hidden rounded-xl lg:aspect-[4/5]">
+        <div className="hero-media card relative mx-auto aspect-[16/10] w-full max-w-[34rem] overflow-hidden rounded-xl">
           <HeroMedia />
         </div>
       </div>
