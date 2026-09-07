@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/metadata";
 import { getProgramme } from "@/content/programmes";
 import { programmeImages } from "@/content/gallery";
+import { ProgrammeArt } from "@/components/programmes/ProgrammeArt";
 import { isTodo, PROGRAMME_SLUGS, type Programme } from "@/content/types";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { TodoTag, type TodoKind } from "@/components/ui/TodoTag";
@@ -169,19 +170,21 @@ function ProgrammePhoto({ slug }: { slug: string }) {
   const photo = programmeImages[slug];
   if (typeof photo !== "string") {
     return (
-      <div className="mt-10 flex aspect-[21/9] w-full items-center justify-center rounded-lg bg-brand-wash">
-        <TodoTag kind="photo" />
+      <div className="mt-10 aspect-[21/9] w-full overflow-hidden rounded-lg">
+        <ProgrammeArt slug={slug} />
       </div>
     );
   }
+  /* The garment photograph is portrait; a 3:4 plate matches it almost
+     exactly, where the old 21:9 band cut most of the piece away. */
   return (
-    <div className="relative mt-10 aspect-[21/9] w-full overflow-hidden rounded-lg shadow-soft">
+    <div className="relative mt-10 aspect-[3/4] w-full max-w-sm overflow-hidden rounded-lg shadow-soft">
       <Image
         src={`/gallery/${photo}.jpg`}
         alt=""
         fill
         priority
-        sizes="(min-width: 1280px) 74rem, 100vw"
+        sizes="24rem"
         className="object-cover"
       />
     </div>

@@ -59,7 +59,9 @@ Photographs live in `public/gallery/`, catalogued in [src/content/gallery.ts](sr
 
 Three images in the source folder were deliberately **excluded**: a private social photograph, an image that appears to be a stock product listing, and personal/scenic shots. None belong on an accredited institute's public site, and publishing a stock image as the institute's own work would be a misrepresentation.
 
-No stock photography is used anywhere. Where the institute has supplied no photograph for a programme, the card and detail page show a marked placeholder rather than a borrowed image.
+No stock photography is used anywhere. Where the institute has supplied no photograph for a programme, the card and detail page show original brand artwork from [ProgrammeArt.tsx](src/components/programmes/ProgrammeArt.tsx) instead.
+
+That is a deliberate choice over stock photography: a stock shot of a salon or a computer lab on a programme card reads as a picture of *this* institute's salon or lab, a claim the site cannot support, and licensing stock for a commercial site is the client's call, not something to assume. The artwork is plainly graphic, carries no such implication, and costs about a kilobyte per card. **Swapping in real teaching photography is one line per programme in [src/content/gallery.ts](src/content/gallery.ts)** — set `programmeImages[slug]` to the image name and the card and detail page pick it up automatically.
 
 ## Amharic — currently disabled
 
