@@ -89,10 +89,18 @@ const ICONS: Record<string, { label: string; glyph: React.ReactNode }> = {
   },
 };
 
-export function SocialLinks({ label }: { label: string }) {
+export function SocialLinks({
+  label,
+  align = "center",
+}: {
+  label: string;
+  align?: "center" | "start";
+}) {
   return (
     /* Label sits above the icons, never beside them. */
-    <div className="flex flex-col items-center gap-3.5">
+    <div
+      className={`flex flex-col gap-3.5 ${align === "start" ? "items-start" : "items-center"}`}
+    >
       <span className="text-xs font-medium uppercase tracking-[0.16em] text-brand-bright">
         {label}
       </span>

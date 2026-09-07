@@ -36,6 +36,11 @@ export function Footer() {
           <p className="mt-5 max-w-xs text-sm text-on-deep">
             {t("footer.tagline")}
           </p>
+
+          {/* Desktop only: sits in the space under the lockup. */}
+          <div className="mt-9 hidden lg:block">
+            <SocialLinks label={t("footer.followUs")} align="start" />
+          </div>
         </div>
 
         <div>
@@ -75,8 +80,8 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Follow us: right-aligned on desktop, centred on mobile. */}
-      <div className="container-x relative flex justify-center pb-12 md:justify-end">
+      {/* Below lg it keeps its own centred row instead. */}
+      <div className="container-x relative flex justify-center pb-12 lg:hidden">
         <SocialLinks label={t("footer.followUs")} />
       </div>
 
