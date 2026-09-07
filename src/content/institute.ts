@@ -45,7 +45,11 @@ export const institute = {
    * wrong account sends the institute's visitors to a stranger.
    */
   social: {
-    facebook: TODO("Client to supply the Facebook page URL"),
+    /* Verified: the page's own metadata reads "Damarios Fashion and
+       Technology Institute ... established in the year 2024 located in
+       Addis Abeba /Ethiopia at Bole sub city", matching the institute
+       exactly. The other three are still unverified — see README. */
+    facebook: "https://www.facebook.com/p/Damarios-FTI-61575584394096/",
     instagram: TODO("Client to supply the Instagram profile URL"),
     tiktok: TODO("Client to supply the TikTok profile URL"),
     telegram: TODO("Client to supply the Telegram channel URL"),
