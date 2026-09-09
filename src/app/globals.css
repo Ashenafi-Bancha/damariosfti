@@ -165,8 +165,8 @@ body {
 }
 
 /* On phones it also runs edge to edge, cancelling the page gutter that
-   container-x applies (1.25rem below sm). The rounding and shadow come
-   off with it — both only read as damage once the image meets the
+   container-x applies (1.25rem below sm). The rounding comes off with
+   it — a corner radius only reads as damage once the image meets the
    screen edge. */
 @media (max-width: 639px) {
   .hero-grid .hero-media {
@@ -174,7 +174,106 @@ body {
     width: calc(100% + 2.5rem);
     max-width: none;
     border-radius: 0;
-    box-shadow: none;
+  }
+}
+
+/* ── Hero image → copy handoff ─────────────────────────────────
+   The photograph is feathered on the edge that meets the text, so it
+   dissolves into the page instead of ending on a ruled line: downward
+   when the image leads and the copy follows beneath it, leftward from
+   lg up where the two sit side by side. The remaining sides get a much
+   shorter feather of their own — soften one edge of a rectangle and the
+   other three only look more ruled by comparison.
+
+   Masks rather than a gradient overlay in the page colour, because
+   .aura glows behind the hero and the paper is never flat; only a mask
+   lets whatever is back there show through the fade.
+
+   Both axes are needed at once, and mask-composite is out on the older
+   Android Chrome builds this site is written for. So the handoff rides
+   on the frame and the short edges ride on the image inside it: nested
+   masks multiply, which is the same result.
+
+   Every ramp traces an ease-out curve. A plain two-stop fade spends
+   half its length near 50% alpha, which reads as a grey band ruled
+   across the middle of the transition — the very edge this removes.
+
+   Prefixed first throughout: Chrome only took mask-image unprefixed at
+   120, and plenty of the handsets here are older than that. */
+.hero-media {
+  /* Short, symmetrical: for sides that meet the page, not the copy. */
+  --feather-edges:
+    rgb(0 0 0 / 0) 0%,
+    rgb(0 0 0 / 0.45) 2.5%,
+    rgb(0 0 0 / 0.86) 5.5%,
+    rgb(0 0 0) 9% 91%,
+    rgb(0 0 0 / 0.86) 94.5%,
+    rgb(0 0 0 / 0.45) 97.5%,
+    rgb(0 0 0 / 0) 100%;
+
+  /* The long dissolve, towards the copy. */
+  --feather-lead:
+    rgb(0 0 0) 0 62%,
+    rgb(0 0 0 / 0.96) 69%,
+    rgb(0 0 0 / 0.85) 76%,
+    rgb(0 0 0 / 0.67) 83%,
+    rgb(0 0 0 / 0.43) 90%,
+    rgb(0 0 0 / 0.18) 95.5%,
+    rgb(0 0 0 / 0) 100%;
+
+  -webkit-mask-image: linear-gradient(to bottom, var(--feather-lead));
+  mask-image: linear-gradient(to bottom, var(--feather-lead));
+}
+
+/* On phones the image runs to both screen edges and butts the header,
+   so only its foot is feathered — the other three sides are the frame
+   of the phone, and nothing is gained by dissolving into it. Between
+   sm and lg it floats clear of all three, so they soften too. */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero-media {
+    --feather-lead:
+      rgb(0 0 0 / 0) 0%,
+      rgb(0 0 0 / 0.45) 2.5%,
+      rgb(0 0 0 / 0.86) 5.5%,
+      rgb(0 0 0) 9% 58%,
+      rgb(0 0 0 / 0.96) 66%,
+      rgb(0 0 0 / 0.85) 74%,
+      rgb(0 0 0 / 0.67) 82%,
+      rgb(0 0 0 / 0.43) 89.5%,
+      rgb(0 0 0 / 0.18) 95.5%,
+      rgb(0 0 0 / 0) 100%;
+  }
+
+  .hero-media > :first-child {
+    -webkit-mask-image: linear-gradient(to right, var(--feather-edges));
+    mask-image: linear-gradient(to right, var(--feather-edges));
+  }
+}
+
+/* Side by side: the long dissolve turns to face the copy. Its tail
+   stops at 27% because the sign's lettering begins around 30% in, and
+   a veil over the institute's own name is worse than a firm edge. */
+@media (min-width: 1024px) {
+  .hero-media {
+    --feather-lead:
+      rgb(0 0 0 / 0) 0%,
+      rgb(0 0 0 / 0.2) 5%,
+      rgb(0 0 0 / 0.46) 10%,
+      rgb(0 0 0 / 0.7) 15%,
+      rgb(0 0 0 / 0.88) 20%,
+      rgb(0 0 0 / 0.97) 24%,
+      rgb(0 0 0) 27% 92%,
+      rgb(0 0 0 / 0.86) 96%,
+      rgb(0 0 0 / 0.45) 98.5%,
+      rgb(0 0 0 / 0) 100%;
+
+    -webkit-mask-image: linear-gradient(to right, var(--feather-lead));
+    mask-image: linear-gradient(to right, var(--feather-lead));
+  }
+
+  .hero-media > :first-child {
+    -webkit-mask-image: linear-gradient(to bottom, var(--feather-edges));
+    mask-image: linear-gradient(to bottom, var(--feather-edges));
   }
 }
 
@@ -221,6 +320,14 @@ body {
 .aura {
   position: relative;
   isolation: isolate;
+  /* The glow is inset -5% left and right so it reaches past the section
+     rather than stopping at it. Unclipped it also widened the document:
+     every page carrying an aura measured 5% wider than the viewport,
+     which is what the overflow-x: hidden on body was quietly absorbing.
+     Clipping it here fixes the cause; the body rule stays as a backstop.
+     clip, not hidden — hidden would make these sections scroll
+     containers and break any sticky descendant. */
+  overflow-x: clip;
 }
 .aura::before {
   content: "";

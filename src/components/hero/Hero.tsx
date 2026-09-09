@@ -32,8 +32,12 @@ export function Hero() {
         </div>
 
         {/* Decorative — the headline carries the meaning, so this slot
-            stays out of the accessibility tree. */}
-        <div className="hero-media card relative mx-auto aspect-[16/10] w-full max-w-[34rem] overflow-hidden rounded-xl">
+            stays out of the accessibility tree.
+
+            No card chrome: the edge that meets the copy is feathered away
+            in globals.css, and a dissolving edge has no border to draw or
+            shadow to cast. */}
+        <div className="hero-media relative mx-auto aspect-[16/10] w-full max-w-[34rem] overflow-hidden rounded-xl">
           <HeroMedia />
         </div>
       </div>

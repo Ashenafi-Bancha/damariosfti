@@ -29,8 +29,11 @@ export function Header() {
           />
         </Link>
 
-        {/* Desktop: inline links. Mobile gets the menu panel instead. */}
-        <nav aria-label={t("menuLabel")} className="hidden md:block">
+        {/* Inline links only once the bar can hold all six plus the
+            wordmark and the button — measured at ~870px, so lg. Below
+            that they overflowed the viewport and the whole page could be
+            scrolled sideways. Narrower than lg gets the menu panel. */}
+        <nav aria-label={t("menuLabel")} className="hidden lg:block">
           <ul className="flex items-center gap-1 whitespace-nowrap">
             {links.map((l) => (
               <li key={l.href}>
@@ -46,9 +49,9 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-1.5">
-          {/* On phones this moves into the hero, so the header keeps
+          {/* Below lg this moves into the hero, so the header keeps
               just the logo and the menu. */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <CtaLink href="/apply" size="sm">
               {t("apply")}
             </CtaLink>

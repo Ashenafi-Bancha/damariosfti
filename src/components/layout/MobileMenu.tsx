@@ -68,7 +68,7 @@ export function MobileMenu({
         aria-expanded={open}
         aria-controls="mobile-nav"
         aria-label={open ? closeLabel : openLabel}
-        className="flex h-11 w-11 items-center justify-center rounded-pill text-brand-deep transition-colors duration-500 hover:bg-brand-wash md:hidden"
+        className="flex h-11 w-11 items-center justify-center rounded-pill text-brand-deep transition-colors duration-500 hover:bg-brand-wash lg:hidden"
       >
         {/* three bars that fold into a cross */}
         <span aria-hidden="true" className="relative block h-4 w-5">
@@ -90,7 +90,7 @@ export function MobileMenu({
         ref={panelRef}
         inert={!open}
         data-open={open}
-        className="mobile-panel absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-line bg-paper shadow-lift md:hidden"
+        className="mobile-panel absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-line bg-paper shadow-lift lg:hidden"
       >
         <nav aria-label={menuLabel}>
           <ul className="container-x flex flex-col gap-1 py-4">
