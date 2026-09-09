@@ -4,7 +4,6 @@ import { setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/metadata";
 import { institute } from "@/content/institute";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { TodoTag } from "@/components/ui/TodoTag";
 import { Reveal } from "@/components/ui/Reveal";
 
 export async function generateMetadata({
@@ -56,10 +55,6 @@ function Contact() {
                 </li>
               ))}
             </ul>
-            <div className="mt-7 flex flex-col items-start gap-2.5">
-              <TodoTag kind="email" />
-              <TodoTag kind="telegram" />
-            </div>
           </div>
         </Reveal>
 

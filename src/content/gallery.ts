@@ -1,4 +1,4 @@
-import { TODO, type Todo } from "./types";
+import { type Todo } from "./types";
 
 export const GALLERY_CATEGORIES = [
   "institute",

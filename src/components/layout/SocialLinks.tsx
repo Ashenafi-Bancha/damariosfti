@@ -115,27 +115,19 @@ export function SocialLinks({
           );
           const disc =
             "flex h-11 w-11 items-center justify-center rounded-pill bg-paper transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]";
+          /* An unlinked icon tells visitors nothing; leave it out. */
+          if (isTodo(value)) return null;
           return (
             <li key={key}>
-              {isTodo(value) ? (
-                <span
-                  title={`${icon.label}: link to be supplied`}
-                  aria-label={`${icon.label} link not yet available`}
-                  className={`${disc} cursor-not-allowed opacity-70`}
-                >
-                  {glyph}
-                </span>
-              ) : (
-                <a
-                  href={value}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={icon.label}
-                  className={`${disc} hover:-translate-y-1`}
-                >
-                  {glyph}
-                </a>
-              )}
+              <a
+                href={value}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={icon.label}
+                className={`${disc} hover:-translate-y-1`}
+              >
+                {glyph}
+              </a>
             </li>
           );
         })}

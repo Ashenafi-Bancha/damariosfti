@@ -20,12 +20,12 @@ export function PatternCard({
   headingLevel?: "h2" | "h3";
 }) {
   const t = useTranslations("programmes");
-  const tc = useTranslations("common");
   const { slug } = programme;
   const Heading = headingLevel;
   const photo = programmeImages[slug];
   const hasPhoto = typeof photo === "string";
 
+  /* Only what the institute has actually published. */
   const metaCells = [
     {
       label: t("labels.level"),
@@ -35,7 +35,7 @@ export function PatternCard({
       label: t("labels.duration"),
       value: isTodo(programme.duration) ? null : t(`items.${slug}.duration`),
     },
-  ];
+  ].filter((c): c is { label: string; value: string } => c.value !== null);
 
   return (
     <Link
@@ -84,19 +84,20 @@ export function PatternCard({
         {t(`items.${slug}.tagline`)}
       </p>
 
-      <dl className="relative mb-8 mt-7 flex flex-wrap gap-2 px-8">
-        {metaCells.map((c) => (
-          <div
-            key={c.label}
-            className="rounded-pill bg-paper-tint px-3.5 py-1.5 text-[11px]"
-          >
-            <dt className="sr-only">{c.label}</dt>
-            <dd className={c.value ? "text-graphite" : "text-brand"}>
-              {c.value ?? `${c.label}: ${tc("todoLabel")}`}
-            </dd>
-          </div>
-        ))}
-      </dl>
+      {metaCells.length > 0 && (
+        <dl className="relative mb-8 mt-7 flex flex-wrap gap-2 px-8">
+          {metaCells.map((c) => (
+            <div
+              key={c.label}
+              className="rounded-pill bg-paper-tint px-3.5 py-1.5 text-[11px] text-graphite"
+            >
+              <dt className="sr-only">{c.label}</dt>
+              <dd>{c.value}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+      {metaCells.length === 0 && <div className="mb-8" />}
     </Link>
   );
 }

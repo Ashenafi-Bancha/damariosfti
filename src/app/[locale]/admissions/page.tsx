@@ -4,7 +4,6 @@ import { setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { TodoTag } from "@/components/ui/TodoTag";
 import { Reveal } from "@/components/ui/Reveal";
 
 export async function generateMetadata({
@@ -31,11 +30,6 @@ function Admissions() {
   const tn = useTranslations("nav");
   const steps = t.raw("steps") as { title: string; body: string }[];
 
-  const gaps = [
-    { title: t("requirementsTitle"), kind: "requirements" as const },
-    { title: t("intakesTitle"), kind: "intake" as const },
-    { title: t("tuitionTitle"), kind: "tuition" as const },
-  ];
 
   return (
     <>
@@ -65,18 +59,6 @@ function Admissions() {
         </ol>
       </section>
 
-      <section className="container-x grid gap-10 pb-16 sm:pb-20 md:grid-cols-3">
-        {gaps.map((g, i) => (
-          <Reveal key={g.title} delay={i * 90}>
-            <h2 className="font-display text-display-sm text-brand-deep">
-              {g.title}
-            </h2>
-            <div className="mt-5">
-              <TodoTag kind={g.kind} />
-            </div>
-          </Reveal>
-        ))}
-      </section>
 
       <section className="container-x pb-20 sm:pb-28">
         <Reveal>

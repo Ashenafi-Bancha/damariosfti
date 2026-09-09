@@ -3,7 +3,6 @@ import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { TodoTag } from "@/components/ui/TodoTag";
 import { Reveal } from "@/components/ui/Reveal";
 
 /*
@@ -57,9 +56,6 @@ function Partnerships() {
               {t("marioMakeup.name")}
             </h2>
             <p className="mt-6 text-muted">{t("marioMakeup.body")}</p>
-            <div className="mt-7">
-              <TodoTag kind="details" />
-            </div>
           </article>
         </Reveal>
       </section>

@@ -3,7 +3,6 @@ import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/metadata";
 import { founder } from "@/content/founder";
-import { TodoTag } from "@/components/ui/TodoTag";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { BackLink } from "@/components/ui/BackLink";
 import { Reveal } from "@/components/ui/Reveal";
@@ -37,7 +36,7 @@ function Founder() {
         <div className="container-x">
           <BackLink fallback="/about" label={tn("back")} className="mb-8" />
         </div>
-        <div className="container-x grid items-center gap-12 lg:grid-cols-[1fr_320px]">
+        <div className="container-x">
           <div>
             <p className="inline-flex rounded-pill bg-brand-wash px-4 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-brand">
               {t("subtitle")}
@@ -46,21 +45,6 @@ function Founder() {
               {t("title")}
             </h1>
             <p className="mt-7 max-w-2xl text-lg text-muted">{t("intro")}</p>
-          </div>
-          {/* Portrait placeholder — client to supply imagery */}
-          <div className="card card-tint mx-auto flex aspect-[4/5] w-full max-w-[320px] flex-col items-center justify-center gap-5 overflow-hidden">
-            <svg
-              viewBox="0 0 60 80"
-              className="w-16 text-brand/30"
-              aria-hidden="true"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <circle cx="30" cy="24" r="12" />
-              <path d="M8 76c2-20 12-28 22-28s20 8 22 28" />
-            </svg>
-            <TodoTag kind="portrait" />
           </div>
         </div>
       </header>

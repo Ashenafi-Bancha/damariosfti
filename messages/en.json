@@ -4,26 +4,7 @@
     "shortName": "Damarios FTI",
     "wordmarkTop": "Damarios",
     "wordmarkSub": "Fashion and Technology Institute",
-    "skipToContent": "Skip to content",
-    "todoLabel": "TODO"
-  },
-  "todo": {
-    "generic": "To be confirmed by the institute",
-    "tuition": "Tuition to be confirmed",
-    "duration": "Duration to be confirmed",
-    "level": "Level to be confirmed",
-    "intake": "Intake dates to be confirmed",
-    "email": "Email address to be confirmed",
-    "telegram": "Telegram handle to be confirmed",
-    "pdf": "Capability statement PDF pending",
-    "portrait": "Portrait photography pending",
-    "outcomes": "Career outcomes list to be supplied",
-    "curriculum": "Curriculum details to be supplied",
-    "requirements": "Entry requirements to be confirmed",
-    "timeframe": "Response timeframe to be confirmed",
-    "details": "Details to be confirmed",
-    "photo": "Programme photography to be supplied",
-    "heroMedia": "Hero image pending"
+    "skipToContent": "Skip to content"
   },
   "nav": {
     "home": "Home",
@@ -44,8 +25,7 @@
     "kicker": "Bole, Addis Ababa",
     "headline": "Education that ends in employment.",
     "sub": "Fashion, beauty, technology and security, taught for the workplace rather than just the certificate. Hands-on, and about two kilometres from Bole International Airport.",
-    "ctaProgrammes": "Explore programmes",
-    "mediaHint": "A 3D design render or a photograph of the institute will sit here."
+    "ctaProgrammes": "Explore programmes"
   },
   "home": {
     "intro": {
@@ -58,7 +38,7 @@
     "programmes": {
       "kicker": "The pattern pieces",
       "title": "Distinct crafts. One method.",
-      "lead": "Each programme is cut like a pattern piece: a defined craft, with level, duration and intake published as the institute confirms them.",
+      "lead": "Each programme is cut like a pattern piece: a defined craft, taught hands-on for the workplace.",
       "cta": "All programmes"
     },
     "founder": {
@@ -80,8 +60,7 @@
       ],
       "partnershipsTitle": "Partnerships",
       "partnershipsBody": "International academic and cultural exchange with Rome Business School, an international business school founded in 2011, part of the Planeta Formación y Universidades network, with students from over 140 countries. Alongside it, a global partnership with Mario Makeup Company.",
-      "partnershipsCta": "About our partnerships",
-      "downloadCta": "Download capability statement"
+      "partnershipsCta": "About our partnerships"
     },
     "visit": {
       "kicker": "Visit",
@@ -108,8 +87,8 @@
     },
     "index": {
       "title": "Programmes",
-      "lead": "Crafts taught for employment. Where a detail reads “to be confirmed”, the institute has not yet published it. Call 0989 044 444 to ask.",
-      "tuitionNote": "Tuition for each programme is being confirmed by the institute and will be published here."
+      "lead": "Crafts taught for employment. Call 0989 044 444 to talk through levels, start dates and fees.",
+      "tuitionNote": "Call 0989 044 444 or visit the institute in Bole to discuss fees and enrolment."
     },
     "items": {
       "fashion-design": {
@@ -346,9 +325,9 @@
       "again": "Send another application"
     },
     "failure": {
-      "generic": "Something went wrong sending your application. Please try again, or call 0989 044 444.",
+      "generic": "We couldn't send your application just now. Please try again, or call 0989 044 444.",
       "rateLimited": "Too many attempts from this connection. Please wait a few minutes and try again.",
-      "notConfigured": "The application service is not configured yet on this preview. Your details were not sent. Call 0989 044 444 instead."
+      "notConfigured": "We couldn't send your application just now. Please call 0989 044 444 — Monday to Friday 08:00–18:00, Saturday 08:00–14:00."
     }
   },
   "contact": {

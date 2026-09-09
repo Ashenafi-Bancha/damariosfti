@@ -7,7 +7,6 @@ import { programmes } from "@/content/programmes";
 import { Hero } from "@/components/hero/Hero";
 import { PatternCard } from "@/components/atelier/PatternCard";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { TodoTag } from "@/components/ui/TodoTag";
 import { Reveal } from "@/components/ui/Reveal";
 
 export async function generateMetadata({
@@ -197,19 +196,6 @@ function InstitutionalSection() {
               </div>
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center gap-4">
-              {/* CTA wired to a TODO PDF placeholder — becomes a real link when
-                  the client supplies the capability statement. A real disabled
-                  button so assistive tech announces the unavailable state. */}
-              <button
-                type="button"
-                disabled
-                className="inline-flex cursor-not-allowed items-center gap-2.5 rounded-pill bg-paper/25 px-7 py-3.5 text-sm font-medium text-paper"
-              >
-                {t("downloadCta")}
-              </button>
-              <TodoTag kind="pdf" on="deep" />
-            </div>
           </div>
         </div>
       </Reveal>

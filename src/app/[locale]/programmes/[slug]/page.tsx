@@ -9,7 +9,6 @@ import { programmeImages } from "@/content/gallery";
 import { ProgrammeArt } from "@/components/programmes/ProgrammeArt";
 import { isTodo, PROGRAMME_SLUGS, type Programme } from "@/content/types";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { TodoTag, type TodoKind } from "@/components/ui/TodoTag";
 import { Reveal } from "@/components/ui/Reveal";
 import { BackLink } from "@/components/ui/BackLink";
 
@@ -80,11 +79,11 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
 
       <section className="container-x grid gap-12 py-16 sm:py-20 lg:grid-cols-[1fr_350px] lg:gap-16">
         <div>
-          <Reveal>
-            <h2 className="font-display text-display-md text-brand-deep">
-              {t("labels.curriculum")}
-            </h2>
-            {curriculum ? (
+          {curriculum && (
+            <Reveal>
+              <h2 className="font-display text-display-md text-brand-deep">
+                {t("labels.curriculum")}
+              </h2>
               <ol className="mt-8 max-w-xl space-y-1">
                 {curriculum.map((line, i) => (
                   <li
@@ -98,12 +97,8 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
                   </li>
                 ))}
               </ol>
-            ) : (
-              <div className="mt-8">
-                <TodoTag kind="curriculum" />
-              </div>
-            )}
-          </Reveal>
+            </Reveal>
+          )}
 
           {has("audience") && (
             <Reveal delay={80}>
@@ -127,13 +122,12 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
             </Reveal>
           )}
 
-          {programme.careerOutcomes && (
+          {outcomes && (
             <Reveal delay={80}>
               <div className="mt-14">
                 <h2 className="font-display text-display-sm text-brand-deep">
                   {t("labels.outcomes")}
                 </h2>
-                {outcomes ? (
                   <ul className="mt-6 flex flex-wrap gap-2.5">
                     {outcomes.map((o) => (
                       <li
@@ -144,11 +138,6 @@ function ProgrammeDetail({ programme }: { programme: Programme }) {
                       </li>
                     ))}
                   </ul>
-                ) : (
-                  <div className="mt-6">
-                    <TodoTag kind="outcomes" />
-                  </div>
-                )}
               </div>
             </Reveal>
           )}
@@ -189,29 +178,27 @@ function ProgrammePhoto({ slug }: { slug: string }) {
   );
 }
 
-/** The spec sheet: the facts, and honest gaps where facts are missing. */
+/** The spec sheet: only the facts the institute has published. */
 function MetaPanel({ programme }: { programme: Programme }) {
   const t = useTranslations("programmes");
   const { slug } = programme;
 
-  const rows: { label: string; value: string | null; todo: TodoKind }[] = [
+  const rows = [
     {
       label: t("labels.level"),
       value: isTodo(programme.levels) ? null : t(`items.${slug}.levels`),
-      todo: "level",
     },
     {
       label: t("labels.duration"),
       value: isTodo(programme.duration) ? null : t(`items.${slug}.duration`),
-      todo: "duration",
     },
     {
       label: t("labels.intake"),
       value: isTodo(programme.intake) ? null : t(`items.${slug}.intake`),
-      todo: "intake",
     },
-    { label: t("labels.tuition"), value: null, todo: "tuition" },
-  ];
+  ].filter((r): r is { label: string; value: string } => r.value !== null);
+
+  if (rows.length === 0) return null;
 
   return (
     <aside className="card card-tint h-fit p-8 lg:sticky lg:top-28">
@@ -221,13 +208,7 @@ function MetaPanel({ programme }: { programme: Programme }) {
             <dt className="text-xs font-medium uppercase tracking-[0.14em] text-muted">
               {row.label}
             </dt>
-            <dd className="mt-2">
-              {row.value ? (
-                <span className="text-lg text-brand-deep">{row.value}</span>
-              ) : (
-                <TodoTag kind={row.todo} />
-              )}
-            </dd>
+            <dd className="mt-2 text-lg text-brand-deep">{row.value}</dd>
           </div>
         ))}
       </dl>

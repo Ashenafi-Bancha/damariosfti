@@ -10,9 +10,10 @@
  *  - `Known` markers, meaning "the display string exists in
  *    messages/{locale}.json under the conventional key"
  *
- * Anything the client has not supplied is a `Todo` — rendered by
- * <TodoTag/> as a visible placeholder. Never replace a Todo with an
- * invented value: this is an accredited institute's website.
+ * Anything the institute has not published is a `Todo`. Nothing renders
+ * a Todo: the field, chip or section is simply left out, so the site only
+ * ever shows facts the institute has actually supplied. Never replace a
+ * Todo with an invented value.
  */
 
 export interface Todo {
