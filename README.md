@@ -67,7 +67,7 @@ Each was reviewed before use. The runway photograph was cropped to remove anothe
 
 ## Amharic — currently disabled
 
-The site is **English only** by client instruction. next-intl is still in place and every string still goes through the catalogue, so restoring Amharic means adding `"am"` back to `locales` in [src/i18n/routing.ts](src/i18n/routing.ts) and re-attaching the Noto Sans Ethiopic font in `src/lib/fonts.ts`. The drafted translation is preserved at [messages/am.json](messages/am.json) and is not loaded while it sits outside `locales`. **It remains machine-drafted — a native speaker must review it before it is ever shown.**
+The site is **English only** by client instruction. next-intl is still in place and every string still goes through the catalogue, so restoring Amharic means adding `"am"` back to `locales` in [src/i18n/routing.ts](src/i18n/routing.ts) and re-attaching the Noto Sans Ethiopic font in `src/lib/fonts.ts`. The drafted translation is preserved at [messages/am.json](messages/am.json) and is not loaded while it sits outside `locales`. **It remains machine-drafted — a native speaker must review it before it is ever shown** — and it has since fallen behind the English: it still carries the accreditation strings, the TODO labels and the old hero copy, and is missing the mobile-menu and back-link strings. Treat it as a starting point for a fresh translation, not a catalogue to patch.
 
 ## TODO inventory — what the client must supply
 

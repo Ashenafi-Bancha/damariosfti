@@ -1,7 +1,6 @@
 {
   "common": {
     "instituteName": "Da Mario's Fashion and Technology Institute",
-    "shortName": "Damarios FTI",
     "wordmarkTop": "Damarios",
     "wordmarkSub": "Fashion and Technology Institute",
     "skipToContent": "Skip to content"
@@ -76,7 +75,6 @@
       "level": "Level",
       "duration": "Duration",
       "intake": "Intake",
-      "tuition": "Tuition",
       "piece": "Piece",
       "curriculum": "What you'll learn",
       "outcomes": "Career outcomes",
@@ -245,7 +243,7 @@
   },
   "admissions": {
     "title": "Admissions",
-    "lead": "How to apply, what you need, and when you can start.",
+    "lead": "How to apply, and how to reach us if you would rather talk it through first.",
     "stepsTitle": "How to apply",
     "steps": [
       {
@@ -261,9 +259,6 @@
         "body": "Your application goes straight to the institute's staff, who follow up by phone."
       }
     ],
-    "requirementsTitle": "Entry requirements",
-    "intakesTitle": "Intakes",
-    "tuitionTitle": "Tuition",
     "applyCta": "Start your application",
     "contactTitle": "Prefer to talk first?",
     "contactBody": "Call 0989 044 444 or +251 11 667 2717. Monday–Friday 08:00–18:00, Saturday 08:00–14:00."
@@ -349,8 +344,6 @@
     "directions": "The institute is approximately 2 km from Bole International Airport, at the Bole Brass landmark, near Yod Abyssinia. Look for the Kkare Building. The institute is on the 1st floor.",
     "accessibilityTitle": "Accessibility",
     "accessibility": "Wheelchair-accessible restroom and seating. Free on-site parking.",
-    "emailTitle": "Email",
-    "telegramTitle": "Telegram",
     "mapTitle": "Map",
     "mapIframeTitle": "Map showing the Kkare Building, Bole Sub City, Addis Ababa"
   },
