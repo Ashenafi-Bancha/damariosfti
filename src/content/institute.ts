@@ -31,6 +31,13 @@ export const institute = {
     tradeLicenceNo: "BL/AA/14/673/49799519/2016",
   },
 
+  /**
+   * The founder's own site. Verified: it names her, describes her as
+   * founder of this institute, and links back here. Her story is told
+   * there in full, which is why nothing on this site retells it.
+   */
+  founderSite: "https://senaitmario.vercel.app",
+
   phones: [
     { display: "0989 044 444", tel: "+251989044444" },
     { display: "+251 11 667 2717", tel: "+251116672717" },

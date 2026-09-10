@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { programmes } from "@/content/programmes";
+import { institute } from "@/content/institute";
 import { SocialLinks } from "./SocialLinks";
 import { Wordmark } from "@/components/brand/Logo";
 
@@ -8,14 +9,21 @@ export function Footer() {
   const t = useTranslations();
   const year = new Date().getFullYear();
 
+  /* The founder's line points at her own site — the institute keeps no
+     retelling of her story. Everything else is a route here. */
   const instituteLinks = [
-    { href: "/gallery", label: t("nav.gallery") },
-    { href: "/about", label: t("nav.about") },
-    { href: "/about/founder", label: t("nav.founder") },
-    { href: "/about/partnerships", label: t("nav.partnerships") },
-    { href: "/admissions", label: t("nav.admissions") },
-    { href: "/apply", label: t("nav.apply") },
-    { href: "/contact", label: t("nav.contact") },
+    { href: "/gallery", label: t("nav.gallery"), external: false },
+    { href: "/about", label: t("nav.about"), external: false },
+    {
+      href: institute.founderSite,
+      label: t("nav.founder"),
+      external: true,
+      note: t("nav.founderNewTab"),
+    },
+    { href: "/about/partnerships", label: t("nav.partnerships"), external: false },
+    { href: "/admissions", label: t("nav.admissions"), external: false },
+    { href: "/apply", label: t("nav.apply"), external: false },
+    { href: "/contact", label: t("nav.contact"), external: false },
   ];
 
   return (
@@ -66,16 +74,30 @@ export function Footer() {
             {t("footer.instituteTitle")}
           </h2>
           <ul className="mt-5 space-y-2.5">
-            {instituteLinks.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="text-sm text-on-deep transition-colors duration-500 hover:text-paper"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
+            {instituteLinks.map((l) => {
+              const cls =
+                "text-sm text-on-deep transition-colors duration-500 hover:text-paper";
+              return (
+                <li key={l.href}>
+                  {l.external ? (
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cls}
+                    >
+                      {l.label}
+                      <span className="sr-only">{l.note}</span>
+                      <span aria-hidden="true"> ↗</span>
+                    </a>
+                  ) : (
+                    <Link href={l.href} className={cls}>
+                      {l.label}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

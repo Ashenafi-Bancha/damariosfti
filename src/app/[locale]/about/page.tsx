@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Reveal } from "@/components/ui/Reveal";
 import { Link } from "@/i18n/navigation";
+import { institute } from "@/content/institute";
 
 export async function generateMetadata({
   params,
@@ -86,39 +87,69 @@ function About() {
       <section className="container-x grid gap-6 pb-16 sm:grid-cols-2 sm:pb-20">
         {[
           {
-            href: "/about/founder",
+            /* Her own site, not a page of ours: the institute does not
+               retell her story second-hand. */
+            href: institute.founderSite,
+            external: true,
             title: t("founderCard.title"),
             body: t("founderCard.body"),
             cta: t("founderCard.cta"),
+            ctaNote: t("founderCard.ctaNewTab"),
           },
           {
             href: "/about/partnerships",
+            external: false,
             title: t("partnershipsCard.title"),
             body: t("partnershipsCard.body"),
             cta: t("partnershipsCard.cta"),
+            ctaNote: null,
           },
-        ].map((c, i) => (
-          <Reveal key={c.href} delay={i * 100} className="flex">
-            <Link
-              href={c.href}
-              className="card card-interactive group w-full p-9 sm:p-10"
-            >
+        ].map((c, i) => {
+          const inner = (
+            <>
               <h2 className="font-display text-display-sm text-brand-deep">
                 {c.title}
               </h2>
               <p className="mt-3 text-sm text-muted">{c.body}</p>
               <span className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-brand">
                 {c.cta}
+                {c.ctaNote ? (
+                  <span className="sr-only">{c.ctaNote}</span>
+                ) : null}
                 <span
                   aria-hidden="true"
-                  className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1"
+                  className={`transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    c.external
+                      ? "group-hover:-translate-y-0.5"
+                      : "group-hover:translate-x-1"
+                  }`}
                 >
-                  →
+                  {c.external ? "↗" : "→"}
                 </span>
               </span>
-            </Link>
-          </Reveal>
-        ))}
+            </>
+          );
+          const cardClass = "card card-interactive group w-full p-9 sm:p-10";
+
+          return (
+            <Reveal key={c.href} delay={i * 100} className="flex">
+              {c.external ? (
+                <a
+                  href={c.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cardClass}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <Link href={c.href} className={cardClass}>
+                  {inner}
+                </Link>
+              )}
+            </Reveal>
+          );
+        })}
       </section>
 
       <div className="container-x pb-8">

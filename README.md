@@ -47,6 +47,7 @@ With no channel configured, the apply endpoint fails loudly rather than faking s
 - **Fonts** — Bodoni Moda (display), Hanken Grotesk (body), IBM Plex Mono (utility), self-hosted and subset at build time by `next/font`. No italics — every axis costs kilobytes on metered data. Noto Sans Ethiopic was dropped with the Amharic locale; restore it in `src/lib/fonts.ts` alongside the locale.
 - **Accreditation — deliberately absent** — by client instruction the site makes **no mention of accreditation at all**: not the certificate or trade licence numbers, not the accrediting authority, not the word itself. The supplied facts are still held in [src/content/institute.ts](src/content/institute.ts) (`accreditation`), unrendered, so they can be restored or used in tender paperwork. Worth revisiting before launch: the original brief asked for accreditation credentials to be displayed prominently for the donor and government-tender audience, and it is the strongest trust signal a prospective student's parent looks for.
 - **Social links** — [src/content/institute.ts](src/content/institute.ts) `social`. **Facebook is live and verified**: the page's own metadata reads "Damarios Fashion and Technology Institute ... established in the year 2024 located in Addis Abeba /Ethiopia at Bole sub city", which matches the institute on name, founding year and location. **Instagram, TikTok and Telegram are still inactive** — no profile for the institute could be found on any of them, and a guessed handle would send prospective students to a stranger's account. Ask the institute for the exact URLs. Icons are drawn in each platform's own colours on white discs, since the brand blues, black and gradients all vanish against the navy footer. A URL makes an icon appear; a `TODO` means no icon is drawn at all, since a dead icon tells a visitor nothing. Never guess a handle — the wrong link sends visitors to a stranger's account.
+- **The founder's story lives on her own site** — [senaitmario.vercel.app](https://senaitmario.vercel.app), held as `founderSite` in [src/content/institute.ts](src/content/institute.ts). The institute used to host its own retelling at `/about/founder`; by client instruction that page is gone and every route to her story — the homepage CTA, the About page card, the footer link — opens her site in a new tab instead. `next.config.ts` keeps a permanent redirect from the old URL so bookmarks and search results are handed on rather than dropped on a 404. Verified before linking: her site names her, describes her as founder of this institute, and links back here. Note that her recognitions (UN Peace Ambassador, honorary doctorate, Top 40 Women of Africa) left the institute's site with that page — they are trust signals for the donor and tender audience, and worth deciding about deliberately before launch.
 - **Mobile navigation** — below `md` the header carries the logo, the Apply button and a menu button; the links live in a panel that drops from the header ([MobileMenu.tsx](src/components/layout/MobileMenu.tsx)). The panel stays mounted and is driven by a `data-open` attribute with the transition in `globals.css`, alongside the site's other stateful transitions. It carries `inert` while closed, which removes it from both the tab order and the accessibility tree without the jump `display: none` would cause. Escape closes it and returns focus to the button, body scroll is locked while open, and the wordmark drops its tagline below `sm` so the header fits a 320px screen.
 - **i18n** — all strings through next-intl. Client components receive strings as props from server parents, so the message catalog never ships to the browser (`NextIntlClientProvider messages={null}` — the provider exists only because next-intl's navigation `Link` reads the locale from context).
 
@@ -73,8 +74,8 @@ The site is **English only** by client instruction. next-intl is still in place 
 
 | # | Item | Where it appears |
 | --- | --- | --- |
-| 1 | Public **email address** | Footer, contact page |
-| 2 | **Telegram handle** | Footer, contact page |
+| 1 | Public **email address** | Not shown anywhere until supplied |
+| 2 | **Telegram handle** | Not shown anywhere until supplied |
 | 3 | **Tuition** for every programme | Programme cards, detail pages, admissions |
 | 4 | **Durations** for Modeling, Cosmetology, Nail Technology, Information Technology, Security Training | Programme cards + detail pages |
 | 5 | **TVET levels** for all programmes except Fashion Design (Levels 2–4 confirmed) | Programme cards + detail pages |
@@ -84,16 +85,14 @@ The site is **English only** by client instruction. next-intl is still in place 
 | 9 | Information Technology **curriculum** | IT detail page |
 | 10 | **Mario Makeup Company** partnership details | Partnerships page, homepage institutional section |
 | 11 | **Rome Business School entitlements** — confirm study-abroad claims before launch (legally sensitive; see the code comment in [src/app/[locale]/about/partnerships/page.tsx](src/app/[locale]/about/partnerships/page.tsx)) | Partnerships page |
-| 12 | **Capability statement PDF** | Homepage institutional section CTA |
-| 13 | Founder **portrait imagery** — a formal portrait of Dr. Senait Mario; none of the supplied photos is a confirmed portrait | Founder page |
-| 18 | **Teaching photography for five programmes** — Modeling, Cosmetology, Nail Technology, Information Technology, Security Training. Only Fashion Design has a photo; the rest show a marked placeholder | Programme cards + detail pages |
+| 12 | **Capability statement PDF** | No download offered until supplied |
+| 18 | **The institute's own teaching photography** — every programme currently carries a licensed stock photograph (see `public/programmes/SOURCES.md`). Real classroom and workshop photographs would replace them | Programme cards + detail pages |
 | 19 | **Confirm gallery provenance** — the institute owns or is licensed to publish each `verified: false` image in `src/content/gallery.ts` | Gallery page |
 | 20 | **Student work and classroom photography** to grow the gallery beyond the founder's collections | Gallery page |
-| 21 | **Social profile URLs** — Facebook, Instagram, TikTok, Telegram. Icons are in place but inactive until supplied | Footer |
+| 21 | **Social profile URLs** — Instagram, TikTok and Telegram. Facebook is live and verified; the other three are not drawn at all until a URL is supplied | Footer |
 | 14 | **Response timeframe** after an application (currently phrased without a number) | Apply success state |
 | 15 | Native-speaker **review of all Amharic copy** | Entire `/am` locale |
 | 16 | Confirmation of the exact **map pin** for Kkare Building (embed currently searches by name; landmark directions are the primary aid) | Contact page |
-| 17a | **Hero image** — a 3D design render or a photograph of the institute for the homepage hero panel | Homepage |
 | 17 | **Original logo vector** (.svg/.ai/.eps). The supplied raster (449×445) is now used site-wide and is sharp at the sizes it appears, but a vector would stay crisp at any scale and for print | Header, footer, favicon, share card |
 
 ## Quality floor implemented

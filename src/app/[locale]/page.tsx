@@ -123,7 +123,14 @@ function FounderTeaser() {
               {t("title")}
             </h2>
             <p className="mt-6 max-w-prose text-muted">{t("body")}</p>
-            <CtaLink href="/about/founder" className="mt-9">
+            {/* Her own site tells this far better than a second-hand
+                retelling here would, so the button hands the visitor
+                over rather than paraphrasing. */}
+            <CtaLink
+              href={institute.founderSite}
+              newTabLabel={t("ctaNewTab")}
+              className="mt-9"
+            >
               {t("cta")}
             </CtaLink>
           </div>

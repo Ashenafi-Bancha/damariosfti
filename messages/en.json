@@ -13,6 +13,7 @@
     "contact": "Contact",
     "apply": "Apply now",
     "founder": "The founder",
+    "founderNewTab": "her own website, opens in a new tab",
     "partnerships": "Partnerships",
     "menuLabel": "Main navigation",
     "gallery": "Gallery",
@@ -44,7 +45,8 @@
       "kicker": "Founder & CEO",
       "title": "From Wolaita Sodo to the runways of Milan, and back to Addis.",
       "body": "Dr. Senait Mario, sociologist turned fashion designer and model, has presented her work on the fashion stages of Milan, London and Paris. In 2024 she founded an institute in Addis Ababa.",
-      "cta": "Her story"
+      "cta": "Her story",
+      "ctaNewTab": "on her own website, opens in a new tab"
     },
     "institutional": {
       "kicker": "For institutions & partners",
@@ -179,54 +181,14 @@
     "founderCard": {
       "title": "Dr. Senait Mario",
       "body": "Founder & CEO. Sociologist turned fashion designer and model.",
-      "cta": "Read her story"
+      "cta": "Read her story",
+      "ctaNewTab": "on her own website, opens in a new tab"
     },
     "partnershipsCard": {
       "title": "Partnerships",
       "body": "Rome Business School and Mario Makeup Company.",
       "cta": "About our partnerships"
     }
-  },
-  "founder": {
-    "title": "Dr. Senait Mario",
-    "subtitle": "Sociologist. Designer. Model. Founder.",
-    "intro": "Born and raised in Wolaita Sodo in southern Ethiopia, Dr. Senait Mario trained as a sociologist before turning to fashion. Today she is an Italian citizen, Ethiopian by birth, and the founder and CEO of Da Mario's Fashion and Technology Institute. Her stated approach: she promotes Ethiopia through the colours she uses in her collections.",
-    "timelineTitle": "The pattern of a career",
-    "timeline": {
-      "wolaita-sodo": {
-        "place": "Wolaita Sodo",
-        "period": "Until around 2009",
-        "body": "Born and raised in Wolaita Sodo, southern Ethiopia. A sociologist by training."
-      },
-      "nairobi-kampala": {
-        "place": "Nairobi & Kampala",
-        "period": "From around 2009",
-        "body": "She left Ethiopia around 2009, living first in Kenya and then in Uganda."
-      },
-      "rome": {
-        "place": "Rome",
-        "period": "Settling in Italy",
-        "body": "She settled in Rome and became an Italian citizen, Ethiopian by birth, turning from sociology to fashion design and modelling."
-      },
-      "runways": {
-        "place": "Milan · London · Paris",
-        "period": "On the runways",
-        "body": "Her work has been presented on the fashion stages of Milan, London and Paris. The collections promote Ethiopia through their colours."
-      },
-      "addis": {
-        "place": "Addis Ababa",
-        "period": "2024",
-        "body": "Back to Addis to build an institute: in 2024 she founded Da Mario's Fashion and Technology Institute, with a stated mission to promote Ethiopia in the fashion industry while attracting investment to Ethiopia to support youth empowerment."
-      }
-    },
-    "recognitionTitle": "Recognition",
-    "recognition": {
-      "top40": "Recognised among the Top 40 Women of Africa at the MICE award, Ghana.",
-      "un-peace": "Named a UN Peace Ambassador.",
-      "doctorate": "Awarded an honorary doctorate in Nigeria for work promoting African culture."
-    },
-    "showsTitle": "Fashion for peace",
-    "showsBody": "She organises the African Fashion Expo and the Fashion for Peace / One Peace Fashion Show. In 2019 she staged a Peace Fashion Show in her hometown of Wolaita Sodo, alongside the Southern Nations, Nationalities and Peoples' regional cultural festival. It featured the work of eight Ethiopian designers and was attended by the State Minister of Tourism and Culture, the Vice President of the Southern regional state, and the head of the Addis Ababa Women, Children and Youth Affairs Bureau, together with embassy and international-organisation guests."
   },
   "partnerships": {
     "title": "Partnerships",
@@ -375,10 +337,6 @@
     "about": {
       "title": "About | Damarios FTI",
       "description": "A fashion and technology institute in Bole, Addis Ababa, founded in 2024. It exists to bridge the gap between education and employment."
-    },
-    "founder": {
-      "title": "Dr. Senait Mario | Founder & CEO, Damarios FTI",
-      "description": "Sociologist turned fashion designer and model: from Wolaita Sodo to the runways of Milan, London and Paris, and back to Addis to build an institute."
     },
     "partnerships": {
       "title": "Partnerships | Damarios FTI",
